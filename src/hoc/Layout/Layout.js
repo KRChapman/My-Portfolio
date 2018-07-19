@@ -14,7 +14,7 @@ class Layout extends Component {
     return ( 
 
       <Styled.AppContainer >
-        <Menu width={style.horizontal}/>
+        <Menu  width={style.horizontal}/>
         <Styled.BodyContainer leftMargin={style.horizontal}>
           <Styled.ContentContainer topMargin={style.verticle} >
               <Styled.Title>HI THERE</Styled.Title>
@@ -22,7 +22,7 @@ class Layout extends Component {
           </Styled.ContentContainer >
         </Styled.BodyContainer>
     
-        </Styled.AppContainer >
+      </Styled.AppContainer >
      )
   }
 }

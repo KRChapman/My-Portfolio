@@ -9,7 +9,7 @@ class Menu extends Component {
   }
   render() { 
     return ( 
-      <Styled.Container width={this.props.width}>
+      <Styled.Container  width={this.props.width}>
 
       </Styled.Container >
      )
