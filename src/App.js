@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
-
+import styled, { ThemeProvider} from 'styled-components';
 
 
 import {
@@ -10,33 +9,40 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-import Layout from './hoc/Layout/Layout';
+import Layout from './container/Layout/Layout';
 
-// const AppWrapper = styled.ul`
-// text-align: center;
-// border: 1px solid red;
-// color: #000;
-// `
-// const UserForm = styled.form`
-// border: 1px solid purple;
-// `
-// const UserNameInput = styled.input`
-// `
+
+const AppContainer = styled.div`
+  width: 100%;
+   height: 100%; 
+  display: flex;
+  border: 1px solid green;
+`;
+
+const theme = { verticle: "75px", 
+               horizontal: "250px",
+               zindexHighest: 999,
+               zindexMiddle: 500,
+               zindexLowest: 1,
+
+              };
 
 class App extends Component {
   render() {
     return (
-
-      <Layout >
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </Layout >
-
+      <AppContainer >
+        <ThemeProvider theme={theme}>
+          <Layout >
+            <header className="App-header">
+              <img src={logo} className="App-logo" alt="logo" />
+              <h1 className="App-title">Welcome to React</h1>
+            </header>
+            <p className="App-intro">
+              To get started, edit <code>src/App.js</code> and save to reload.
+            </p>
+          </Layout >
+        </ThemeProvider>
+      </AppContainer >
 
     );
   }
