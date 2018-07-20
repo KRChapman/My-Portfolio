@@ -3,25 +3,39 @@ const Container = styled.header`
   margin-left: ${props => props.theme.horizontal};
   position: fixed;
   right: 0;
+  text-align: center;
   background-color: #273135;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   height: ${props => props.theme.verticle};
 
   width: calc(100% - ${props => props.theme.horizontal});
 
-  border: 1px solid orange;
+
   z-index: ${props => props.theme.zindexHighest};
+
+   @media (max-width: ${props => props.theme.mediaQuery}) {
+                margin-left: 0;
+                  left: 0;
+                  width: 100%;
+                }
 `
 
 const NavBtnsContainer = styled.nav`
   display: flex;
   width: 300px;
   height: 100%;
+  justify-content: space-around;
 
-  /* position: absolute;
-  right: 0; */
+ `
 
+ const Title = styled.h2`
+  color: #fff;
+  margin-left: 5px;
+    @media (max-width: 420px) {
+                font-size: 16px;
+                }
+ 
  `
 
 
@@ -30,6 +44,6 @@ const NavBtnsContainer = styled.nav`
 //     <button>Custimize Settings</button>
 //   </nav>
 
-const Style = { Container, NavBtnsContainer}
+const Style = { Container, NavBtnsContainer, Title}
 
 export default Style;
