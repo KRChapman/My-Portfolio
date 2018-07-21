@@ -14,9 +14,9 @@ const Container = styled.div`
   background-color: #2AA38B;
   display:none;
 
-   @media (max-width: ${props => props.theme.mediaQuery}) {
-                 display: flex;
-                }
+  @media (max-width: ${props => props.theme.mediaQuery}) {
+    display: flex;
+  }
 `;
 
 const RowDiv = styled.div`
@@ -25,8 +25,6 @@ const RowDiv = styled.div`
   border-radius: 1px;
   background-color: #fff;
 `;
-
-
 
 
 

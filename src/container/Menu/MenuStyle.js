@@ -12,17 +12,17 @@ const Container = styled.div`
   
   @media (max-width: ${props => props.theme.mediaQuery}) {
     transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
   }
 
   ${ props => props.showToggleMenu && css`
     @media (min-width: 1px) {
 
        transform: translateX(0);
+       -webkit-transform: translateX(0);
      }
- `};
-`
-           /* margin-left: ${props => props.theme.horizontal}; */
-
+  `};
+`;
 
 const Styled = {Container};
 

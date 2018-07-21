@@ -24,8 +24,8 @@ const theme = { verticle: "75px",
                zindexHighest: 999,
                zindexMiddle: 500,
                zindexLowest: 1,
-               mediaQuery: "670px",
-               transitionTime: "0.3s",
+               mediaQuery: "850px",
+               transitionTime: "0.4s",
 
               };
 
