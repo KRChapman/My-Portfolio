@@ -1,20 +1,27 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 
 const Container = styled.div`
-                width: ${props => props.theme.horizontal};
-                height: 1000px;
-                border: 1px solid red;
-                background: blue;
-                display: inline-block;
-                position: fixed;
+  width: ${props => props.theme.horizontal};
+  height: 1000px;
+  border: 1px solid red;
+  background: blue;
+  display: inline-block;
+  position: fixed;
+  transition: transform ${props => props.theme.transitionTime} ease-out;
+  
+  @media (max-width: ${props => props.theme.mediaQuery}) {
+    transform: translateX(-100%);
+  }
 
-                 @media (max-width: ${props => props.theme.mediaQuery}) {
-                  transform: translateX(-100%);
-                }
-                
-                `;
-                
+  ${ props => props.showToggleMenu && css`
+    @media (min-width: 1px) {
+
+       transform: translateX(0);
+     }
+ `};
+`
+           /* margin-left: ${props => props.theme.horizontal}; */
 
 
 const Styled = {Container};

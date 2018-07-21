@@ -8,30 +8,29 @@ import HeaderBtns from './HeaderBtns/HeaderBtns.js';
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = {  }
+    this.state = {  
+
+    }
+
+    this.toggleDisplayColorsOptions = this.toggleDisplayColorsOptions.bind(this);
+    this.toggleDisplaySettingsOptions = this.toggleDisplaySettingsOptions.bind(this);
   }
 
-  toggleMenu() {
+  toggleDisplayColorsOptions() {
 
 
   }
+  toggleDisplaySettingsOptions() {
+
+
+  }
+
   render() {
-    
-    
-
-    //https://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time
-    // git push --set-upstream origin master
-    //--set-upstream-to
-    // A shortcut, which doesn't depend on remembering the syntax for git branch --set-upstream 1 is to do:
-    // 
-    // git push - u origin my_branch
-
-    //https://git-scm.com/book/en/v2/Git-Branching-Remote-Branches
-
+    console.log("this.props.toggleMenu", this.props.showToggleMenu);
     return (
 
-      <Style.Container>
-        <HamburgerMenu />
+      <Style.Container showToggleMenu={this.props.showToggleMenu}>
+        <HamburgerMenu toggleMenu={this.props.toggleMenu}/>
         <Style.Title>Full Stack Web Developer </Style.Title>
         <Style.NavBtnsContainer>
           <HeaderBtns > Custimize Settings  </HeaderBtns >

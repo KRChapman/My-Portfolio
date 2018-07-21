@@ -33,7 +33,7 @@ const RowDiv = styled.div`
 const HamburgerMenu = (props) => {
 
   return (
-    <Container >
+    <Container onClick={props.toggleMenu}>
       <RowDiv></RowDiv>
       <RowDiv></RowDiv>
       <RowDiv></RowDiv>
