@@ -8,16 +8,24 @@ class Layout extends Component {
     super(props);
     this.state = { 
       isShowMenu: false,
+      mediaQuery: "850px",
      }
 
     this.toggleMenuHandler = this.toggleMenuHandler.bind(this);
+    this.closeMenuHandler = this.closeMenuHandler.bind(this);
   }
 
-  toggleMenuHandler(e) {
-    console.log('e',e);
+  toggleMenuHandler() {
+
     let isShowMenu = !this.state.isShowMenu;
     this.setState({ isShowMenu});
   }
+
+  closeMenuHandler() {
+    
+    this.setState({ isShowMenu : false });
+  }
+
 
 
   render() {
@@ -29,7 +37,7 @@ class Layout extends Component {
 
       <React.Fragment>
         
-        <Menu showToggleMenu={this.state.isShowMenu}/>
+        <Menu closeMenu={this.closeMenuHandler} showToggleMenu={this.state.isShowMenu}/>
         <Header toggleMenu={this.toggleMenuHandler} showToggleMenu={this.state.isShowMenu}/>
         <Style.BodyContainer showToggleMenu={this.state.isShowMenu}>
           

@@ -34,7 +34,7 @@ class Header extends Component {
         <Style.Title>Full Stack Web Developer </Style.Title>
         <Style.NavBtnsContainer>
           <HeaderBtns > Custimize Settings  </HeaderBtns >
-          <HeaderBtns >Color</HeaderBtns >
+          <HeaderBtns >Change Colors</HeaderBtns >
              
         </Style.NavBtnsContainer>
           

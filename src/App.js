@@ -32,6 +32,7 @@ const theme = { verticle: "75px",
 class App extends Component {
   render() {
     return (
+    <BrowserRouter >
       <AppContainer >
         <ThemeProvider theme={theme}>
           <Layout >
@@ -45,6 +46,7 @@ class App extends Component {
           </Layout >
         </ThemeProvider>
       </AppContainer >
+    </BrowserRouter >
 
     );
   }

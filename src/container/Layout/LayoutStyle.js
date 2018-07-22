@@ -13,15 +13,23 @@ const BodyContainer = styled.div`
   transition: margin-left ${props => props.theme.transitionTime} ease-out;
 
   @media (max-width: ${props => props.theme.mediaQuery}) {
-    margin-left: 0;
+       margin-left: 0; 
   };
 
   ${ props => props.showToggleMenu && css`
-    @media (min-width: 1px) {
-      margin-left: ${props => props.theme.horizontal};
-    }
+     @media (min-width: 1px) {
+      margin-left: ${props => props.theme.horizontal};   
+      };
   `};
+
+ 
 `;
+
+   /* ${ props => props.showToggleMenu && css`
+     @media (min-width: 850px) {
+       margin-left: 0; 
+      };
+  `}; */
 
 const ContentContainer = styled.main`
   margin: 10px auto;
