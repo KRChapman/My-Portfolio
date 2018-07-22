@@ -14,15 +14,19 @@ const Container = styled.header`
   transition: width ${props => props.theme.transitionTime} ease-out;
   z-index: ${props => props.theme.zindexHighest};
 
-  @media (max-width: ${props => props.theme.mediaQuery}) {
+   
+
+  @media (max-width: ${props => props.mediaQuery}) {
     width: 100%;
   }
-             
+
   ${ props => props.showToggleMenu && css`
   @media (min-width: 1px) {
     width: calc(100% - ${props => props.theme.horizontal});
     }
   `};
+             
+ 
 `;
     
 const NavBtnsContainer = styled.nav`

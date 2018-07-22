@@ -14,7 +14,7 @@ const Container = styled.div`
   background-color: #2AA38B;
   display:none;
 
-  @media (max-width: ${props => props.theme.mediaQuery}) {
+  @media (max-width: ${props => props.mediaQuery}) {
     display: flex;
   }
 `;
@@ -31,7 +31,7 @@ const RowDiv = styled.div`
 const HamburgerMenu = (props) => {
 
   return (
-    <Container onClick={props.toggleMenu}>
+    <Container mediaQuery={props.mediaQuery} onClick={props.toggleMenu}>
       <RowDiv></RowDiv>
       <RowDiv></RowDiv>
       <RowDiv></RowDiv>

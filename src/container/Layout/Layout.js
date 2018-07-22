@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Style from './LayoutStyle.js';
 import Menu from '../../container/Menu/Menu.js';
 import Header from '../Header/Header.js';
+
+
   
 class Layout extends Component {
   constructor(props) {
@@ -16,15 +18,16 @@ class Layout extends Component {
   }
 
   toggleMenuHandler() {
-
+// this.state.mediaQuery === "9850px" ? false :
     let isShowMenu = !this.state.isShowMenu;
-    this.setState({ isShowMenu});
+    this.setState({ isShowMenu, mediaQuery: "850px"});
   }
 
   closeMenuHandler() {
     
-    this.setState({ isShowMenu : false });
+    this.setState({ isShowMenu: false, mediaQuery: "9850px"});
   }
+
 
 
 
@@ -37,9 +40,9 @@ class Layout extends Component {
 
       <React.Fragment>
         
-        <Menu closeMenu={this.closeMenuHandler} showToggleMenu={this.state.isShowMenu}/>
-        <Header toggleMenu={this.toggleMenuHandler} showToggleMenu={this.state.isShowMenu}/>
-        <Style.BodyContainer showToggleMenu={this.state.isShowMenu}>
+        <Menu mediaQuery={this.state.mediaQuery} closeMenu={this.closeMenuHandler} showToggleMenu={this.state.isShowMenu}/>
+        <Header mediaQuery={this.state.mediaQuery} toggleMenu={this.toggleMenuHandler} showToggleMenu={this.state.isShowMenu}/>
+        <Style.BodyContainer mediaQuery={this.state.mediaQuery} showToggleMenu={this.state.isShowMenu}>
           
           <Style.ContentContainer >
               <Style.Title>HI THERE</Style.Title>

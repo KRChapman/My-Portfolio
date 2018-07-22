@@ -12,7 +12,7 @@ const BodyContainer = styled.div`
   left: 0;
   transition: margin-left ${props => props.theme.transitionTime} ease-out;
 
-  @media (max-width: ${props => props.theme.mediaQuery}) {
+  @media (max-width: ${props => props.mediaQuery}) {
        margin-left: 0; 
   };
 

@@ -29,8 +29,8 @@ class Header extends Component {
     console.log("this.props.toggleMenu", this.props.showToggleMenu);
     return (
 
-      <Style.Container showToggleMenu={this.props.showToggleMenu}>
-        <HamburgerMenu toggleMenu={this.props.toggleMenu}/>
+      <Style.Container mediaQuery={this.props.mediaQuery} showToggleMenu={this.props.showToggleMenu}>
+        <HamburgerMenu mediaQuery={this.props.mediaQuery} toggleMenu={this.props.toggleMenu}/>
         <Style.Title>Full Stack Web Developer </Style.Title>
         <Style.NavBtnsContainer>
           <HeaderBtns > Custimize Settings  </HeaderBtns >

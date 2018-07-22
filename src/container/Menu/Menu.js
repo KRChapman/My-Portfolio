@@ -26,7 +26,7 @@ class Menu extends Component {
     // bottom menu links / project info
         // react router this.props.children
     return ( 
-      <Styled.Container showToggleMenu={this.props.showToggleMenu}>
+      <Styled.Container mediaQuery={this.props.mediaQuery} showToggleMenu={this.props.showToggleMenu}>
         <SideTopMenu />
         <MidControlNav closeMenu={this.props.closeMenu}/>
         <MenuWrapper >
