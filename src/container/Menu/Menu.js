@@ -1,6 +1,8 @@
 
 import React, { Component } from 'react';
 import Styled from './MenuStyle';
+import SideTopMenu from '../../components/SideTopMenu/SideTopMenu';
+import SideMidMenuNav from '../../components/SideMidMenuNav/SideMidMenuNav';
   
 class Menu extends Component {
   constructor(props) {
@@ -13,7 +15,8 @@ class Menu extends Component {
         // react router this.props.children
     return ( 
       <Styled.Container showToggleMenu={this.props.showToggleMenu}>
-        
+        <SideTopMenu />
+        <SideMidMenuNav />
       </Styled.Container >
      )
   }

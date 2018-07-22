@@ -1,6 +1,7 @@
 import styled, {css} from 'styled-components';
+
 const Container = styled.header`
-${props => console.log('aa',props.showToggleMenu) }
+  ${props => console.log('aa',props.showToggleMenu) }
   margin-left: ${props => props.theme.horizontal};
   position: fixed;
   right: 0;
@@ -22,7 +23,6 @@ ${props => console.log('aa',props.showToggleMenu) }
     width: calc(100% - ${props => props.theme.horizontal});
     }
   `};
-
 `;
     
 const NavBtnsContainer = styled.nav`
@@ -30,17 +30,15 @@ const NavBtnsContainer = styled.nav`
   width: 300px;
   height: 100%;
   justify-content: space-around;
+`;
 
- `;
-
- const Title = styled.h2`
+const Title = styled.h2`
   color: #fff;
   margin-left: 5px;
 
   @media (max-width: 420px) {
     font-size: 16px;
   }
-
 `;
 
 const Style = { Container, NavBtnsContainer, Title}

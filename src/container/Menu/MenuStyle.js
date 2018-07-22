@@ -4,7 +4,7 @@ import styled, {css} from 'styled-components';
 const Container = styled.div`
   width: ${props => props.theme.horizontal};
   height: 1000px;
-  border: 1px solid red;
+
   background: blue;
   display: inline-block;
   position: fixed;
