@@ -1,7 +1,6 @@
 import styled, {css} from 'styled-components';
 
 const Container = styled.header`
-  ${props => console.log('aa',props.showToggleMenu) }
   margin-left: ${props => props.theme.horizontal};
   position: fixed;
   right: 0;
@@ -13,8 +12,6 @@ const Container = styled.header`
   width: calc(100% - ${props => props.theme.horizontal});
   transition: width ${props => props.theme.transitionTime} ease-out;
   z-index: ${props => props.theme.zindexHighest};
-
-   
 
   @media (max-width: ${props => props.mediaQuery}) {
     width: 100%;

@@ -26,7 +26,7 @@ class Header extends Component {
   }
 
   render() {
-    console.log("this.props.toggleMenu", this.props.showToggleMenu);
+  
     return (
 
       <Style.Container mediaQuery={this.props.mediaQuery} showToggleMenu={this.props.showToggleMenu}>

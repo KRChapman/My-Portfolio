@@ -1,10 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {
-  Link,
-  NavLink,
-} from 'react-router-dom';
 import ListItemLink from './MenuListItems/ListItemLink/ListItemLink';
 
 
@@ -36,8 +32,9 @@ const SideBottomMenu = (props) => {
       <nav>
         <List>
           
-          <li><ListItemLink  icon={'fas fa-caret-right'} to={'/projects'}>The projects </ListItemLink></li>
-          <li><ListItemLink  counter={true} icon={'far fa-file-code'} to={'/contact'}>The  </ListItemLink></li>
+         <ListItemLink  icon={'fas fa-caret-right'} to={'/projects'}>The projects </ListItemLink>
+          <ListItemLink  counter={true} icon={'far fa-file-code'} to={'/contact'}>The  </ListItemLink>
+          <ListItemLink counter={true} icon={'far fa-file-code'} to={'#'}>The  l</ListItemLink>
         </List>
       </nav>
     </Container>

@@ -34,7 +34,7 @@ const PictureInfo = (props) => {
 
   return (
       <Container>      
-        <img style={{ height: "35px" }} src={picture} alt="Port Folio Picture" />         
+        <img style={{ height: "35px" }} src={picture} alt="Kyle Chapman" />         
         <div>
           <Name>Kyle Chapman</Name>
           <HR  />

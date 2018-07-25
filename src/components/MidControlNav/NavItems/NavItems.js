@@ -55,7 +55,7 @@ const NavItems = (props) => {
 
   const buttons = {Menu: false, About: false, Features: false}
   buttons[props.buttonClicked] = true;
-  console.log("buttons", buttons);
+
   return (
     <React.Fragment> 
 
