@@ -10,8 +10,9 @@ const BodyContainer = styled.div`
   border: 1px solid purple;
   position: relative;
   left: 0;
+  z-index: ${props => props.theme.zindexMiddle};
   transition: margin-left ${props => props.theme.transitionTime} ease-out;
-
+  
   @media (max-width: ${props => props.mediaQuery}) {
        margin-left: 0; 
   };

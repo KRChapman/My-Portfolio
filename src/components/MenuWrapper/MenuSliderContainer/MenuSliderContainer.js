@@ -2,18 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  width: 100%;
-  background-color: green;
+  width: 250px;
+
 `
 
-const MenuWrapper = (props) => {
+const MenuSliderContainer = (props) => {
 
   return (
     <Container>
-      MenuWrapper
       {props.children}
     </Container>
   )
 }
 
-export default MenuWrapper;
+export default MenuSliderContainer;

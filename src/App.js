@@ -10,6 +10,8 @@ import {
   Switch,
 } from 'react-router-dom';
 import Layout from './container/Layout/Layout';
+import Projects from './components/MainContent/Projects/Projects';
+import Contact from './components/MainContent/Contact/Contact';
 
 
 const AppContainer = styled.div`
@@ -23,9 +25,10 @@ const theme = { verticle: "75px",
                horizontal: "250px",
                zindexHighest: 999,
                zindexMiddle: 500,
-               zindexLowest: 1,
-             
+               zindexLowest: 1,          
                transitionTime: "0.4s",
+               fontSize: "18px",
+               
 
               };
 
@@ -36,6 +39,14 @@ class App extends Component {
       <AppContainer >
         <ThemeProvider theme={theme}>
           <Layout >
+     
+              <Switch>
+                <Route path='/projects' component={Projects} />
+
+                <Route path="/contact" component={Contact} />
+              
+
+              </Switch>
             <header className="App-header">
               <img src={logo} className="App-logo" alt="logo" />
               <h1 className="App-title">Welcome to React</h1>

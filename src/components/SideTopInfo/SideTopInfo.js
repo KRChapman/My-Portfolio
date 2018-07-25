@@ -12,7 +12,7 @@ const Container = styled.div`
 
 `;
 
-const SideTopMenu = (props) => {
+const SideTopInfo = (props) => {
 
   return (
     <Container>
@@ -21,4 +21,4 @@ const SideTopMenu = (props) => {
   )
 }
 
-export default SideTopMenu;
+export default SideTopInfo;
