@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
-import Style from './LayoutStyle.js';
 import Menu from '../../container/Menu/Menu.js';
 import Header from '../Header/Header.js';
+import ContentBody from '../../components/MainContent/ContentBody/ContentBody.js';
+
+import {
+  BrowserRouter,
+  Route,
+  Switch,
+} from 'react-router-dom';
+
+import Projects from './../../components/MainContent/Projects/Projects';
+import Contact from './../../components/MainContent/Contact/Contact';
 
 
   
@@ -28,34 +37,25 @@ class Layout extends Component {
     this.setState({ isShowMenu: false, mediaQuery: "9850px"});
   }
 
-
-
-
-  render() {
-
-   
+  render() {   
 
     
     return ( 
 
-      <React.Fragment>
-        
+      <React.Fragment>        
         <Menu mediaQuery={this.state.mediaQuery} closeMenu={this.closeMenuHandler} showToggleMenu={this.state.isShowMenu}/>
         <Header mediaQuery={this.state.mediaQuery} toggleMenu={this.toggleMenuHandler} showToggleMenu={this.state.isShowMenu}/>
-        <Style.BodyContainer mediaQuery={this.state.mediaQuery} showToggleMenu={this.state.isShowMenu}>
-          
-          <Style.ContentContainer >
-              <Style.Title>HI THERE</Style.Title>
-              {this.props.children}
-          </Style.ContentContainer >
-        </Style.BodyContainer>
+        <ContentBody mediaQuery={this.state.mediaQuery} showToggleMenu={this.state.isShowMenu}>
+          <Switch>
+            <Route path='/projects' component={Projects} />
+            <Route path="/contact" component={Contact} />
+          </Switch>      
+        </ContentBody>
       </React.Fragment>
    
      )
   }
 }
 
-//       
 
-// left = { style.horizontalLeft }
 export default Layout;

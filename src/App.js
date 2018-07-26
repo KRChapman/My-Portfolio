@@ -4,14 +4,13 @@ import './App.css';
 import styled, { ThemeProvider} from 'styled-components';
 
 
+
+import Layout from './container/Layout/Layout';
 import {
   BrowserRouter,
-  Route,
-  Switch,
+
 } from 'react-router-dom';
-import Layout from './container/Layout/Layout';
-import Projects from './components/MainContent/Projects/Projects';
-import Contact from './components/MainContent/Contact/Contact';
+
 
 
 const AppContainer = styled.div`
@@ -27,9 +26,7 @@ const theme = { verticle: "75px",
                zindexMiddle: 500,
                zindexLowest: 1,          
                transitionTime: "0.4s",
-               fontSize: "18px",
-               
-
+               fontSize: "16px",
               };
 
 class App extends Component {
@@ -38,23 +35,8 @@ class App extends Component {
     <BrowserRouter >
       <AppContainer >
         <ThemeProvider theme={theme}>
-          <Layout >
-     
-              <Switch>
-                <Route path='/projects' component={Projects} />
-
-                <Route path="/contact" component={Contact} />
-              
-
-              </Switch>
-            <header className="App-header">
-              <img src={logo} className="App-logo" alt="logo" />
-              <h1 className="App-title">Welcome to React</h1>
-            </header>
-            <p className="App-intro">
-              To get started, edit <code>src/App.js</code> and save to reload.
-            </p>
-          </Layout >
+          < Layout />     
+      
         </ThemeProvider>
       </AppContainer >
     </BrowserRouter >

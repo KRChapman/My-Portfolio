@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components';
+import styled, { css } from 'styled-components';
 
 
 
@@ -9,6 +9,7 @@ const BodyContainer = styled.div`
   flex: 1 0 auto;
   border: 1px solid purple;
   position: relative;
+  background-color: pink;
   left: 0;
   z-index: ${props => props.theme.zindexMiddle};
   transition: margin-left ${props => props.theme.transitionTime} ease-out;
@@ -26,11 +27,11 @@ const BodyContainer = styled.div`
  
 `;
 
-   /* ${ props => props.showToggleMenu && css`
-     @media (min-width: 850px) {
-       margin-left: 0; 
-      };
-  `}; */
+/* ${ props => props.showToggleMenu && css`
+  @media (min-width: 850px) {
+    margin-left: 0; 
+   };
+`}; */
 
 const ContentContainer = styled.main`
   margin: 10px auto;
@@ -53,7 +54,9 @@ const Title = styled.h1`
 `;
 
 
-const Style = { Title, ContentContainer, 
-                BodyContainer};
+const Style = {
+  Title, ContentContainer,
+  BodyContainer
+};
 
 export default Style;

@@ -31,7 +31,7 @@ const LinkElem = styled(NavLink)`
 
 const ListItem = styled.li`
   width: 100%;
-  height: 64px;
+  /* height: 64px; */
   /* display: flex; */
  
   &:hover{
@@ -42,44 +42,48 @@ const ListItem = styled.li`
 const IconContainer = styled.div`
  margin-right: 15px;
  margin-left: 10px;
+ height: 100%;
 `
 const RightContainer = styled.div`
   margin-right: 25px;
 
-`
+`;
 
 const DivContainer = styled.div`
- padding-top: 22%;
+  padding-top: 22%;
 
   width: 30px;
   height: 25px;
   background-color: #2EB398;
   color: white;
-   text-align: center;
-    white-space: nowrap;
-  
-    border-radius: .25em;
+  text-align: center;
+  white-space: nowrap; 
+  border-radius: .25em;
   font-size: 65%;
-  
+`;
 
+const Flex = styled.div`
+  display: flex;
+`;
 
-`
 const LinkCounter = (props) => {
   return(
     <DivContainer>{props.count}</DivContainer>
   )
 }
 
-//1px solid rgba(59,70,72,0.5);
+
+
 const ListItemLink = (props) => {
   const counter = props.counter ? <LinkCounter count={1} /> : null;
 
   return (
-    <ListItem>
-      <LinkElem to={props.to}>
-        <span><IconContainer className={props.icon}></IconContainer><span>{props.children} </span></span> 
+    <ListItem >
+      <LinkElem to={props.to} onClick={props.expandLinks}>
+        <Flex><IconContainer className={props.icon}></IconContainer><div>{props.children} </div></Flex> 
         <RightContainer>{counter}</RightContainer>
       </LinkElem>
+      {props.ul}
     </ListItem>
 
     

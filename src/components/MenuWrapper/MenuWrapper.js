@@ -16,18 +16,14 @@ const Container = styled.div`
   transition: right ${props => props.theme.transitionTime} ease-out;
 `;
 
-/* // ${props => props.theme.zindexHighest}; */
 const MenuWrapper = (props) => {
 
 
-
   return (
-   
-   
 
     <Container slideLocation={props.slideLocation}> 
       <MenuSliderContainer >     
-        <SideBottomMenu /> 
+        <SideBottomMenu showSubLinks={props.showSubLinks} contentLinks={props.contentLinks} expandLinks={props.expandLinks} /> 
       </MenuSliderContainer >
       <MenuSliderContainer > 
         <About /> 
