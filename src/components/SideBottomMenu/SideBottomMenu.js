@@ -20,7 +20,6 @@ const List = styled.ul`
 
 const SideBottomMenu = (props) => {
 
-  console.log("contentLinks", props.contentLinks);
 
   const contentLinksKeys = Object.keys(props.contentLinks);
   const linkObject = props.contentLinks;
@@ -29,20 +28,23 @@ const SideBottomMenu = (props) => {
     const linkAttributes = linkObject[ele].linkAttributes;
     const subLinks = linkObject[ele].subLinks;  
     const expandLinks = linkAttributes.expandFunction ? props.expandLinks : null;
+    let count = null;  
 
-    if (subLinks != null && props.showSubLinks){
+    if (subLinks != null ){
       const subLinkKeys = Object.keys(subLinks);
-
-      ulComponent = <ul style={{listStyleType: "none"}} > {subLinkKeys.map(ele => {
+      count = subLinkKeys.length;
+      ulComponent = props.showSubLinks ?  <ul style={{listStyleType: "none"}} > {subLinkKeys.map(ele => {
         let subLinksAttributes = subLinks[ele];
 
         return <ListItemLink count={null} expandLinks={null} icon={subLinksAttributes.icon} to={subLinksAttributes.to} key={subLinksAttributes.title}>{subLinksAttributes.title}</ListItemLink>
-      })} </ul>                
+      })} </ul>  : null;              
     }
-   
-    return <ListItemLink count={null} expandLinks={expandLinks} icon={linkAttributes.icon} to={linkAttributes.to} key={linkAttributes.title} ul={ulComponent}>{linkAttributes.title}</ListItemLink>
+    console.log("count", count);
+    return <ListItemLink count={count} expandLinks={expandLinks} icon={linkAttributes.icon} to={linkAttributes.to} key={linkAttributes.title} ul={ulComponent}>{linkAttributes.title}</ListItemLink>
 
   })
+
+
 
   return (
     <Container>

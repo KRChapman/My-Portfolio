@@ -1,7 +1,7 @@
 import React from 'react';
 import Style from './ContentBodyStyle';
 
-const  ContentBody = (props) => {
+const ContentBody = (props) => {
 
   return (
     <Style.BodyContainer mediaQuery={props.mediaQuery} showToggleMenu={props.showToggleMenu}>

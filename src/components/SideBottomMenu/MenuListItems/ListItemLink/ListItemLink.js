@@ -75,7 +75,7 @@ const LinkCounter = (props) => {
 
 
 const ListItemLink = (props) => {
-  const counter = props.counter ? <LinkCounter count={1} /> : null;
+  const counter = props.count ? <LinkCounter count={props.count} /> : null;
 
   return (
     <ListItem >

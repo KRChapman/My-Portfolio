@@ -52,7 +52,7 @@ const NavItems = (props) => {
   const menuRelativeLocation = "0";
   const aboutRelativeLocation = "250px";
   const featuresRelativeLocation = "500px";
-
+  console.log("props.buttonClicked", props.buttonClicked);
   const buttons = {Menu: false, About: false, Features: false}
   buttons[props.buttonClicked] = true;
 

@@ -22,9 +22,7 @@ const Container = styled.div`
        transform: translateX(0);
        -webkit-transform: translateX(0);
      }
-  `};
-
-  
+  `};  
 `;
 
 const Styled = {Container};

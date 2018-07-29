@@ -1,7 +1,5 @@
 import styled, { css } from 'styled-components';
 
-
-
 const BodyContainer = styled.div`
   margin-top: ${props => props.theme.verticle};
   margin-left: ${props => props.theme.horizontal};
@@ -9,7 +7,9 @@ const BodyContainer = styled.div`
   flex: 1 0 auto;
   border: 1px solid purple;
   position: relative;
-  background-color: pink;
+  background-color: #E9F0F5;
+   /* #d7dfe5; */
+  /* ; */
   left: 0;
   z-index: ${props => props.theme.zindexMiddle};
   transition: margin-left ${props => props.theme.transitionTime} ease-out;
@@ -27,17 +27,11 @@ const BodyContainer = styled.div`
  
 `;
 
-/* ${ props => props.showToggleMenu && css`
-  @media (min-width: 850px) {
-    margin-left: 0; 
-   };
-`}; */
-
 const ContentContainer = styled.main`
   margin: 10px auto;
   border: 1px solid red;
-  width: 98%;
-
+  width: 99%;
+  /* max-width: 1400px; */
   @media(max-width: 405px) {
     width: 350px;
   }

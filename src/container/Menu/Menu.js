@@ -11,7 +11,7 @@ class Menu extends Component {
     super(props);
     this.state = { 
       slideLocation: 0,
-      buttonClicked: "",
+      buttonClicked: "Menu",
       showSubLinks: true,
 
       contentLinks: {
