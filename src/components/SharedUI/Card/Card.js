@@ -10,26 +10,26 @@ const Container = styled.div`
   
   padding: 12.5px;
   border-radius: 10px;
+ ${ props => console.log(props.boxSpread) }
 
-  /* ba */
-  /* display: flex; */
+
+  -webkit-box-shadow: 4px 4px 6px ${props => props.boxSpread} rgba(0,0,0, ${props => props.boxOpacicty});
+  -moz-box-shadow: 4px 4px 6px ${props => props.boxSpread} rgba(0,0,0, ${props => props.boxOpacicty});
+  box-shadow: 4px 4px 6px ${props => props.boxSpread}rgba(0,0,0, ${props => props.boxOpacicty}); 
+
 `;
 
 const ImageCrop = styled.div`
    width: 275px;
    height: 225px;
    overflow: hidden;
-
-   /* display:flex;
-  align-items:center;
-  justify-content:center; */
   
 `;
 
 const Image = styled.img`
- /* display: block; */
+ display: block;
 /* style={{ maxWidth: "initial" }}  */
- 
+
  
 
 `
@@ -43,9 +43,9 @@ const Image = styled.img`
 //style={{ maxWidth: "initial" }}
 //, marginBottom: "-170px"
 const Card = (props) => {
-
+  
   return (
-    <Container >
+    <Container boxOpacicty={props.boxOpacicty} boxSpread={props.boxSpread}>
 
       <ImageCrop style={{ ...props.containerStyle }} >
         

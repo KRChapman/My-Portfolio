@@ -1,3 +1,7 @@
+
+
+// main background #273135;
+//main color text #89949B;
 import React from 'react';
 import styled from 'styled-components';
 import MenuSliderContainer from './MenuSliderContainer/MenuSliderContainer';
@@ -8,22 +12,23 @@ import SideBottomMenu from '../SideBottomMenu/SideBottomMenu';
 const Container = styled.div`
   width: 750px;
   display: flex;
-  background-color: green;
+  background-color: ${ props => props.backgroundColor};
+  color: ${props => props.textColor};
   position: relative;
   right: ${props => props.slideLocation};
   z-index: ${props => props.theme.zindexLowest};
-
   transition: right ${props => props.theme.transitionTime} ease-out;
 `;
 
 const MenuWrapper = (props) => {
-
+//"#fff"
+  const textColor = props.primaryColor.textColorChange ? "#fff" : "#89949B";
 
   return (
 
-    <Container slideLocation={props.slideLocation}> 
+    <Container backgroundColor={props.primaryColor.backgroundColor} textColor={textColor}  slideLocation={props.slideLocation}> 
       <MenuSliderContainer >     
-        <SideBottomMenu showSubLinks={props.showSubLinks} contentLinks={props.contentLinks} expandLinks={props.expandLinks} /> 
+        <SideBottomMenu textColor={textColor} showSubLinks={props.showSubLinks} contentLinks={props.contentLinks} expandLinks={props.expandLinks} /> 
       </MenuSliderContainer >
       <MenuSliderContainer > 
         <About /> 

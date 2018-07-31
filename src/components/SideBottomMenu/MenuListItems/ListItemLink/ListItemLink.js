@@ -4,9 +4,9 @@ import {
   Link,
   NavLink,
 } from 'react-router-dom';
-//${ props => props.theme.fontSize }
+//
 const LinkElem = styled(NavLink)`
-  color:  #89949B;
+  color: ${ props => props.textColor };
 
   flex-basis: 100%;
 
@@ -25,14 +25,10 @@ const LinkElem = styled(NavLink)`
     background-color: rgba(0, 0, 0, 0.4);
       border-left: 5px solid #E76049;
   }
-  ${props => console.log('ss', props)}
-
 `;
 
 const ListItem = styled.li`
   width: 100%;
-  /* height: 64px; */
-  /* display: flex; */
  
   &:hover{
   background-color:  rgba(0,0,0,0.2);
@@ -79,7 +75,7 @@ const ListItemLink = (props) => {
 
   return (
     <ListItem >
-      <LinkElem to={props.to} onClick={props.expandLinks}>
+      <LinkElem textColor={props.textColor} to={props.to} onClick={props.expandLinks}>
         <Flex><IconContainer className={props.icon}></IconContainer><div>{props.children} </div></Flex> 
         <RightContainer>{counter}</RightContainer>
       </LinkElem>

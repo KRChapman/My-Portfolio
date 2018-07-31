@@ -3,12 +3,10 @@ import styled from 'styled-components';
 
 import ListItemLink from './MenuListItems/ListItemLink/ListItemLink';
 
-const Container = styled.div`
-  background-color: #273135;
-`;
+
 
 const Description = styled.div`
-  color: #89949B;
+  /* color: #89949B; */
 `;
 
 const List = styled.ul`
@@ -36,25 +34,25 @@ const SideBottomMenu = (props) => {
       ulComponent = props.showSubLinks ?  <ul style={{listStyleType: "none"}} > {subLinkKeys.map(ele => {
         let subLinksAttributes = subLinks[ele];
 
-        return <ListItemLink count={null} expandLinks={null} icon={subLinksAttributes.icon} to={subLinksAttributes.to} key={subLinksAttributes.title}>{subLinksAttributes.title}</ListItemLink>
+        return <ListItemLink textColor={props.textColor} count={null} expandLinks={null} icon={subLinksAttributes.icon} to={subLinksAttributes.to} key={subLinksAttributes.title}>{subLinksAttributes.title}</ListItemLink>
       })} </ul>  : null;              
     }
     console.log("count", count);
-    return <ListItemLink count={count} expandLinks={expandLinks} icon={linkAttributes.icon} to={linkAttributes.to} key={linkAttributes.title} ul={ulComponent}>{linkAttributes.title}</ListItemLink>
+    return <ListItemLink textColor={props.textColor}  count={count} expandLinks={expandLinks} icon={linkAttributes.icon} to={linkAttributes.to} key={linkAttributes.title} ul={ulComponent}>{linkAttributes.title}</ListItemLink>
 
   })
 
 
 
   return (
-    <Container>
+    <div>
       <Description>Navigation Pages</Description>
       <nav>
         <List>         
           {linkList}
         </List>
       </nav>
-    </Container>
+    </div>
   )
 }
 

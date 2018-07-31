@@ -1,3 +1,5 @@
+//main #273135
+
 import styled, {css} from 'styled-components';
 
 const Container = styled.header`
@@ -5,7 +7,7 @@ const Container = styled.header`
   position: fixed;
   right: 0;
   text-align: center;
-  background-color: #273135;
+  background-color: ${props => props.backgroundColor};
   display: flex;
   justify-content: space-between;
   height: ${props => props.theme.verticle};

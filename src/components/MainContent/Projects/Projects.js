@@ -13,8 +13,9 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: space-around;
-  /* flex-wrap: wrap; */
+  justify-content: space-evenly;
+
+  flex-wrap: wrap;
 `;
 
 const CardContainer = styled.div`
@@ -24,24 +25,25 @@ const CardContainer = styled.div`
 `;
 
 const Projects = (props) => {
-
+  
   return (
     <Container>
       <CardContainer>
-        <Card pictureStyle={{ marginLeft: "-45px" }}  src={test} />
+        <Card boxOpacicty={props.boxOpacicty} boxSpread={props.boxSpread} pictureStyle={{ marginLeft: "-45px" }}  src={test} />
 
 
       </CardContainer>
 
       <CardContainer>
 
-        <Card containerStyle={{ border: "1px solid black" }} pictureStyle={{ marginLeft: "-6px" }} src={wiki} />
+        <Card boxOpacicty={props.boxOpacicty} boxSpread={props.boxSpread} containerStyle={{ border: "1px solid black" }} pictureStyle={{ marginLeft: "-6px" }} src={wiki} />
       </CardContainer>
 
       <CardContainer>
-        <Card src={gameB} />
+        <Card boxOpacicty={props.boxOpacicty} boxSpread={props.boxSpread} src={gameB} />
 
       </CardContainer>
+   
      
     </Container>
   )

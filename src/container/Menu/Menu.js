@@ -72,9 +72,9 @@ class Menu extends Component {
 
     return ( 
       <Styled.Container mediaQuery={this.props.mediaQuery} showToggleMenu={this.props.showToggleMenu}>
-        <SideTopInfo />
-        <MidControlNav buttonClicked={this.state.buttonClicked} changeMenu={this.handleChangeMenu} closeMenu={this.props.closeMenu}/>
-        <MenuWrapper showSubLinks={this.state.showSubLinks} contentLinks={this.state.contentLinks}  expandLinks={this.handleExpandLinks}  slideLocation={this.state.slideLocation}/>
+        <SideTopInfo secondaryColor={this.props.secondaryColor} />
+        <MidControlNav secondaryColor={this.props.secondaryColor} buttonClicked={this.state.buttonClicked} changeMenu={this.handleChangeMenu} closeMenu={this.props.closeMenu}/>
+        <MenuWrapper primaryColor={this.props.primaryColor} showSubLinks={this.state.showSubLinks} contentLinks={this.state.contentLinks}  expandLinks={this.handleExpandLinks}  slideLocation={this.state.slideLocation}/>
       </Styled.Container >
      )
   }

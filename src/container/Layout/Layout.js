@@ -11,13 +11,26 @@ import {
 
 import Projects from './../../components/MainContent/Projects/Projects';
 import Contact from './../../components/MainContent/Contact/Contact';
+import { defaultPrimary, defaultSecondary, 
+        primaryTurquoise, primaryLightBlue, 
+        secondaryTurquoise, secondaryBrown } from './../../variables/ColorVariables';
+
+// {
+//   backgroundColorTop: "#2EB398", backgroundColorMidNav: "#279982",
+//     iconsIdleColor: "#1B6858", boardersRight: "#25917b",
+//       secondaryActiveColors: { backgroundColor: "#1E7362", iconsPressedColor: "#56B596" }
+// },
 
 
-  
 class Layout extends Component {
   constructor(props) {
     super(props);
     this.state = { 
+      boxSpread: "1px",
+      boxOpacicty: "0.5",
+      primaryColor: defaultPrimary,
+      secondaryColor: defaultSecondary,
+    
       isShowMenu: false,
       mediaQuery: "850px",
      }
@@ -42,15 +55,21 @@ class Layout extends Component {
     
     return ( 
 
-      <React.Fragment>        
-        <Menu mediaQuery={this.state.mediaQuery} closeMenu={this.closeMenuHandler} showToggleMenu={this.state.isShowMenu}/>
-        <Header mediaQuery={this.state.mediaQuery} toggleMenu={this.toggleMenuHandler} showToggleMenu={this.state.isShowMenu}/>
+      <React.Fragment>
+    
+        <Menu primaryColor={this.state.primaryColor} secondaryColor={this.state.secondaryColor} mediaQuery={this.state.mediaQuery} closeMenu={this.closeMenuHandler} showToggleMenu={this.state.isShowMenu}/>
+        <Header primaryColor={this.state.primaryColor}  mediaQuery={this.state.mediaQuery} toggleMenu={this.toggleMenuHandler} showToggleMenu={this.state.isShowMenu}/>
         <ContentBody mediaQuery={this.state.mediaQuery} showToggleMenu={this.state.isShowMenu}>
           <Switch>
-            <Route path='/projects' component={Projects} />
-            <Route path="/contact" component={Contact} />
+            <Route path='/projects'  render={() => {
+              return <Projects boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread}/>         
+            }}/>
+            <Route path="/contact" render={() => {
+              return <Contact boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread} />
+            }} />
           </Switch>      
         </ContentBody>
+
       </React.Fragment>
    
      )

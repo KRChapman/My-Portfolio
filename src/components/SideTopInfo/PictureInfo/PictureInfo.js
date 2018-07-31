@@ -1,3 +1,5 @@
+//main #DE5939
+
 import React from 'react';
 import styled from 'styled-components';
 import picture from './../../../assets/images/portfolio-picture.jpg'
@@ -21,12 +23,12 @@ const HR = styled.div`
   height: 4px;
   width: 115px;
   border-radius: 0; 
-  background: #DE5939;
+  background: ${props => props.backgroundColor};
   box-shadow: inset 35px 1px 2px rgba(0,0,0,0.2);
 `;
 
 const Icon = styled.i`
-  color: #DE5939;
+  color: ${props => props.backgroundColor};
   font-size: 20px;
 `;
 
@@ -37,9 +39,9 @@ const PictureInfo = (props) => {
         <img style={{ height: "35px" }} src={picture} alt="Kyle Chapman" />         
         <div>
           <Name>Kyle Chapman</Name>
-          <HR  />
+        <HR backgroundColor={props.secondaryColor.backgroundColorMidNav }/>
         </div>     
-        <Icon className={"fas fa-folder-open"} ></Icon>
+      <Icon backgroundColor={props.secondaryColor.backgroundColorMidNav} className={"fas fa-folder-open"} ></Icon>
       </Container>
   )
 }

@@ -1,9 +1,10 @@
+// main  rgba(114, 133, 137, 0.45);
 import React from 'react';
 import styled from 'styled-components';
 
 const HeaderBtn = styled.button`
   font-family: inherit;
-  background-color: rgba(114, 133, 137, 0.45);;
+  background-color: ${ props => props.buttonColor};
   color: #fff;
   outline:none;
   margin: 5px;
@@ -16,7 +17,7 @@ const HeaderBtns = (props) => {
 
   return (
     
-    <HeaderBtn>{props.children}</HeaderBtn>
+    <HeaderBtn buttonColor={props.buttonColor} onClick={props.toggleOptions}>{props.children}</HeaderBtn>
   )
 }
 

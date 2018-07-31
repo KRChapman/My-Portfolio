@@ -1,0 +1,36 @@
+
+export const defaultSecondary = { 
+  backgroundColorTop: "#FA7252", backgroundColorMidNav: "#DE5939",                         
+  iconsIdleColor: "#993F31", boardersRight: "#cf4d2e",                               
+  secondaryActiveColors: {
+    backgroundColor: "#ba4e3b", iconsPressedColor: "#FA7252"
+  } 
+};
+                  
+export const defaultPrimary = { 
+  backgroundColor: "#273135", buttonColor: "rgba(114, 133, 137, 0.45)", 
+  textColorChange: false 
+};                        
+
+export const primaryTurquoise = { 
+  backgroundColor: "#68A0A5", buttonColor: "#91bfc4", textColorChange: true 
+};
+export const primaryLightBlue = { 
+  backgroundColor: "#79B0EC", buttonColor: "#6FA2D9", textColorChange: true 
+};
+
+export const secondaryTurquoise =  { 
+  backgroundColorTop: "#2EB398", backgroundColorMidNav: "#279982", 
+  iconsIdleColor: "#1B6858", boardersRight: "#25917b", 
+  secondaryActiveColors: { 
+    backgroundColor: "#1E7362", iconsPressedColor: "#56B596" 
+  }
+};
+
+export const secondaryBrown =  { 
+  backgroundColorTop: "#B55B3E", backgroundColorMidNav: "#954B33", 
+  iconsIdleColor: "#cb6f50", boardersRight:  "#8E4831", 
+  secondaryActiveColors: { 
+    backgroundColor: "#B55B3E", iconsPressedColor: "#6f3826;" 
+  }
+};
