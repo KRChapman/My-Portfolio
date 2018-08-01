@@ -21,7 +21,7 @@ const Container = styled.div`
 `;
 
 const MenuWrapper = (props) => {
-//"#fff"
+
   const textColor = props.primaryColor.textColorChange ? "#fff" : "#89949B";
 
   return (

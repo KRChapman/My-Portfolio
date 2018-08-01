@@ -37,7 +37,7 @@ const SideBottomMenu = (props) => {
         return <ListItemLink textColor={props.textColor} count={null} expandLinks={null} icon={subLinksAttributes.icon} to={subLinksAttributes.to} key={subLinksAttributes.title}>{subLinksAttributes.title}</ListItemLink>
       })} </ul>  : null;              
     }
-    console.log("count", count);
+
     return <ListItemLink textColor={props.textColor}  count={count} expandLinks={expandLinks} icon={linkAttributes.icon} to={linkAttributes.to} key={linkAttributes.title} ul={ulComponent}>{linkAttributes.title}</ListItemLink>
 
   })

@@ -62,7 +62,7 @@ const NavItems = (props) => {
 
   const iconsIdleColor = props.iconsIdleColor;
   const boardersRight = props.boardersRight;
-  console.log("iconsIdleColor", iconsIdleColor);
+
   return (
     <React.Fragment> 
 

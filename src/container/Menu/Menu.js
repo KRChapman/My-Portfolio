@@ -61,8 +61,8 @@ class Menu extends Component {
   }
 
   handleExpandLinks(e){
-    console.log('ee', e);
     const showSubLinks = !this.state.showSubLinks;
+    
     this.setState({ showSubLinks });
   }
 

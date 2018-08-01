@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 //
 const LinkElem = styled(NavLink)`
-  color: ${ props => props.textColor };
+
 
   flex-basis: 100%;
 
@@ -32,6 +32,9 @@ const ListItem = styled.li`
  
   &:hover{
   background-color:  rgba(0,0,0,0.2);
+  }
+  & > a {
+      color: ${ props => props.textColor };
   }
 
 `
@@ -74,8 +77,8 @@ const ListItemLink = (props) => {
   const counter = props.count ? <LinkCounter count={props.count} /> : null;
 
   return (
-    <ListItem >
-      <LinkElem textColor={props.textColor} to={props.to} onClick={props.expandLinks}>
+    <ListItem textColor={props.textColor}>
+      <LinkElem  to={props.to} onClick={props.expandLinks}>
         <Flex><IconContainer className={props.icon}></IconContainer><div>{props.children} </div></Flex> 
         <RightContainer>{counter}</RightContainer>
       </LinkElem>
