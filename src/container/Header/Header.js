@@ -29,7 +29,7 @@ class Header extends Component {
 
   render() {
     const settingsModal = this.state.isSettings || this.state.isColor ? 
-                          <ModalContainer isSettings={this.state.isSettings}
+                          <ModalContainer selectColor={this.props.selectColor} isSettings={this.state.isSettings}
                            isColor={this.state.isColor} /> : null;
                            // 
     return (

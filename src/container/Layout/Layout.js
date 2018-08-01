@@ -31,6 +31,7 @@ class Layout extends Component {
 
     this.toggleMenuHandler = this.toggleMenuHandler.bind(this);
     this.closeMenuHandler = this.closeMenuHandler.bind(this);
+    this.selectColorHandler = this.selectColorHandler.bind(this);
   }
 
   toggleMenuHandler() {
@@ -46,6 +47,26 @@ class Layout extends Component {
 
   selectColorHandler(color) {
     console.log("color", color);
+    const colorsPrimary = {
+      defaultPrimary,
+      primaryTurquoise, primaryLightBlue,
+     }
+    const colorsSecondary ={
+      defaultSecondary,
+       secondaryTurquoise,
+        secondaryBrown
+
+    }
+ 
+    
+    this.setState(currentState => {
+
+      const newPrimaryColor = color in colorsPrimary ?   colorsPrimary[color] : currentState.primaryColor;
+      const newSecondaryColor = color in colorsSecondary ? colorsSecondary[color]  : currentState.secondaryColor;
+     
+      return { primaryColor: newPrimaryColor, secondaryColor: newSecondaryColor}
+    });
+   
 
   }
 
@@ -56,8 +77,10 @@ class Layout extends Component {
 
       <React.Fragment>
     
-        <Menu primaryColor={this.state.primaryColor} secondaryColor={this.state.secondaryColor} mediaQuery={this.state.mediaQuery} closeMenu={this.closeMenuHandler} showToggleMenu={this.state.isShowMenu}/>
-        <Header primaryColor={this.state.primaryColor}  mediaQuery={this.state.mediaQuery} toggleMenu={this.toggleMenuHandler} showToggleMenu={this.state.isShowMenu}/>
+        <Menu primaryColor={this.state.primaryColor} secondaryColor={this.state.secondaryColor} 
+          mediaQuery={this.state.mediaQuery} closeMenu={this.closeMenuHandler} showToggleMenu={this.state.isShowMenu}/>
+        <Header selectColor={this.selectColorHandler} primaryColor={this.state.primaryColor}
+          mediaQuery={this.state.mediaQuery} toggleMenu={this.toggleMenuHandler} showToggleMenu={this.state.isShowMenu}/>
         <ContentBody mediaQuery={this.state.mediaQuery} showToggleMenu={this.state.isShowMenu}>
           <Switch>
             <Route path='/projects'  render={() => {

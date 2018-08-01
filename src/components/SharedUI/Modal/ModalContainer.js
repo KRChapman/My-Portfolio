@@ -25,7 +25,7 @@ const ControlBtnContainer = styled.div`
 
 const ModalContainer = (props) => {
   const boxShadowModal = props.isSettings ? <BoxShadowModal /> : null;
-  const colorModal = props.isColor ? <ColorModal /> : null;
+  const colorModal = props.isColor ? <ColorModal selectColor={props.selectColor} /> : null;
 
 
   return (
