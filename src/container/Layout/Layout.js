@@ -15,12 +15,6 @@ import { defaultPrimary, defaultSecondary,
         primaryTurquoise, primaryLightBlue, 
         secondaryTurquoise, secondaryBrown } from './../../variables/ColorVariables';
 
-// {
-//   backgroundColorTop: "#2EB398", backgroundColorMidNav: "#279982",
-//     iconsIdleColor: "#1B6858", boardersRight: "#25917b",
-//       secondaryActiveColors: { backgroundColor: "#1E7362", iconsPressedColor: "#56B596" }
-// },
-
 
 class Layout extends Component {
   constructor(props) {
@@ -48,6 +42,11 @@ class Layout extends Component {
   closeMenuHandler() {
     
     this.setState({ isShowMenu: false, mediaQuery: "9850px"});
+  }
+
+  selectColorHandler(color) {
+    console.log("color", color);
+
   }
 
   render() {   

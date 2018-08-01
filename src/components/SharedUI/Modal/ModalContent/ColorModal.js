@@ -7,8 +7,6 @@ import {
 } from './../../../../variables/ColorVariables';
 import ColorBtn from '../../ColorBtn/ColorBtn';
 
-
-
 const Container = styled.div`
   margin-top: 5%;
   width: 100%;
@@ -16,7 +14,7 @@ const Container = styled.div`
 `;
 
 const ColorContainer = styled.div`
-
+  margin-top: 15px;
 `;
 
 const ButtonContainer = styled.div`
@@ -29,6 +27,7 @@ const RandomBtn = styled.button`
   border: none;
   background: #cbc8c8;
   border-radius: 100%;
+  cursor: pointer;
 `;
 
 const ControlBtnContainer = styled.div`
@@ -39,19 +38,7 @@ const ControlBtnContainer = styled.div`
 
 `;
 
-const ControlBtns = styled.button`
-  border: 2px solid transparent;
-  color: #fff;
 
-  padding: 2px 15px;
-  font-size: 10px;
-  font-weight: bold;
-  border-radius: 20px;
-  text-transform: uppercase;
-  font-family: Lato,sans-serif;
-  background-color: ${props => props.color};
-  cursor: pointer;
-`;
 
 const ColorModal = (props) => {
   const colorsObj = {
@@ -65,7 +52,7 @@ const ColorModal = (props) => {
   return (
     <Container>    
       <ColorContainer>
-        <div>Primary Colors</div>
+        <div style={{marginBottom: "5px"}}>Primary Colors</div>
         <ButtonContainer>
           {primaryColors.map(ele => {
 
@@ -75,7 +62,7 @@ const ColorModal = (props) => {
         </ButtonContainer>
       </ColorContainer> 
       <ColorContainer>
-        <div>Secondary Colors</div>
+        <div style={{ marginBottom: "5px" }}>Secondary Colors</div>
         <ButtonContainer>
           {secondaryColors.map(ele => {
 
@@ -84,11 +71,6 @@ const ColorModal = (props) => {
           <RandomBtn>Random</RandomBtn>
         </ButtonContainer>    
       </ColorContainer> 
-
-      <ControlBtnContainer>
-        <ControlBtns color={"#f0ad4e"}>Close</ControlBtns>
-        <ControlBtns color={"#388038"}>Local Storage Save</ControlBtns>
-      </ControlBtnContainer>
 
     </Container>
   )
