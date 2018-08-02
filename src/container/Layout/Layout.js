@@ -32,21 +32,19 @@ class Layout extends Component {
     this.toggleMenuHandler = this.toggleMenuHandler.bind(this);
     this.closeMenuHandler = this.closeMenuHandler.bind(this);
     this.selectColorHandler = this.selectColorHandler.bind(this);
+    this.changeBoxShadowHandler = this.changeBoxShadowHandler.bind(this);
   }
 
   toggleMenuHandler() {
-// this.state.mediaQuery === "9850px" ? false :
     let isShowMenu = !this.state.isShowMenu;
     this.setState({ isShowMenu, mediaQuery: "850px"});
   }
 
   closeMenuHandler() {
-    
     this.setState({ isShowMenu: false, mediaQuery: "9850px"});
   }
 
   selectColorHandler(color) {
-    console.log("color", color);
     const colorsPrimary = {
       defaultPrimary,
       primaryTurquoise, primaryLightBlue,
@@ -55,23 +53,30 @@ class Layout extends Component {
       defaultSecondary,
        secondaryTurquoise,
         secondaryBrown
-
     }
  
-    
     this.setState(currentState => {
-
       const newPrimaryColor = color in colorsPrimary ?   colorsPrimary[color] : currentState.primaryColor;
       const newSecondaryColor = color in colorsSecondary ? colorsSecondary[color]  : currentState.secondaryColor;
      
       return { primaryColor: newPrimaryColor, secondaryColor: newSecondaryColor}
     });
    
+  }
 
+  changeBoxShadowHandler(e) {
+    const spread = e.currentTarget.name;
+    const opacity = e.currentTarget.name;
+    const value = e.currentTarget.value;
+
+    this.setState(currentState => {
+      const boxSpread = spread === 'spread' ? value + 'px' : currentState.boxSpread;
+      const boxOpacicty = opacity === 'opacity' ? value / 100 : currentState.boxOpacicty;
+      return { boxSpread, boxOpacicty};
+    });
   }
 
   render() {   
-
     
     return ( 
 
@@ -79,7 +84,7 @@ class Layout extends Component {
     
         <Menu primaryColor={this.state.primaryColor} secondaryColor={this.state.secondaryColor} 
           mediaQuery={this.state.mediaQuery} closeMenu={this.closeMenuHandler} showToggleMenu={this.state.isShowMenu}/>
-        <Header selectColor={this.selectColorHandler} primaryColor={this.state.primaryColor}
+        <Header boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread} changeBoxShadow={this.changeBoxShadowHandler} selectColor={this.selectColorHandler} primaryColor={this.state.primaryColor}
           mediaQuery={this.state.mediaQuery} toggleMenu={this.toggleMenuHandler} showToggleMenu={this.state.isShowMenu}/>
         <ContentBody mediaQuery={this.state.mediaQuery} showToggleMenu={this.state.isShowMenu}>
           <Switch>

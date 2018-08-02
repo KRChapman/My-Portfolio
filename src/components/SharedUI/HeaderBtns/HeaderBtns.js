@@ -7,10 +7,19 @@ const HeaderBtn = styled.button`
   background-color: ${ props => props.buttonColor};
   color: #fff;
   outline:none;
-  margin: 5px;
-  border: 5px solid rgba(78, 91, 94, 0.45);
-  border-radius: 5px;
+  margin: 6px;
+  
+  border: 1px solid rgba(78, 91, 94, 0.45);
+  border-radius: 10px;
   cursor: pointer;
+
+  &:hover{
+    background-color: rgba(78, 91, 94, 0.45);
+  }
+  &:focus{
+    background-color: rgba(78, 91, 94, 0.45);
+
+  }
 `;
 
 const HeaderBtns = (props) => {

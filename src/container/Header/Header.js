@@ -3,7 +3,7 @@ import Style from './HeaderStyle.js'
 
 import React, { Component } from 'react';
 import HamburgerMenu from '../../components/SharedUI/HamburgerMenu/HamburgerMenu.js';
-import HeaderBtns from './HeaderBtns/HeaderBtns.js';
+import HeaderBtns from './../../components/SharedUI/HeaderBtns/HeaderBtns.js';
 import ModalContainer from '../../components/SharedUI/Modal/ModalContainer.js';
   
 class Header extends Component {
@@ -28,9 +28,10 @@ class Header extends Component {
   }
 
   render() {
+    console.log("boxOpacicty={this.props.boxOpacicty", this.props.boxOpacicty);
     const settingsModal = this.state.isSettings || this.state.isColor ? 
-                          <ModalContainer selectColor={this.props.selectColor} isSettings={this.state.isSettings}
-                           isColor={this.state.isColor} /> : null;
+      <ModalContainer changeBoxShadow={this.props.changeBoxShadow} selectColor={this.props.selectColor} isSettings={this.state.isSettings}
+        isColor={this.state.isColor} boxOpacicty={this.props.boxOpacicty} boxSpread={this.props.boxSpread} /> : null;
                            // 
     return (
 
@@ -39,7 +40,7 @@ class Header extends Component {
         <Style.Title>Full Stack Web Developer </Style.Title>
         <Style.NavBtnsContainer>
           <HeaderBtns buttonColor={this.props.primaryColor.buttonColor} toggleOptions={this.toggleDisplaySettingsOptions} > Custimize Settings  </HeaderBtns >
-          <HeaderBtns buttonColor={this.props.primaryColor.buttonColor} toggleOptions={this.toggleDisplayColorsOptions} >Change Colors</HeaderBtns >
+          <HeaderBtns  buttonColor={this.props.primaryColor.buttonColor} toggleOptions={this.toggleDisplayColorsOptions}  >Change Colors</HeaderBtns >
              
         </Style.NavBtnsContainer>
           

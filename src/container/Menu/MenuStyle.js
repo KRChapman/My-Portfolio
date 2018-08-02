@@ -3,9 +3,9 @@ import styled, {css} from 'styled-components';
 
 const Container = styled.div`
   width: ${props => props.theme.horizontal};
-  height: 1000px;
 
-  background: blue;
+  height: 100vh;
+  background: ${props => props.backgroundColor};
   display: inline-block;
   position: fixed;
   transition: transform ${props => props.theme.transitionTime} ease-out;
