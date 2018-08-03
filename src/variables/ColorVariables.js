@@ -13,11 +13,11 @@ export const defaultPrimary = {
 };                        
 //#103033 #1c474b
 export const primaryTurquoise = { 
-  backgroundColor: "#103033", buttonColor: "#1c474b", textColorChange: true 
+  backgroundColor: "#103033", buttonColor: "#1c474b", textColorChange: false 
 };
 //#273d56 79B0EC
 export const primaryLightBlue = { 
-  backgroundColor: "#273d56", buttonColor: "#476b91", textColorChange: true 
+  backgroundColor: "#273d56", buttonColor: "#476b91", textColorChange: false 
 };
 
 export const secondaryTurquoise =  { 

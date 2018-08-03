@@ -8,6 +8,7 @@ const HeaderBtn = styled.button`
   color: #fff;
   outline:none;
   margin: 6px;
+  margin-left: 1px;
   
   border: 1px solid rgba(78, 91, 94, 0.45);
   border-radius: 10px;
@@ -26,7 +27,7 @@ const HeaderBtns = (props) => {
 
   return (
     
-    <HeaderBtn buttonColor={props.buttonColor} onClick={props.toggleOptions}>{props.children}</HeaderBtn>
+    <HeaderBtn buttonColor={props.buttonColor} onClick={props.toggleOptions} >{props.children}</HeaderBtn>
   )
 }
 

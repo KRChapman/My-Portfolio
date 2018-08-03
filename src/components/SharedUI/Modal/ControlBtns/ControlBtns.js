@@ -21,7 +21,8 @@ const ControlStyle = styled.button`
 const ControlBtns = (props) => {
 
   return (
-    <ControlStyle color={props.color}>{props.children}</ControlStyle>
+    <ControlStyle onClick={() =>{props.clicked !== null ? props.clicked() : null;
+                                 props.clickClose !== null ? props.clickClose() : null;}} color={props.color}>{props.children}</ControlStyle>
   )
 }
 

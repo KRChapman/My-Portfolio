@@ -26,6 +26,8 @@ class Menu extends Component {
                                 gitHub: createLink('GitHub', 'fab fa-github', 'https://github.com/KRChapman')
                               } 
                 },
+  
+
         
 
         vanillaJavaScriptProjects: { linkAttributes: createLink(' Vannila javaScript Projects', 'fab fa-js-square', '/vanillajavascript'), 

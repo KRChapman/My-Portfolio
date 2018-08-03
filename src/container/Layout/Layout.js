@@ -15,24 +15,79 @@ import { defaultPrimary, defaultSecondary,
         primaryTurquoise, primaryLightBlue, 
         secondaryTurquoise, secondaryBrown } from './../../variables/ColorVariables';
 
+const defaults = {
+  boxSpread: "1px",
+  boxOpacicty: "0.5",
+  primaryColor: defaultPrimary,
+  secondaryColor: defaultSecondary,
+
+  isShowMenu: false,
+  mediaQuery: "850px"
+};
 
 class Layout extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      boxSpread: "1px",
-      boxOpacicty: "0.5",
-      primaryColor: defaultPrimary,
-      secondaryColor: defaultSecondary,
+      boxSpread: defaults.boxSpread,
+      boxOpacicty: defaults.boxOpacicty,
+      primaryColor: defaults.primaryColor,
+      secondaryColor: defaults.secondaryColor,
     
-      isShowMenu: false,
-      mediaQuery: "850px",
+      isShowMenu: defaults.isShowMenu,
+      mediaQuery: defaults.mediaQuery,
      }
 
     this.toggleMenuHandler = this.toggleMenuHandler.bind(this);
     this.closeMenuHandler = this.closeMenuHandler.bind(this);
     this.selectColorHandler = this.selectColorHandler.bind(this);
     this.changeBoxShadowHandler = this.changeBoxShadowHandler.bind(this);
+    this.saveToLocalStorageHandler = this.saveToLocalStorageHandler.bind(this);
+    this.resetToDefaultsHandler = this.resetToDefaultsHandler.bind(this);
+    this.selectRandomColorHandler = this.selectRandomColorHandler.bind(this);
+  }
+
+  componentDidMount() {
+
+    this.updateStateWithLocalStorage();
+  }
+
+  updateStateWithLocalStorage() {
+    for (let key in this.state) {
+      if (localStorage.hasOwnProperty(key)
+        && (key === "boxSpread" || key === "boxOpacicty" || key === "primaryColor"
+        || key === "secondaryColor")) {
+        let value = localStorage.getItem(key);
+
+        try {
+          value = JSON.parse(value);
+          this.setState({ [key]: value });
+        } catch (e) {
+          this.setState({ [key]: value });
+        }
+      }
+    }
+  }
+
+  saveToLocalStorageHandler() {
+    for (let key in this.state) {
+      // save to localStorage
+      if (key !== "mediaQuery" && key !== "isShowMenu")
+      localStorage.setItem(key, JSON.stringify(this.state[key]));
+    }
+    
+  }
+
+  resetToDefaultsHandler(){
+    const wantedDefaults = {
+      boxSpread: defaults.boxSpread,
+      boxOpacicty: defaults.boxOpacicty,
+      primaryColor: defaults.primaryColor,
+      secondaryColor: defaults.secondaryColor,
+    }
+    localStorage.clear();
+    this.setState({ ...wantedDefaults });
+
   }
 
   toggleMenuHandler() {
@@ -76,6 +131,90 @@ class Layout extends Component {
     });
   }
 
+  selectRandomColorHandler(name) {
+    const initialStateColors = this.state.primaryColor;
+    const initialSecondaryColorColors = this.state.secondaryColor;
+    const colorsPrimary = {
+      defaultPrimary,
+      primaryTurquoise, primaryLightBlue,
+    }
+    const colorsSecondary = {
+      defaultSecondary,
+      secondaryTurquoise,
+      secondaryBrown
+    }
+    const colors = name === "primary" ? createPrimaryArray(colorsPrimary, initialStateColors) : createSecondaryArray(colorsSecondary, initialSecondaryColorColors);
+    console.log("possibleColors", colors);
+
+    const maxNumber = colors.length;
+    const colorToChange = colors[Math.floor(Math.random() * Math.floor(maxNumber))];
+
+    this.setState(currentState => {
+      let newObj = { ...currentState.primaryColor };
+      let colorData = name === "primary" ? { key: "primaryColor", obj: newObj} : 
+                                            { key: "secondaryColor", obj: { ...currentState.secondaryColor }};
+    
+      
+      let changedColor = changeChosenColor(colorData.obj, colorToChange, currentState);
+      // primaryColor = changeChosenColor(secondaryColor, colorToChange);
+      console.log("changedColor", changedColor);
+      return { [colorData.key]: changedColor};
+    });
+    function changeChosenColor(colors, colorToChange, currentState) {
+      const primaryKeys = Object.keys(colors);
+      const filteredKeys = primaryKeys.filter(ele => {
+        // console.log("primaryKeys[ele]", primaryKeys[ele]);
+        return typeof colors[ele] === 'string';
+      });
+      const maxNumber = filteredKeys.length;
+      const indexToChange = Math.floor(Math.random() * Math.floor(maxNumber));
+       colors[filteredKeys[indexToChange]] = colorToChange;
+    //  colors.textColorChange = (currentState.primaryColor.backgroundColor || colorToChange) === "rgba(114,133,137,0.45)" ? true : false;
+      return colors;
+    }
+    
+    function createPrimaryArray(colorsPrimary, initialColors){
+      
+      const initialColorValues = Object.values(initialColors);
+
+      let valuesArray = [];
+      for (const key in colorsPrimary) {
+        let values = Object.values(colorsPrimary[key]);
+  
+        valuesArray = [...valuesArray, ...values]
+      }
+ 
+      return valuesArray.filter(ele => {
+   
+        return initialColorValues.indexOf(ele) === -1 && typeof ele === 'string';
+   
+        })
+
+
+    }
+    function createSecondaryArray(colorsSecondary, initialSecondaryColorColors){
+      const initialColorValues = Object.values(initialSecondaryColorColors);
+
+      let valuesArray = [];
+      for (const key in colorsSecondary) {
+        console.log("valuesArrayvaluesArray", colorsSecondary[key]);
+        let values = Object.values(colorsSecondary[key]);
+
+        valuesArray = [...valuesArray, ...values]
+    
+      }
+
+      return valuesArray.filter(ele => {
+
+        return initialColorValues.indexOf(ele) === -1 && typeof ele !== 'object';
+
+      })
+     
+    }
+
+  
+  }
+
   render() {   
     
     return ( 
@@ -84,8 +223,10 @@ class Layout extends Component {
     
         <Menu primaryColor={this.state.primaryColor} secondaryColor={this.state.secondaryColor} 
           mediaQuery={this.state.mediaQuery} closeMenu={this.closeMenuHandler} showToggleMenu={this.state.isShowMenu}/>
-        <Header boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread} changeBoxShadow={this.changeBoxShadowHandler} selectColor={this.selectColorHandler} primaryColor={this.state.primaryColor}
-          mediaQuery={this.state.mediaQuery} toggleMenu={this.toggleMenuHandler} showToggleMenu={this.state.isShowMenu}/>
+        <Header boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread} changeBoxShadow={this.changeBoxShadowHandler} 
+          selectColor={this.selectColorHandler} primaryColor={this.state.primaryColor} saveToLocalStorage={this.saveToLocalStorageHandler} 
+          mediaQuery={this.state.mediaQuery} toggleMenu={this.toggleMenuHandler} showToggleMenu={this.state.isShowMenu} 
+          resetToDefaults={this.resetToDefaultsHandler} selectRandomColor={this.selectRandomColorHandler} /> 
         <ContentBody mediaQuery={this.state.mediaQuery} showToggleMenu={this.state.isShowMenu}>
           <Switch>
             <Route path='/projects'  render={() => {
@@ -105,3 +246,5 @@ class Layout extends Component {
 
 
 export default Layout;
+
+

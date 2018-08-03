@@ -52,23 +52,23 @@ const ColorModal = (props) => {
   return (
     <Container>    
       <ColorContainer>
-        <div style={{marginBottom: "5px"}}>Primary Colors</div>
+        <div style={{marginBottom: "5px", textAlign: "center"}}>Primary Colors</div>
         <ButtonContainer>
           {primaryColors.map(ele => {
 
             return <ColorBtn key={ele} colorName={ele} selectColor={props.selectColor}  color={colorsObj[ele].backgroundColor} />
           })}  
-          <RandomBtn>Random</RandomBtn>
+          <RandomBtn onClick={() => props.selectRandomColor('primary')}>Random</RandomBtn>
         </ButtonContainer>
       </ColorContainer> 
       <ColorContainer>
-        <div style={{ marginBottom: "5px" }}>Secondary Colors</div>
+        <div style={{ marginBottom: "5px", textAlign: "center" }}>Secondary Colors</div>
         <ButtonContainer>
           {secondaryColors.map(ele => {
 
             return <ColorBtn key={ele} colorName={ele} selectColor={props.selectColor} color={colorsObj[ele].backgroundColorTop} />
           })}
-          <RandomBtn>Random</RandomBtn>
+          <RandomBtn onClick={() => props.selectRandomColor('secondary')}>Random</RandomBtn>
         </ButtonContainer>    
       </ColorContainer> 
 
