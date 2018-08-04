@@ -13,9 +13,10 @@ const Container = styled.div`
  ${ props => console.log(props.boxSpread) }
 
 
-  -webkit-box-shadow: 4px 4px 6px ${props => props.boxSpread} rgba(0,0,0, ${props => props.boxOpacicty});
-  -moz-box-shadow: 4px 4px 6px ${props => props.boxSpread} rgba(0,0,0, ${props => props.boxOpacicty});
-  box-shadow: 4px 4px 6px ${props => props.boxSpread}rgba(0,0,0, ${props => props.boxOpacicty}); 
+  -webkit-box-shadow: 4px 4px 16px ${props => props.boxSpread} rgba(0,0,0, ${props => props.boxOpacicty});
+  -moz-box-shadow: 4px 4px 16px ${props => props.boxSpread} rgba(0,0,0, ${props => props.boxOpacicty});
+  box-shadow: 4px 4px 16px ${props => props.boxSpread}rgba(0,0,0, ${props => props.boxOpacicty}); 
+
 
 `;
 
@@ -28,32 +29,35 @@ const ImageCrop = styled.div`
 
 const Image = styled.img`
  display: block;
+   &:hover{
+
+    background: red;
+   
+       opacity: 0.4;
+  
+  }
 /* style={{ maxWidth: "initial" }}  */
 
  
 
 `
-    /* rules from above, plus... */
- 
+const Anchor = styled.a`
 
-//  <img src={picture} alt="" />
-//style={{ width: "400px", height: "500px" }}
-//   <img src={gameA} alt="" />
+`
 
-//style={{ maxWidth: "initial" }}
-//, marginBottom: "-170px"
 const Card = (props) => {
   
   return (
     <Container boxOpacicty={props.boxOpacicty} boxSpread={props.boxSpread}>
-
+      <Anchor href={props.linkTo} style={{ ...props.anchorStyle }}>
       <ImageCrop style={{ ...props.containerStyle }} >
         
         <Image style={{ ...props.pictureStyle}} src={props.src} alt="" />
         
         </ImageCrop>
+        </Anchor>
         <div>
-            <p>aa</p>
+        {props.textComponent}
 
         </div>
      
@@ -65,8 +69,5 @@ const Card = (props) => {
   )
 }
 
-{/* <ImageCrop>
-  <img style={{ maxWidth: "initial" }} src={test} alt="" />
-</ImageCrop> */}
 
 export default Card;

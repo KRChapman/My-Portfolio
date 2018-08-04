@@ -16,8 +16,8 @@ import { defaultPrimary, defaultSecondary,
         secondaryTurquoise, secondaryBrown } from './../../variables/ColorVariables';
 
 const defaults = {
-  boxSpread: "1px",
-  boxOpacicty: "0.5",
+  boxSpread: "5px",
+  boxOpacicty: "0.55",
   primaryColor: defaultPrimary,
   secondaryColor: defaultSecondary,
 
