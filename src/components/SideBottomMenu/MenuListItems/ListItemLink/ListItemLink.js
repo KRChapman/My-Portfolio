@@ -15,7 +15,7 @@ const LinkElem = styled(NavLink)`
   justify-content: space-between;
   font-size:  ${props => props.theme.fontSize};
 
-  padding: 20px 10px;
+  padding: 16px 10px;
   height: 100%;
    
   text-decoration: none;
@@ -71,14 +71,15 @@ const LinkCounter = (props) => {
   )
 }
 
-
+//
 
 const ListItemLink = (props) => {
   const counter = props.count ? <LinkCounter count={props.count} /> : null;
-
+  console.log("props.name", props.name);
+  const clickToExpand = props.expandLinks != null ?  () => props.expandLinks(props.name) : null
   return (
     <ListItem textColor={props.textColor}>
-      <LinkElem  to={props.to} onClick={props.expandLinks}>
+      <LinkElem to={props.to} onClick={clickToExpand}>
         <Flex><IconContainer className={props.icon}></IconContainer><div>{props.children} </div></Flex> 
         <RightContainer>{counter}</RightContainer>
       </LinkElem>

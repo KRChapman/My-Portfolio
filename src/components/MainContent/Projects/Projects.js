@@ -7,7 +7,13 @@ import test from './../../../assets/images/testA.png';
 import gameA from './../../../assets/images/gameA.png';
 import gameB from './../../../assets/images/gameB.png';
 import wiki from './../../../assets/images/wiki.png';
+import BackGroundPicture from '../../SharedUI/BackGroundPicture/BackGroundPicture';
 
+import {
+  withRouter,
+  Route,
+  Switch,
+} from 'react-router-dom';
 const Container = styled.div`
 
   width: 100%;
@@ -84,6 +90,10 @@ const Projects = (props) => {
   }
   
   return (
+    <React.Fragment>
+      
+    
+  
     <Container>
       <CardContainer>
         <Card linkTo={voteNow.linkTo} textComponent={voteNow.text} boxOpacicty={props.boxOpacicty} boxSpread={props.boxSpread} 
@@ -104,7 +114,8 @@ const Projects = (props) => {
    
      
     </Container>
+    </React.Fragment>
   )
 }
-
+{/* <BackGroundPicture /> */}
 export default Projects;

@@ -58,6 +58,7 @@ const Card = (props) => {
         </Anchor>
         <div>
         {props.textComponent}
+        {props.children}
 
         </div>
      

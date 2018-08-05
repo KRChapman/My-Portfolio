@@ -10,12 +10,19 @@ const Container = styled.div`
   position: absolute;
   z-index: 600;
   right: 6px;
-  top: -175px;
+  top: -220px;
   box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.6);
   transition: top 0.5s ease; 
 
+   
+     @media (min-width: 556px) {
+      
+      };
+ 
+  
   ${props => (props.isColor || props.isSettings) && css`
-     top: 75px; 
+     top: 95px; 
+     visibility: visible;
   `}
 `;
 

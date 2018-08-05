@@ -4,7 +4,7 @@ const BodyContainer = styled.div`
   margin-top: ${props => props.theme.verticle};
   margin-left: ${props => props.theme.horizontal};
 
-  border: 1px solid purple;
+ 
   position: relative;
   background-color: #E9F0F5;
    /* #E9F0F5; */

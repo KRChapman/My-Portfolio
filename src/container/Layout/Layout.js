@@ -4,9 +4,10 @@ import Header from '../Header/Header.js';
 import ContentBody from '../../components/MainContent/ContentBody/ContentBody.js';
 
 import {
-  BrowserRouter,
+  withRouter ,
   Route,
   Switch,
+ 
 } from 'react-router-dom';
 
 import Projects from './../../components/MainContent/Projects/Projects';
@@ -17,7 +18,7 @@ import { defaultPrimary, defaultSecondary,
 
 const defaults = {
   boxSpread: "5px",
-  boxOpacicty: "0.55",
+  boxOpacicty: "0.4",
   primaryColor: defaultPrimary,
   secondaryColor: defaultSecondary,
 
@@ -36,6 +37,7 @@ class Layout extends Component {
     
       isShowMenu: defaults.isShowMenu,
       mediaQuery: defaults.mediaQuery,
+      projectPath: "",
      }
 
     this.toggleMenuHandler = this.toggleMenuHandler.bind(this);
@@ -48,8 +50,23 @@ class Layout extends Component {
   }
 
   componentDidMount() {
-
+    const pathName = this.props.location.pathname;
     this.updateStateWithLocalStorage();
+    this.updatePicture(pathName);
+  }
+
+  componentDidUpdate(prevProps) {
+
+    if(this.props.location !== prevProps.location){
+      const pathName = this.props.location.pathname;
+      this.updatePicture(pathName);
+    }
+  }
+
+  updatePicture(pathName){
+
+    this.setState({ projectPath: pathName });
+   
   }
 
   updateStateWithLocalStorage() {
@@ -183,10 +200,10 @@ class Layout extends Component {
   
         valuesArray = [...valuesArray, ...values]
       }
- 
+
       return valuesArray.filter(ele => {
    
-        return initialColorValues.indexOf(ele) === -1 && typeof ele === 'string';
+        return initialColorValues.indexOf(ele) === -1 && typeof ele === 'string' && ele != "rgba(114,133,137,0.45)";
    
         })
 
@@ -216,35 +233,38 @@ class Layout extends Component {
   }
 
   render() {   
-    
+    console.log("backgroundpic={props.backgroundpic}", this.state.projectPath);
+    // backgroundpic = { true}
     return ( 
 
       <React.Fragment>
-    
+        
         <Menu primaryColor={this.state.primaryColor} secondaryColor={this.state.secondaryColor} 
           mediaQuery={this.state.mediaQuery} closeMenu={this.closeMenuHandler} showToggleMenu={this.state.isShowMenu}/>
         <Header boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread} changeBoxShadow={this.changeBoxShadowHandler} 
           selectColor={this.selectColorHandler} primaryColor={this.state.primaryColor} saveToLocalStorage={this.saveToLocalStorageHandler} 
           mediaQuery={this.state.mediaQuery} toggleMenu={this.toggleMenuHandler} showToggleMenu={this.state.isShowMenu} 
           resetToDefaults={this.resetToDefaultsHandler} selectRandomColor={this.selectRandomColorHandler} /> 
-        <ContentBody mediaQuery={this.state.mediaQuery} showToggleMenu={this.state.isShowMenu}>
+        <ContentBody backgroundpic={this.state.projectPath} mediaQuery={this.state.mediaQuery} showToggleMenu={this.state.isShowMenu}>
           <Switch>
             <Route path='/projects'  render={() => {
-              return <Projects boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread}/>         
+              return <Projects  boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread}/>         
             }}/>
             <Route path="/contact" render={() => {
               return <Contact boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread} />
             }} />
+            <Route path='/github' component={() => window.location.replace('https://github.com/KRChapman') } />
+            <Route path='/linkedin' component={() => window.location.replace('https://www.linkedin.com/in/kyle-chapman-76969b167/')} />
           </Switch>      
         </ContentBody>
-
+        
       </React.Fragment>
-   
+
      )
   }
 }
 
 
-export default Layout;
+export default withRouter(Layout);
 
 

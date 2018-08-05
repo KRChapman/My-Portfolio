@@ -12,7 +12,7 @@ class Menu extends Component {
     this.state = { 
       slideLocation: 0,
       buttonClicked: "Menu",
-      showSubLinks: true,
+      
 
       contentLinks: {
         projects: { linkAttributes: createLink('Projects', 'fas fa-file-alt','/projects',  ), 
@@ -23,11 +23,18 @@ class Menu extends Component {
                  },
         myInfo: { linkAttributes: createLink('My Info', 'fas fa-info-circle', '#', true), 
                     subLinks: { aboutMe: createLink('About Me', 'fas fa-address-card', '/aboutme'), resume: createLink('Resume', 'far fa-list-alt', '/resume', ),
-                                gitHub: createLink('GitHub', 'fab fa-github', 'https://github.com/KRChapman')
-                              } 
+                    
+                              },
+                showSubLinks: true, 
                 },
   
-
+        links: {
+          linkAttributes: createLink('Links', 'fas fa-info-circle', '#', true),
+          subLinks: {
+            gitHub: createLink('GitHub', 'fab fa-github', '/github'), linkedin: createLink('Linkedin', 'fab fa-github', '/linkedin')
+          },
+          showSubLinks: false, 
+        },
         
 
         vanillaJavaScriptProjects: { linkAttributes: createLink(' Vannila javaScript Projects', 'fab fa-js-square', '/vanillajavascript'), 
@@ -62,10 +69,13 @@ class Menu extends Component {
     this.setState({ slideLocation, buttonClicked});
   }
 
-  handleExpandLinks(e){
-    const showSubLinks = !this.state.showSubLinks;
-    
-    this.setState({ showSubLinks });
+  handleExpandLinks(name){
+ 
+    this.setState(currentState => {
+      const contentObj = { ...currentState.contentLinks }
+      contentObj[name].showSubLinks = !contentObj[name].showSubLinks;
+      return { contentLinks: contentObj}
+    });
   }
 
  
@@ -73,10 +83,13 @@ class Menu extends Component {
   render() { 
 
     return ( 
-      <Styled.Container backgroundColor={this.props.primaryColor.backgroundColor} mediaQuery={this.props.mediaQuery} showToggleMenu={this.props.showToggleMenu}>
+      <Styled.Container backgroundColor={this.props.primaryColor.backgroundColor}
+        mediaQuery={this.props.mediaQuery} showToggleMenu={this.props.showToggleMenu}>
         <SideTopInfo secondaryColor={this.props.secondaryColor} />
-        <MidControlNav secondaryColor={this.props.secondaryColor} buttonClicked={this.state.buttonClicked} changeMenu={this.handleChangeMenu} closeMenu={this.props.closeMenu}/>
-        <MenuWrapper primaryColor={this.props.primaryColor} showSubLinks={this.state.showSubLinks} contentLinks={this.state.contentLinks}  expandLinks={this.handleExpandLinks}  slideLocation={this.state.slideLocation}/>
+        <MidControlNav secondaryColor={this.props.secondaryColor} buttonClicked={this.state.buttonClicked}
+          changeMenu={this.handleChangeMenu} closeMenu={this.props.closeMenu}/>
+        <MenuWrapper primaryColor={this.props.primaryColor} showSubLinks={this.state.showSubLinks} 
+          contentLinks={this.state.contentLinks}  expandLinks={this.handleExpandLinks}  slideLocation={this.state.slideLocation}/>
       </Styled.Container >
      )
   }
