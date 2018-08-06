@@ -7,7 +7,7 @@ import ControlBtns from './ControlBtns/ControlBtns';
 const Container = styled.div`
   width: 300px;
   background-color: #fff;
-  position: absolute;
+  position: fixed;
   z-index: 600;
   right: 6px;
   top: -220px;
@@ -21,7 +21,7 @@ const Container = styled.div`
  
   
   ${props => (props.isColor || props.isSettings) && css`
-     top: ${ props => props.offSet}; 
+     top: 75px; 
      visibility: visible;
   `}
 `;
@@ -41,10 +41,9 @@ const ModalContainer = (props) => {
   const boxShadowModal = props.isSettings ? <BoxShadowModal changeBoxShadow={props.changeBoxShadow}
                                             boxOpacicty={props.boxOpacicty}
                                             boxSpread={props.boxSpread} /> : null;
-  let offSet = 75 + props.offSet;
-  offSet = offSet + 'px';
+ 
   return (
-    <Container offSet={offSet} isSettings={props.isSettings} isColor={props.isColor}>
+    <Container isSettings={props.isSettings} isColor={props.isColor}>
         {base}
         {boxShadowModal}    
         {colorModal}

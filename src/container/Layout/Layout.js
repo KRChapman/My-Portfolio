@@ -18,7 +18,7 @@ import { defaultPrimary, defaultSecondary,
 import Resume from '../../components/MainContent/Resume/Resume.js';
 
 const defaults = {
-  boxSpread: "5px",
+  boxSpread: "8px",
   boxOpacicty: "0.4",
   primaryColor: defaultPrimary,
   secondaryColor: defaultSecondary,

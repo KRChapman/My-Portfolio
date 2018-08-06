@@ -22,7 +22,8 @@ class Header extends Component {
 
   toggleDisplayColorsOptions() {
     const isColor = !this.state.isColor;
-    this.setState({ isColor, isSettings: false });
+    let offSet = window.pageYOffset;
+    this.setState({ isColor, isSettings: false, offSet });
   }
   toggleDisplaySettingsOptions() {
     const isSettings = !this.state.isSettings;
