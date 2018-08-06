@@ -12,6 +12,7 @@ class Header extends Component {
     this.state = {  
       isSettings: false,
       isColor: false,
+      offSet: 0,
     }
 
     this.toggleDisplayColorsOptions = this.toggleDisplayColorsOptions.bind(this);
@@ -25,7 +26,10 @@ class Header extends Component {
   }
   toggleDisplaySettingsOptions() {
     const isSettings = !this.state.isSettings;
-    this.setState({ isSettings, isColor: false });
+
+    let offSet = window.pageYOffset;
+
+    this.setState({ isSettings, isColor: false, offSet  });
   }
 
   closeOptionsHandler() {
@@ -38,7 +42,7 @@ class Header extends Component {
     const settingsModal = 
       <ModalContainer changeBoxShadow={this.props.changeBoxShadow} selectColor={this.props.selectColor} 
         isSettings={this.state.isSettings} closeOptions={this.closeOptionsHandler}
-        isColor={this.state.isColor} boxOpacicty={this.props.boxOpacicty} 
+        isColor={this.state.isColor} boxOpacicty={this.props.boxOpacicty} offSet={this.state.offSet} 
         saveToLocalStorage={this.props.saveToLocalStorage} resetToDefaults={this.props.resetToDefaults}
         boxSpread={this.props.boxSpread} selectRandomColor={this.props.selectRandomColor} />;
                            // 
@@ -51,7 +55,7 @@ class Header extends Component {
         <HamburgerMenu mediaQuery={this.props.mediaQuery} toggleMenu={this.props.toggleMenu}/>
         <Style.Title>Full Stack Web Developer </Style.Title>
         <Style.NavBtnsContainer>
-          <HeaderBtns buttonColor={this.props.primaryColor.buttonColor} 
+            <HeaderBtns buttonColor={this.props.primaryColor.buttonColor} 
           toggleOptions={this.toggleDisplaySettingsOptions}> Custimize Settings  </HeaderBtns >
           <HeaderBtns  buttonColor={this.props.primaryColor.buttonColor}
             toggleOptions={this.toggleDisplayColorsOptions} >Change Colors</HeaderBtns >           

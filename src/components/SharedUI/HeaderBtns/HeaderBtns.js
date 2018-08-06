@@ -27,7 +27,7 @@ const HeaderBtns = (props) => {
 
   return (
     
-    <HeaderBtn buttonColor={props.buttonColor} onClick={props.toggleOptions} >{props.children}</HeaderBtn>
+    <HeaderBtn  buttonColor={props.buttonColor} onClick={props.toggleOptions} >{props.children}</HeaderBtn>
   )
 }
 

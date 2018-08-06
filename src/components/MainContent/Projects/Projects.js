@@ -14,6 +14,7 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
+import MongoDb from '../../SharedUI/TechIcons/TechIcons/MongoDb';
 const Container = styled.div`
 
   width: 100%;
@@ -58,7 +59,7 @@ font-size: 10px;
 const Projects = (props) => {
 
  const voteNow ={ text: <div>
-                  <Header>Vote-Now-Omatic</Header>
+                  <Header>Vote-Now-Omatic</Header><MongoDb />
                   <Para>Full stack vanilla Javascript application. Log in and create polls
                     for other people around to world to vote on and chart the results.                  
                   </Para>

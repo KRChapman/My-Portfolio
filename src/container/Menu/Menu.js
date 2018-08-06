@@ -5,7 +5,19 @@ import SideTopInfo from '../../components/SideTopInfo/SideTopInfo';
 
 import MidControlNav from '../../components/MidControlNav/MidControlNav';
 import MenuWrapper from '../../components/MenuWrapper/MenuWrapper';
-
+import {
+  faTwitter,
+  faFacebook,
+  faStackOverflow,
+  faGithub,
+  faLinkedin,
+  faJsSquare,
+ 
+} from "@fortawesome/free-brands-svg-icons";
+import { faMobileAlt, faFileAlt, faInfoCircle, faAddressCard, faListAlt, faLink, faCodeBranch} from '@fortawesome/free-solid-svg-icons';
+// 'fas fa-file-alt'
+//'fas fa-info-circle'
+//'fas fa-mobile-alt'
 class Menu extends Component {
   constructor(props) {
     super(props);
@@ -15,29 +27,30 @@ class Menu extends Component {
       
 
       contentLinks: {
-        projects: { linkAttributes: createLink('Projects', 'fas fa-file-alt','/projects',  ), 
+        projects: { linkAttributes: createLink('Projects', faFileAlt,'/projects',  ), 
                     subLinks: null, 
                   },
-        contact: { linkAttributes: createLink('Contact', 'fas fa-mobile-alt', '/contact'), 
+        contact: { linkAttributes: createLink('Contact',faMobileAlt , '/contact'), 
                     subLinks: null,  
                  },
-        myInfo: { linkAttributes: createLink('My Info', 'fas fa-info-circle', '#', true), 
-                    subLinks: { aboutMe: createLink('About Me', 'fas fa-address-card', '/aboutme'), resume: createLink('Resume', 'far fa-list-alt', '/resume', ),
+        myInfo: { linkAttributes: createLink('My Info', faInfoCircle, '#', true), 
+                    subLinks: { aboutMe: createLink('About Me', faAddressCard, '/aboutme'), resume: createLink('Resume', faListAlt, '/resume', ),
                     
                               },
                 showSubLinks: true, 
                 },
   
         links: {
-          linkAttributes: createLink('Links', 'fas fa-info-circle', '#', true),
+          linkAttributes: createLink('Links', faLink, '#', true),
           subLinks: {
-            gitHub: createLink('GitHub', 'fab fa-github', '/github'), linkedin: createLink('Linkedin', 'fab fa-github', '/linkedin')
+            gitHub: createLink('GitHub', faGithub, '/github'), linkedin: createLink('Linkedin', faLinkedin , '/linkedin'),
+            portfolioGitHub: createLink('Portfolio GitHub', faCodeBranch, '/portfoliogithub'),
           },
           showSubLinks: false, 
         },
         
 
-        vanillaJavaScriptProjects: { linkAttributes: createLink(' Vannila javaScript Projects', 'fab fa-js-square', '/vanillajavascript'), 
+        vanillaJavaScriptProjects: { linkAttributes: createLink(' Vannila javaScript Projects',  faJsSquare, '/vanillajavascript'), 
                                     subLinks: null,
                                   },
 

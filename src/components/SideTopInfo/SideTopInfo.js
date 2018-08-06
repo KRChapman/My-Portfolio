@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import PictureInfo from './PictureInfo/PictureInfo';
 
 
+
 const Container = styled.div`
   width: 100%;
   height: ${props => props.theme.verticle};

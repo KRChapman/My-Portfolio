@@ -3,11 +3,12 @@ import styled from 'styled-components';
 
 import ListItemLink from './MenuListItems/ListItemLink/ListItemLink';
 
-
+//#7c7d7d;
 
 const Description = styled.div`
-  color: #7c7d7d;
-  margin: 20px;
+  color: #6c6c6c;
+
+  margin: 24px;
 `;
 
 const List = styled.ul`

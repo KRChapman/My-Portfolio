@@ -21,7 +21,7 @@ const Container = styled.div`
  
   
   ${props => (props.isColor || props.isSettings) && css`
-     top: 95px; 
+     top: ${ props => props.offSet}; 
      visibility: visible;
   `}
 `;
@@ -41,8 +41,10 @@ const ModalContainer = (props) => {
   const boxShadowModal = props.isSettings ? <BoxShadowModal changeBoxShadow={props.changeBoxShadow}
                                             boxOpacicty={props.boxOpacicty}
                                             boxSpread={props.boxSpread} /> : null;
+  let offSet = 75 + props.offSet;
+  offSet = offSet + 'px';
   return (
-    <Container isSettings={props.isSettings} isColor={props.isColor}>
+    <Container offSet={offSet} isSettings={props.isSettings} isColor={props.isColor}>
         {base}
         {boxShadowModal}    
         {colorModal}

@@ -4,6 +4,8 @@ import {
   Link,
   NavLink,
 } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft, faBookOpen, faSitemap, faClipboardList } from '@fortawesome/free-solid-svg-icons'
 
 const CloseArrowSpan = styled.span`
   border-right: 2px solid ${ props => props.boardersRight}; 
@@ -12,13 +14,13 @@ const CloseArrowSpan = styled.span`
   height: 100%;
 `;
 
-const ArrowIcon = styled.i`
+const ArrowIcon = styled(FontAwesomeIcon)`
   font-size: 26px;
   margin-top: 12%;
   cursor: pointer;
 `;
 
-const Icon = styled.i`
+const Icon = styled(FontAwesomeIcon)`
   margin-top: 2%;
   font-size: 16px;
 `;
@@ -67,21 +69,21 @@ const NavItems = (props) => {
     <React.Fragment> 
 
       <CloseArrowSpan iconsIdleColor={iconsIdleColor} boardersRight={boardersRight} onClick={props.closeMenu}>
-        <ArrowIcon className={"fas fa-arrow-left"}></ArrowIcon>
+        <ArrowIcon icon={faArrowLeft}></ArrowIcon>
       </CloseArrowSpan>
      
       <ButtonElem isClicked={buttons["Menu"]} data-btnname={"Menu"} data-location={menuRelativeLocation} 
       onClick={props.changeMenu} iconsIdleColor={iconsIdleColor} boardersRight={boardersRight}
       backgroundActiveColor={backgroundActiveColor} iconsPressedColor={iconsPressedColor} >
         <LinkContainer backgroundActiveColor={backgroundActiveColor} >
-          Menu <Icon className={"fas fa-book-open"}></Icon>
+          Menu <Icon icon={faBookOpen}></Icon>
         </LinkContainer>
       </ButtonElem>
   
       <ButtonElem isClicked={buttons["About"]} data-btnname={"About"} data-location={aboutRelativeLocation} onClick={props.changeMenu} 
         iconsIdleColor={iconsIdleColor} boardersRight={boardersRight} backgroundActiveColor={backgroundActiveColor} iconsPressedColor={iconsPressedColor}>
         <LinkContainer backgroundActiveColor={backgroundActiveColor}>
-          About<Icon className={"fas fa-sitemap"}></Icon>
+          About<Icon icon={faSitemap}></Icon>
         </LinkContainer>
       </ButtonElem>
 
@@ -90,7 +92,7 @@ const NavItems = (props) => {
                  backgroundActiveColor={backgroundActiveColor} iconsPressedColor={iconsPressedColor}
                  >
         <LinkContainer backgroundActiveColor={backgroundActiveColor}>
-          Features<Icon className={"fas fa-clipboard-list"}></Icon>
+          Features<Icon icon={faClipboardList}></Icon>
         </LinkContainer>
       </ButtonElem>
 

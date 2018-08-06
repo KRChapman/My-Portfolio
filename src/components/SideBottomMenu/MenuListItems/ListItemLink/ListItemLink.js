@@ -4,6 +4,9 @@ import {
   Link,
   NavLink,
 } from 'react-router-dom';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faMobileAlt } from '@fortawesome/free-solid-svg-icons'
 //
 const LinkElem = styled(NavLink)`
 
@@ -15,7 +18,7 @@ const LinkElem = styled(NavLink)`
   justify-content: space-between;
   font-size:  ${props => props.theme.fontSize};
 
-  padding: 16px 10px;
+  padding: 15px 10px;
   height: 100%;
    
   text-decoration: none;
@@ -37,7 +40,18 @@ const ListItem = styled.li`
       color: ${ props => props.textColor };
   }
 
-`
+`;
+
+
+
+////////
+const Test = styled(FontAwesomeIcon)`
+  margin-right: 15px;
+  margin-left: 10px;
+  height: 100%;
+
+`;
+///////////
 const IconContainer = styled.div`
  margin-right: 15px;
  margin-left: 10px;
@@ -80,7 +94,7 @@ const ListItemLink = (props) => {
   return (
     <ListItem textColor={props.textColor}>
       <LinkElem to={props.to} onClick={clickToExpand}>
-        <Flex><IconContainer className={props.icon}></IconContainer><div>{props.children} </div></Flex> 
+        <Flex><Test icon={props.icon}></Test><div>{props.children} </div></Flex> 
         <RightContainer>{counter}</RightContainer>
       </LinkElem>
       {props.ul}

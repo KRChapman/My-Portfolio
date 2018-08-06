@@ -1,8 +1,9 @@
-//main #DE5939
-
 import React from 'react';
 import styled from 'styled-components';
-import picture from './../../../assets/images/portfolio-picture.jpg'
+import picture from './../../../assets/images/portfolio-picture.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFolderOpen } from '@fortawesome/free-solid-svg-icons';
+
 
 const Container = styled.div`
  display: flex;
@@ -27,7 +28,7 @@ const HR = styled.div`
   box-shadow: inset 35px 1px 2px rgba(0,0,0,0.2);
 `;
 
-const Icon = styled.i`
+const Icon = styled(FontAwesomeIcon)`
   color: ${props => props.backgroundColor};
   font-size: 20px;
 `;
@@ -41,7 +42,7 @@ const PictureInfo = (props) => {
           <Name>Kyle Chapman</Name>
         <HR backgroundColor={props.secondaryColor.backgroundColorMidNav }/>
         </div>     
-      <Icon backgroundColor={props.secondaryColor.backgroundColorMidNav} className={"fas fa-folder-open"} ></Icon>
+      <Icon backgroundColor={props.secondaryColor.backgroundColorMidNav} icon={faFolderOpen}></Icon>
       </Container>
   )
 }

@@ -15,6 +15,7 @@ import Contact from './../../components/MainContent/Contact/Contact';
 import { defaultPrimary, defaultSecondary, 
         primaryTurquoise, primaryLightBlue, 
         secondaryTurquoise, secondaryBrown } from './../../variables/ColorVariables';
+import Resume from '../../components/MainContent/Resume/Resume.js';
 
 const defaults = {
   boxSpread: "5px",
@@ -253,8 +254,13 @@ class Layout extends Component {
             <Route path="/contact" render={() => {
               return <Contact boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread} />
             }} />
+            <Route path="/resume" render={() => {
+              return <Resume boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread} />
+            }} />
+            
             <Route path='/github' component={() => window.location.replace('https://github.com/KRChapman') } />
             <Route path='/linkedin' component={() => window.location.replace('https://www.linkedin.com/in/kyle-chapman-76969b167/')} />
+            <Route path='/portfoliogithub' component={() => window.location.replace('https://github.com/KRChapman/My-Portfolio')} />
           </Switch>      
         </ContentBody>
         

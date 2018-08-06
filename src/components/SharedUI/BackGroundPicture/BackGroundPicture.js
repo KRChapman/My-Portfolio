@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import techF from './../../../assets/images/techF.jpg';
 import techE from './../../../assets/images/techE.jpg';
+import danceA from './../../../assets/images/danceA.jpg';
 
 // 2400px;
 // margin: 0 auto;
@@ -74,11 +75,19 @@ const BackGroundPicture = (props) => {
                                                                       <ImageCrop picture={techE}>
                                                                       </ImageCrop>
                                                                     </Container> : null;
+                                
+  const aboutMe = props.backgroundpic === '/aboutme' ? <Container >
+    
+    
+                                                                      <ImageCrop picture={danceA}>
+                                                                      </ImageCrop>
+                                                                    </Container> : null;
 
   return (
     <React.Fragment>
       {computerContact}
       {sunSetMountainProjects}
+      {aboutMe}
     </React.Fragment>
   
   )
