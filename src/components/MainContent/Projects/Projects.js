@@ -112,7 +112,7 @@ const Projects = (props) => {
         <Header>Vote-Now-Omatic</Header><TechIcons iconsInfo={voteNowIcons} />
       </HeaderContainer>
       <Para>Full stack vanilla Javascript application. Log in and create polls
-        for other people around to world to vote on and chart the results.
+        for other people around the world to vote on and chart the results.
       </Para>
       <Anchor href="https://github.com/KRChapman/VotingApp">GitHub</Anchor>
     </div>,
@@ -137,7 +137,7 @@ const Projects = (props) => {
       <HeaderContainer>
         <Header>Conway's Game Of Life</Header><TechIcons iconsInfo={conwayIcons} />
       </HeaderContainer>
-      <Para>React application with visual representation of my algorithm
+      <Para>A React application visually representing my algorithm
            to display Conway's game of life.
       </Para>
       <Anchor href="https://github.com/KRChapman/GameOfLife">GitHub</Anchor>

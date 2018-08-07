@@ -42,13 +42,13 @@ const Header = styled.h1`
   font-family: Lato,sans-serif;
     font-weight: 500;
     line-height: 1.1;
-  margin-top: ${props => props.style.marginTop};
-  margin-left: ${props => props.style.marginLeft};
-  width: 20%;
+
+  width: 100%;
+  text-align: center;
   padding: 0;
   display: inline-block;
   position: absolute;
-  text-decoration: ${props => props.style.textDecoration};
+  text-decoration: none;
   line-height: 1.1;
   letter-spacing: .95px;
   opacity: 0.85;
@@ -62,8 +62,8 @@ const Header = styled.h1`
 const BackGroundPicture = (props) => {
 
   const sunSetMountainProjects = props.backgroundpic === '/projects' ? <Container >
-    <Header style={{ marginLeft: "1%", textDecoration: "none"}}>Seattle, WA</Header>
-    <Header style={{ marginLeft: "35%", marginTop: "100px", textDecoration: "underline" }} >Projects:</Header>
+    <Header style={{ marginRigth: "94%", width: "16%",  textDecoration: "none"}}>Seattle, WA</Header>
+    <Header style={{ marginTop: "200px", textDecoration: "underline" }} >Projects:</Header>
                                                                       <ImageCrop picture={techF}>
                                                                       </ImageCrop>
                                                                     </Container> : null;
