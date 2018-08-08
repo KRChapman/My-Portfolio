@@ -57,7 +57,7 @@ class Header extends Component {
         <Style.Title>Full Stack Web Developer </Style.Title>
         <Style.NavBtnsContainer>
             <HeaderBtns buttonColor={this.props.primaryColor.buttonColor} 
-          toggleOptions={this.toggleDisplaySettingsOptions}> Custimize Settings  </HeaderBtns >
+          toggleOptions={this.toggleDisplaySettingsOptions}> Custimize Shadow  </HeaderBtns >
           <HeaderBtns  buttonColor={this.props.primaryColor.buttonColor}
             toggleOptions={this.toggleDisplayColorsOptions} >Change Colors</HeaderBtns >           
         </Style.NavBtnsContainer>     

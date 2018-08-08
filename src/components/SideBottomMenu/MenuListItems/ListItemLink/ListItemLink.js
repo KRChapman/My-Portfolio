@@ -45,18 +45,13 @@ const ListItem = styled.li`
 
 
 ////////
-const Test = styled(FontAwesomeIcon)`
+const IconContainer = styled(FontAwesomeIcon)`
   margin-right: 15px;
   margin-left: 10px;
   height: 100%;
 
 `;
-///////////
-const IconContainer = styled.div`
- margin-right: 15px;
- margin-left: 10px;
- height: 100%;
-`
+
 const RightContainer = styled.div`
   margin-right: 25px;
 
@@ -94,7 +89,7 @@ const ListItemLink = (props) => {
   return (
     <ListItem textColor={props.textColor}>
       <LinkElem to={props.to} onClick={clickToExpand}>
-        <Flex><Test icon={props.icon}></Test><div>{props.children} </div></Flex> 
+        <Flex><IconContainer icon={props.icon}></IconContainer><div>{props.children} </div></Flex> 
         <RightContainer>{counter}</RightContainer>
       </LinkElem>
       {props.ul}

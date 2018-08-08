@@ -10,15 +10,15 @@ import danceA from './../../../assets/images/danceA.jpg';
 
 const ImageCrop = styled.div`
    width: 100%;
-   height: 275px;
+   height: 200px;
    overflow: hidden;
   /* margin-top: 100px; */
 background-image: url(${ props => props.picture});
 /* background-image: cover; */
 background-size: cover;
  background-position: center;
- @media (min-width: 1800px) {
-       height: 800px;
+ @media (min-width: 1600px) {
+       height: 250px;
        overflow: auto;
   };
 /* background-position: center 900px; */
@@ -26,22 +26,27 @@ background-size: cover;
 `;
 
 const Container = styled.div`
+  margin-bottom: 40px;
   width: 100%;
- height: 300px;
+ height: 200px;
  overflow: hidden;
 
-  @media (min-width: 1800px) {
-       height: 800px;
+  @media (min-width: 1600px) {
+       height: 250px;
        overflow: hidden ;
   };
-`;
 
+   @media (min-width: 1599px) and (max-width:1799px)  {
+       margin-bottom: 60px;
+  };
+`;
+//  
 const Header = styled.h1`
   font-size: 32px;
   color: #fff;
   font-family: Lato,sans-serif;
-    font-weight: 500;
-    line-height: 1.1;
+  font-weight: 500;
+  line-height: 1.1;
 
   width: 100%;
   text-align: center;
@@ -51,7 +56,11 @@ const Header = styled.h1`
   text-decoration: none;
   line-height: 1.1;
   letter-spacing: .95px;
+  margin-top: 145px;
   opacity: 0.85;
+   @media (min-width: 1600px) {
+       margin-top: 195px;
+  };
 `
 
 //style = {{ marginBottom: "5000px" }}
@@ -62,8 +71,8 @@ const Header = styled.h1`
 const BackGroundPicture = (props) => {
 
   const sunSetMountainProjects = props.backgroundpic === '/projects' ? <Container >
-    <Header style={{ marginRigth: "94%", width: "16%",  textDecoration: "none"}}>Seattle, WA</Header>
-    <Header style={{ marginTop: "200px", textDecoration: "underline" }} >Projects:</Header>
+    <Header style={{ marginTop: "10px", marginRigth: "94%", width: "200px",  textDecoration: "none"}}>Seattle, WA</Header>
+    <Header style={{  textDecoration: "underline" }} >Projects:</Header>
                                                                       <ImageCrop picture={techF}>
                                                                       </ImageCrop>
                                                                     </Container> : null;

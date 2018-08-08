@@ -12,6 +12,7 @@ const CloseArrowSpan = styled.span`
   color:  ${ props => props.iconsIdleColor};
   flex-basis: 100%;
   height: 100%;
+  cursor: pointer;
 `;
 
 const ArrowIcon = styled(FontAwesomeIcon)`

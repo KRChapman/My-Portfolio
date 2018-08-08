@@ -15,6 +15,7 @@ import {
   faNode,
   faPython,
   faReact,
+  faSass,
 
 } from "@fortawesome/free-brands-svg-icons";
 
@@ -97,15 +98,19 @@ const Projects = (props) => {
       title: "google app engine gql/sql",
       icon: faDatabase,
 
+    },
+    sass: {
+      title: "Sass",
+      icon: faSass,
     }
 
   }
 
 
-  const voteNowIcons = [icons.mongoDB, icons.node, icons.javaScript];
+  const voteNowIcons = [icons.mongoDB, icons.node, icons.javaScript, icons.sass];
 
   const wikiIcons = [icons.python, icons.javaScript, icons.gql];
-  const conwayIcons = [icons.react]
+  const conwayIcons = [icons.react, , icons.sass]
   const voteNow = {
     text: <div>
       <HeaderContainer>
