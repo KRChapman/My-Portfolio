@@ -150,8 +150,8 @@ class Layout extends Component {
   }
 
   selectRandomColorHandler(name) {
-    const initialStateColors = this.state.primaryColor;
-    const initialSecondaryColorColors = this.state.secondaryColor;
+    const initialStateColors = {...this.state.primaryColor};
+    const initialSecondaryColorColors = {...this.state.secondaryColor};
     const colorsPrimary = {
       defaultPrimary,
       primaryTurquoise, primaryLightBlue,
@@ -174,28 +174,24 @@ class Layout extends Component {
     
       
       let changedColor = changeChosenColor(colorData.obj, colorToChange, currentState);
-      // primaryColor = changeChosenColor(secondaryColor, colorToChange);
-      console.log("changedColor", changedColor);
       return { [colorData.key]: changedColor};
     });
     function changeChosenColor(colors, colorToChange, currentState) {
       const primaryKeys = Object.keys(colors);
       const filteredKeys = primaryKeys.filter(ele => {
-        // console.log("primaryKeys[ele]", primaryKeys[ele]);
         return typeof colors[ele] === 'string';
       });
       const maxNumber = filteredKeys.length;
       const indexToChange = Math.floor(Math.random() * Math.floor(maxNumber));
        colors[filteredKeys[indexToChange]] = colorToChange;
-    //  colors.textColorChange = (currentState.primaryColor.backgroundColor || colorToChange) === "rgba(114,133,137,0.45)" ? true : false;
+
       return colors;
     }
     
-    function createPrimaryArray(colorsPrimary, initialColors){
-      
+    function createPrimaryArray(colorsPrimary, initialColors){  
       const initialColorValues = Object.values(initialColors);
-
       let valuesArray = [];
+
       for (const key in colorsPrimary) {
         let values = Object.values(colorsPrimary[key]);
   
@@ -203,43 +199,31 @@ class Layout extends Component {
       }
 
       return valuesArray.filter(ele => {
-   
-        return initialColorValues.indexOf(ele) === -1 && typeof ele === 'string' && ele != "rgba(114,133,137,0.45)";
-   
-        })
-
+        return initialColorValues.indexOf(ele) === -1 && typeof ele === 'string' ; 
+      });
+//&& ele != "rgba(114,133,137,0.45)"
 
     }
     function createSecondaryArray(colorsSecondary, initialSecondaryColorColors){
       const initialColorValues = Object.values(initialSecondaryColorColors);
-
       let valuesArray = [];
+
       for (const key in colorsSecondary) {
         console.log("valuesArrayvaluesArray", colorsSecondary[key]);
         let values = Object.values(colorsSecondary[key]);
-
-        valuesArray = [...valuesArray, ...values]
-    
+        valuesArray = [...valuesArray, ...values]  
       }
 
       return valuesArray.filter(ele => {
-
         return initialColorValues.indexOf(ele) === -1 && typeof ele !== 'object';
-
-      })
-     
+      });     
     }
-
-  
   }
 
   render() {   
-    console.log("backgroundpic={props.backgroundpic}", this.state.projectPath);
-    // backgroundpic = { true}
-    return ( 
 
-      <React.Fragment>
-        
+    return ( 
+      <React.Fragment>      
         <Menu primaryColor={this.state.primaryColor} secondaryColor={this.state.secondaryColor} 
           mediaQuery={this.state.mediaQuery} closeMenu={this.closeMenuHandler} showToggleMenu={this.state.isShowMenu}/>
         <Header boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread} changeBoxShadow={this.changeBoxShadowHandler} 
@@ -257,19 +241,16 @@ class Layout extends Component {
             <Route path="/resume" render={() => {
               return <Resume boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread} />
             }} />
-            
+
             <Route path='/github' component={() => window.location.replace('https://github.com/KRChapman') } />
             <Route path='/linkedin' component={() => window.location.replace('https://www.linkedin.com/in/kyle-chapman-76969b167/')} />
             <Route path='/portfoliogithub' component={() => window.location.replace('https://github.com/KRChapman/My-Portfolio')} />
           </Switch>      
-        </ContentBody>
-        
+        </ContentBody>        
       </React.Fragment>
-
      )
   }
 }
-
 
 export default withRouter(Layout);
 

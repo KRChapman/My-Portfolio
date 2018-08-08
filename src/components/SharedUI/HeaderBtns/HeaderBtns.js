@@ -1,4 +1,3 @@
-// main  rgba(114, 133, 137, 0.45);
 import React from 'react';
 import styled from 'styled-components';
 
@@ -25,8 +24,7 @@ const HeaderBtn = styled.button`
 
 const HeaderBtns = (props) => {
 
-  return (
-    
+  return ( 
     <HeaderBtn  buttonColor={props.buttonColor} onClick={props.toggleOptions} >{props.children}</HeaderBtn>
   )
 }

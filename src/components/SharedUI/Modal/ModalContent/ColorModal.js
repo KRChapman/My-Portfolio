@@ -10,7 +10,6 @@ import ColorBtn from '../../ColorBtn/ColorBtn';
 const Container = styled.div`
   margin-top: 5%;
   width: 100%;
-
 `;
 
 const ColorContainer = styled.div`
@@ -29,16 +28,6 @@ const RandomBtn = styled.button`
   border-radius: 100%;
   cursor: pointer;
 `;
-
-const ControlBtnContainer = styled.div`
-  margin-top: 25px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-around;
-
-`;
-
-
 
 const ColorModal = (props) => {
   const colorsObj = {

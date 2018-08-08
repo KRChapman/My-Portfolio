@@ -1,34 +1,28 @@
-
 import React from 'react';
 import styled from 'styled-components';
 import techF from './../../../assets/images/techF.jpg';
 import techE from './../../../assets/images/techE.jpg';
 import danceA from './../../../assets/images/danceA.jpg';
 
-// 2400px;
-// margin: 0 auto;
-
 const ImageCrop = styled.div`
    width: 100%;
    height: 200px;
    overflow: hidden;
-  /* margin-top: 100px; */
-background-image: url(${ props => props.picture});
-/* background-image: cover; */
-background-size: cover;
- background-position: center;
- @media (min-width: 1600px) {
-       height: 250px;
-       overflow: auto;
-  };
-/* background-position: center 900px; */
-  
+
+  background-image: url(${ props => props.picture});
+
+  background-size: cover;
+  background-position: center;
+  @media (min-width: 1600px) {
+        height: 250px;
+        overflow: auto;
+    }; 
 `;
 
 const Container = styled.div`
   margin-bottom: 40px;
   width: 100%;
- height: 200px;
+  height: 200px;
  overflow: hidden;
 
   @media (min-width: 1600px) {
@@ -40,7 +34,7 @@ const Container = styled.div`
        margin-bottom: 60px;
   };
 `;
-//  
+
 const Header = styled.h1`
   font-size: 32px;
   color: #fff;
@@ -61,36 +55,26 @@ const Header = styled.h1`
    @media (min-width: 1600px) {
        margin-top: 195px;
   };
-`
+`;
 
-//style = {{ marginBottom: "5000px" }}
-// pictureStyle = {{ marginLeft: "-6px" }}
-//style={{ width: "100%", height: " 100%"}}
-//, marginLeft: "1px"
-// <img src={techE} style={{ maxWidth: "2400px", marginTop: "-390px" }} alt="" />
 const BackGroundPicture = (props) => {
 
-  const sunSetMountainProjects = props.backgroundpic === '/projects' ? <Container >
+  const sunSetMountainProjects = props.backgroundpic === '/projects' ?
+   <Container >
     <Header style={{ marginTop: "10px", marginRigth: "94%", width: "200px",  textDecoration: "none"}}>Seattle, WA</Header>
     <Header style={{  textDecoration: "underline" }} >Projects:</Header>
-                                                                      <ImageCrop picture={techF}>
-                                                                      </ImageCrop>
-                                                                    </Container> : null;
+    <ImageCrop picture={techF}/>
+  </Container> : null;
   
-  
-  const computerContact = props.backgroundpic === '/contact' ? <Container >
-    
-    
-                                                                      <ImageCrop picture={techE}>
-                                                                      </ImageCrop>
-                                                                    </Container> : null;
+  const computerContact = props.backgroundpic === '/contact' ?
+    <Container >
+      <ImageCrop picture={techE}/>
+    </Container> : null;
                                 
-  const aboutMe = props.backgroundpic === '/aboutme' ? <Container >
-    
-    
-                                                                      <ImageCrop picture={danceA}>
-                                                                      </ImageCrop>
-                                                                    </Container> : null;
+  const aboutMe = props.backgroundpic === '/aboutme' ? 
+    <Container >
+      <ImageCrop picture={danceA}/> 
+    </Container> : null;
 
   return (
     <React.Fragment>

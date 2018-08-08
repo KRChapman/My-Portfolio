@@ -1,5 +1,3 @@
-//main #273135
-
 import styled, {css} from 'styled-components';
 
 const Container = styled.header`
@@ -25,7 +23,6 @@ const Container = styled.header`
     }
   `};
              
- 
 `;
     
 const NavBtnsContainer = styled.nav`
@@ -51,7 +48,7 @@ const Test = styled.div`
   right: 5px;
   top: 70px;
   z-index: -1;
-   transition: transform ${props => props.theme.transitionTime} ease-out; 
+  transition: transform ${props => props.theme.transitionTime} ease-out; 
 
 `
 //   ${props => props.}

@@ -7,22 +7,18 @@ import {
 
 const fontSize = "12px";
 
-
 const Container = styled.div`
   margin-top: 90px;
   width: 100%;
   height: 80px;
-  
-`
+`;
 
 const FooterContainer = styled.div`
-  
   width: 100%;
   height: 80px;
   position: absolute;
   bottom: 0;
-  /* border: 1px solid red; */
-   background: rgb(137, 148, 155);
+  background: rgb(137, 148, 155);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -30,17 +26,15 @@ const FooterContainer = styled.div`
   align-items: center;
 
   font-size: ${fontSize};
-`
+`;
 
 const CopyRight = styled.div`
   display: flex;
+`;
 
-
-`
 const CopyRightItems = styled.span`
   margin: 2px;
   color: #CCD6DF;
-  
 `;
 
 const LinkContainer = styled.ul`
@@ -52,49 +46,44 @@ const LinkContainer = styled.ul`
  
   & > li {
     margin: 6px;
-    color: #CCD6DF;
-    
+    color: #CCD6DF;   
   }
+`;
 
-`
 const Links = styled(Link)`
   color: #CCD6DF;
   text-decoration: none;
- 
 `;
 
 const SkillsContainer = styled.div`
-  
   flex-wrap: wrap;
   text-align: center;
-  
-`
+`;
+
 const SkillsUL = styled.ul`
   list-style: none;
-   margin: 0;
+  margin: 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   color: #CCD6DF;
 
+  width: 180px;
+
   & > li {
     font-size: 14px;
   }
-
-  width: 180px;
-
-`
+`;
 const Tittle = styled.div`
   color:  #CCD6DF;
   margin-bottom: 2px;
   font-size: 14px;
-`
+`;
 
 const Footer = (props) => {
-  var today = new Date().getFullYear();
-  var year = today;
-
+  let year = new Date().getFullYear();
+ 
   return (
     <Container>
       <FooterContainer>
@@ -113,16 +102,14 @@ const Footer = (props) => {
               <li>SQL</li>
             </SkillsUL>
           </SkillsContainer>
-  
           <LinkContainer>
-          <li><Links to={'/projects'}>projects</Links></li>
-          <li><Links to={'/contact'}>contact</Links></li>
-          <li><Links to={'/aboutme'}>about</Links></li>
-          <li><Links to={'/github'}>github</Links></li>
-          <li><Links to={'/resume'}>resume</Links></li>
-          <li><Links to={'/portfoliogithub'}> portfolioGitHub</Links></li>
-          </LinkContainer>
-    
+            <li><Links to={'/projects'}>projects</Links></li>
+            <li><Links to={'/contact'}>contact</Links></li>
+            <li><Links to={'/aboutme'}>about</Links></li>
+            <li><Links to={'/github'}>github</Links></li>
+            <li><Links to={'/resume'}>resume</Links></li>
+            <li><Links to={'/portfoliogithub'}> portfolioGitHub</Links></li>
+          </LinkContainer>    
       </FooterContainer>
     </Container>
   )

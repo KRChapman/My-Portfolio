@@ -1,13 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import ListItemLink from './MenuListItems/ListItemLink/ListItemLink';
-
-//#7c7d7d;
 
 const Description = styled.div`
   color: #6c6c6c;
-
   margin: 24px;
 `;
 
@@ -15,15 +11,14 @@ const List = styled.ul`
   margin: 0;
   padding: 0;
   list-style: none;
- 
 `;
 
 const SideBottomMenu = (props) => {
 
-
   const contentLinksKeys = Object.keys(props.contentLinks);
   const linkObject = props.contentLinks;
-  let linkList = contentLinksKeys.map(ele => {
+
+  let linkList =  contentLinksKeys.map(ele => {
     let ulComponent = null;
     const linkAttributes = linkObject[ele].linkAttributes;
     const subLinks = linkObject[ele].subLinks;
@@ -34,18 +29,22 @@ const SideBottomMenu = (props) => {
     if (subLinks != null ){
       const subLinkKeys = Object.keys(subLinks);
       count = subLinkKeys.length;
-      ulComponent = isShowSubLinks ?  <ul style={{listStyleType: "none"}} > {subLinkKeys.map(ele => {
-        let subLinksAttributes = subLinks[ele];
-
-        return <ListItemLink textColor={props.textColor} count={null} expandLinks={null} icon={subLinksAttributes.icon} to={subLinksAttributes.to} key={subLinksAttributes.title}>{subLinksAttributes.title}</ListItemLink>
-      })} </ul>  : null;              
+      ulComponent = isShowSubLinks ?
+        <ul style={{ listStyleType: "none" }} >
+          {subLinkKeys.map(ele => {
+            let subLinksAttributes = subLinks[ele];
+            return <ListItemLink textColor={props.textColor} count={null} expandLinks={null}
+                    icon={subLinksAttributes.icon} to={subLinksAttributes.to} key={subLinksAttributes.title}
+                    >{subLinksAttributes.title}
+                  </ListItemLink>
+          })} 
+        </ul> : null;              
     }
 
-    return <ListItemLink textColor={props.textColor}  count={count} name={ele} expandLinks={expandLinks} icon={linkAttributes.icon} to={linkAttributes.to} key={linkAttributes.title} ul={ulComponent}>{linkAttributes.title}</ListItemLink>
-
+    return <ListItemLink textColor={props.textColor}  count={count} name={ele} expandLinks={expandLinks} icon={linkAttributes.icon} 
+             ul={ulComponent} to={linkAttributes.to} key={linkAttributes.title} >{linkAttributes.title}
+           </ListItemLink>
   })
-
-
 
   return (
     <div>

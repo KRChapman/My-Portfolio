@@ -14,12 +14,6 @@ const Container = styled.div`
   box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.6);
   transition: top 0.5s ease; 
 
-   
-     @media (min-width: 556px) {
-      
-      };
- 
-  
   ${props => (props.isColor || props.isSettings) && css`
      top: 75px; 
      visibility: visible;
