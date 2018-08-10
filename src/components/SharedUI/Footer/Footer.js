@@ -21,20 +21,26 @@ const FooterContainer = styled.div`
   background: rgb(137, 148, 155);
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between; 
   /* background:  */
   align-items: center;
+
+    @media (max-width: 908px) {
+      justify-content: space-around; 
+  }
 
   font-size: ${fontSize};
 `;
 
 const CopyRight = styled.div`
   display: flex;
+   margin-left: 10px;
 `;
 
 const CopyRightItems = styled.span`
   margin: 2px;
   color: #CCD6DF;
+ 
 `;
 
 const LinkContainer = styled.ul`
@@ -42,8 +48,13 @@ const LinkContainer = styled.ul`
   padding: 0;
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
   color: #CCD6DF;
- 
+
+    @media (min-width: 908px) {
+      width: 160px; 
+  }
+
   & > li {
     margin: 6px;
     color: #CCD6DF;   
@@ -58,6 +69,7 @@ const Links = styled(Link)`
 const SkillsContainer = styled.div`
   flex-wrap: wrap;
   text-align: center;
+  
 `;
 
 const SkillsUL = styled.ul`
@@ -106,9 +118,9 @@ const Footer = (props) => {
             <li><Links to={'/projects'}>projects</Links></li>
             <li><Links to={'/contact'}>contact</Links></li>
             <li><Links to={'/aboutme'}>about</Links></li>
-            <li><Links to={'/github'}>github</Links></li>
             <li><Links to={'/resume'}>resume</Links></li>
-            <li><Links to={'/portfoliogithub'}> portfolioGitHub</Links></li>
+            <li><Links to={'/github'}>github</Links></li>         
+            <li><Links to={'/portfoliogithub'}>portfolio</Links></li>
           </LinkContainer>    
       </FooterContainer>
     </Container>

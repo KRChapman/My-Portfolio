@@ -1,3 +1,4 @@
+const size = "15px";
 
 export const defaultSecondary = { 
   backgroundColorTop: "#FA7252", backgroundColorMidNav: "#DE5939",                         

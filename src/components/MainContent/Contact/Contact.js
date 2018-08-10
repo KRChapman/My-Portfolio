@@ -5,9 +5,10 @@ import ControlBtns from '../../SharedUI/Modal/ControlBtns/ControlBtns';
 import styled from 'styled-components';
 
 const ContactContainer = styled.div`
-    margin: 20px auto;
+    margin: 35px auto;
   width: 80%;
   text-align: center;
+  
 
 `;
 
@@ -96,7 +97,7 @@ class Contact extends Component {
         <form onSubmit={(this.orderHandler)}>
 
      {inputArray}
-          <ControlBtns >Send </ControlBtns >
+          <ControlBtns color={"#388038;"}>Send </ControlBtns >
           
 
         </form>

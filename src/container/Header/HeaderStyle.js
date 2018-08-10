@@ -36,7 +36,7 @@ const Title = styled.h2`
   color: #fff;
   margin-left: 5px;
 
-  @media (max-width: 600px) {
+  @media (max-width: 675px) {
     font-size: 16px;
   }
 `;

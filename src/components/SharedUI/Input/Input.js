@@ -20,12 +20,7 @@ const InputElement = styled.input`
   font: inherit;
   padding: 6px 10px;
 
-
 `;
-  /* & :focus{
-      outline: none;
-  background-color: #ccc;
-  } */
 
 const Input = (props) => {
   let inputElement = null;
@@ -35,10 +30,10 @@ const Input = (props) => {
       inputElement = <InputElement value={props.input} name={props.name} {...props.elementConfig} onChange={props.updateInput} />
       break;
     case ('textarea'):
-      inputElement = <textarea value={props.input} name={props.name}  {...props} onChange={props.updateInput} />
+      inputElement = <textarea style={{ height: "150px", width: "250px" }} value={props.input} name={props.name}  {...props} onChange={props.updateInput} />
       break;
     case ('select'):
-      inputElement = (<select name={props.name} value={props.input} onChange={props.updateInput} >
+      inputElement = (<select  name={props.name} value={props.input} onChange={props.updateInput} >
         {props.elementConfig.options.map(option => (
           <option key={option.displayValue} value={option.value}>
             {option.displayValue}

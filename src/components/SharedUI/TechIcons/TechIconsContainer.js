@@ -10,7 +10,7 @@ const TechIconsContainer = (props) => {
   console.log("ele", props.size);
   const icons = props.iconsInfo.map(ele => {
    
-    return <TechIcon size={ele.size} title={ele.title} icon={ele.icon} color={ele.color}/>
+    return <TechIcon key={ele.title} size={ele.size} title={ele.title} icon={ele.icon} color={ele.color}/>
   })
 
   return (

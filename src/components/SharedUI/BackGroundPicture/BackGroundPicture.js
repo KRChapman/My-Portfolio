@@ -20,7 +20,7 @@ const ImageCrop = styled.div`
 `;
 
 const Container = styled.div`
-  margin-bottom: 40px;
+  margin-bottom: 1px;
   width: 100%;
   height: 200px;
  overflow: hidden;
@@ -31,7 +31,7 @@ const Container = styled.div`
   };
 
    @media (min-width: 1599px) and (max-width:1799px)  {
-       margin-bottom: 60px;
+       margin-bottom: 25px;
   };
 `;
 

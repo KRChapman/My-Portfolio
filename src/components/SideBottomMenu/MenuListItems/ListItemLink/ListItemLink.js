@@ -84,8 +84,8 @@ const LinkCounter = (props) => {
 
 const ListItemLink = (props) => {
   const counter = props.count ? <LinkCounter count={props.count} /> : null;
-  console.log("props.name", props.name);
   const clickToExpand = props.expandLinks != null ?  () => props.expandLinks(props.name) : null
+ 
   return (
     <ListItem textColor={props.textColor}>
       <LinkElem to={props.to} onClick={clickToExpand}>
