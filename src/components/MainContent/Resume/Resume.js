@@ -1,12 +1,14 @@
-
-
 import React from 'react';
+import styled from 'styled-components';
+const Container = styled.div`
+  margin-left: 10px;
+`
 
 const Resume = (props) => {
 
   return (
-    <div>
-      <a href="https://www.dropbox.com/sh/k7xzvm83zxke0fi/AAAgxtvF69DHEfpYvDh0_v5_a?dl=0">DL</a>
+    <Container>
+      <h5><a href="https://www.dropbox.com/sh/k7xzvm83zxke0fi/AAAgxtvF69DHEfpYvDh0_v5_a?dl=0">Download resume from dropbox</a></h5>
 
       <div>
 
@@ -66,7 +68,7 @@ const Resume = (props) => {
             </li>
         </ul>  
       </div>
-    </div>
+    </Container>
   )
 }
 

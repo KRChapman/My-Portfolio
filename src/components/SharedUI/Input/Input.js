@@ -30,7 +30,7 @@ const Input = (props) => {
       inputElement = <InputElement value={props.input} name={props.name} {...props.elementConfig} onChange={props.updateInput} />
       break;
     case ('textarea'):
-      inputElement = <textarea style={{ height: "150px", width: "250px" }} value={props.input} name={props.name}  {...props} onChange={props.updateInput} />
+      inputElement = <textarea style={{ height: "150px", width: "250px" }} value={props.input} name={props.name}  {...props.elementConfig} onChange={props.updateInput} />
       break;
     case ('select'):
       inputElement = (<select  name={props.name} value={props.input} onChange={props.updateInput} >

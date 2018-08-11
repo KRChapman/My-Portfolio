@@ -10,17 +10,41 @@ import {
  
 } from 'react-router-dom';
 
-import Projects from './../../components/MainContent/Projects/Projects';
-import Contact from './../../components/MainContent/Contact/Contact';
+
 import { defaultPrimary, defaultSecondary, 
         primaryTurquoise, primaryLightBlue, 
         secondaryTurquoise, secondaryBrown } from './../../variables/ColorVariables';
 import {
   icons
 } from './../../variables/IconVariables.js';
-import Resume from '../../components/MainContent/Resume/Resume.js';
-import AboutMe from '../../components/MainContent/AboutMe/AboutMe.js';
-import VanillaJavascript from '../../components/MainContent/VanillaJavascript/VanillaJavascript.js';
+
+// import Resume from '../../components/MainContent/Resume/Resume.js';
+// import AboutMe from '../../components/MainContent/AboutMe/AboutMe.js';
+// import VanillaJavascript from '../../components/MainContent/VanillaJavascript/VanillaJavascript.js';
+// import Projects from './../../components/MainContent/Projects/Projects';
+// import Contact from './../../components/MainContent/Contact/Contact';
+
+import asyncComponent from './../../hoc/asyncComponent';
+
+const AsyncContact = asyncComponent(() => {
+  return import('./../../components/MainContent/Contact/Contact');
+});
+const AsyncProjects = asyncComponent(() => {
+  return import('./../../components/MainContent/Projects/Projects');
+});
+const AsyncAboutMe = asyncComponent(() => {
+  return import('../../components/MainContent/AboutMe/AboutMe.js');
+});
+const AsyncResume = asyncComponent(() => {
+  return import('../../components/MainContent/Resume/Resume.js');
+})
+
+
+const AsyncVanillaJavascript = asyncComponent(() => {
+  return import('../../components/MainContent/VanillaJavascript/VanillaJavascript.js');
+});
+
+
 
 const defaults = {
   boxSpread: "12px",
@@ -31,13 +55,6 @@ const defaults = {
   isShowMenu: false,
   mediaQuery: "850px"
 };
-
-
-
-
-const voteNowIcons = [icons.mongoDB, icons.node, icons.javaScript, icons.sass];
-const wikiIcons = [icons.python, icons.javaScript, icons.gql];
-const conwayIcons = [icons.react, icons.sass];
 
 class Layout extends Component {
   constructor(props) {
@@ -53,29 +70,53 @@ class Layout extends Component {
       projectPath: "",
 
       projectsInfo:{
-        voteNow: createProjectsInfo("Vote-Now-Omatic", voteNowIcons, "https://github.com/KRChapman/VotingApp",
-          "https://protected-fjord-13167.herokuapp.com/","Full stack vanilla Javascript application. Log in and create polls for other people around the world to vote on and chart the results."),
-        wikiResource: createProjectsInfo("MyWiki Saver", wikiIcons, "https://github.com/KRChapman/personalWiki", 
-          "https://mywiki-1306.appspot.com/", "Full stack Python application. Log in and create pages and posts. Save links and edit or delete your content after posting." ),
-        conway: createProjectsInfo("Conway's Game Of Life", conwayIcons, "https://github.com/KRChapman/GameOfLife", "", "A React application visually representing my algorithm to display Conway's game of life."),
-        simon: createProjectsInfo("Simon Game", conwayIcons, "https://github.com/KRChapman/FCCProjects/tree/master/simonGame", "http://simongame-kc.surge.sh/", "hi")
+        voteNow: createProjectsInfo("Vote-Now-Omatic", "voteNow", "https://github.com/KRChapman/VotingApp",
+          "https://protected-fjord-13167.herokuapp.com/"),
+        wikiResource: createProjectsInfo("MyWiki Saver", "wikiResource", "https://github.com/KRChapman/personalWiki", 
+          "https://mywiki-1306.appspot.com/"),
+        conway: createProjectsInfo("Conway's Game Of Life", "conway", "https://github.com/KRChapman/GameOfLife", ""),
+        simon: createProjectsInfo("Simon Game", "simon", "https://github.com/KRChapman/FCCProjects/tree/master/simonGame", "http://simongame-kc.surge.sh/")
       }
       
      }
 
-    function createProjectsInfo(header, iconsInfo, githubLink, projectLink, textInfo){
+    function createProjectsInfo(header, iconsInfo, githubLink, projectLink){
+      let iconsToDisplay = [];
+      let textInfo = "";
+
+      switch (iconsInfo) {
+        case ('voteNow'):
+          iconsToDisplay = [icons.mongoDB, icons.node, icons.javaScript, icons.sass]
+          textInfo = "Full stack vanilla Javascript application. Log in and create polls for other people around the world to vote on and chart the results."
+          break;
+        case ('wikiResource'):
+          iconsToDisplay = [icons.python, icons.javaScript, icons.gql]
+          textInfo = "Full stack Python application. Log in and create pages and posts. Save links and edit or delete your content after posting."
+          break;
+        case ('conway'):
+          iconsToDisplay = [icons.react, icons.sass]
+          textInfo = "A React application visually representing my algorithm to display Conway's game of life."
+          break;
+        case ('simon'):
+          iconsToDisplay = [icons.javaScript, icons.sass]
+          textInfo = "Vanilla Javascript Project that is a replication of the game simon says it even needs tobe turned on"
+          break;
+        default:
+          iconsToDisplay = [];
+          textInfo = ""
+      }
 
       return{
 
         header,
-        iconsInfo,
+        iconsInfo: iconsToDisplay,
       
         githubLink,
         projectLink,
         textInfo,
 
       }
-     }
+    }
 
     this.toggleMenuHandler = this.toggleMenuHandler.bind(this);
     this.closeMenuHandler = this.closeMenuHandler.bind(this);
@@ -268,19 +309,19 @@ class Layout extends Component {
         <ContentBody backgroundpic={this.state.projectPath} mediaQuery={this.state.mediaQuery} showToggleMenu={this.state.isShowMenu}>
           <Switch>
             <Route path='/projects'  render={() => {
-              return <Projects projectsInfo={this.state.projectsInfo}  boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread}/>         
+              return <AsyncProjects projectsInfo={this.state.projectsInfo}  boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread}/>         
             }}/>
             <Route path="/contact" render={() => {
-              return <Contact  />
+              return <AsyncContact  />
             }} />
             <Route path="/resume" render={() => {
-              return <Resume boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread} />
+              return <AsyncResume boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread} />
             }} />
             <Route path="/aboutme" render={() => {
-              return <AboutMe wikiResourceProject={this.state.projectsInfo.wikiResource} boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread}/>
+              return <AsyncAboutMe wikiResourceProject={this.state.projectsInfo.wikiResource} boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread}/>
             }} />
             <Route path="/vanillajavascript" render={() => {
-              return <VanillaJavascript projectsInfo={this.state.projectsInfo} boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread} />
+              return <AsyncVanillaJavascript projectsInfo={this.state.projectsInfo} boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread} />
             }} />     
                 
             <Route path='/github' component={() => window.location.replace('https://github.com/KRChapman') } />

@@ -19,7 +19,7 @@ const CardContainer = styled.div`
   width: 300px;
   height: 360px;
   margin-right: 5px;
-  margin-top: 35px;
+  margin-top: 28px;
 `;
 
 const Projects = (props) => {

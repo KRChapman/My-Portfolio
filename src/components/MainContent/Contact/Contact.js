@@ -35,7 +35,7 @@ class Contact extends Component {
         elementConfig: {
           type: type,
           placeholder: placeholder,
-          test: 'hi',
+       
         },
 
         input: '',
