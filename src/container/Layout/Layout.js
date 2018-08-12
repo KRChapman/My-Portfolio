@@ -47,8 +47,8 @@ const AsyncVanillaJavascript = asyncComponent(() => {
 
 
 const defaults = {
-  boxSpread: "12px",
-  boxOpacicty: "0.5",
+  boxSpread: "10px",
+  boxOpacicty: "0.45",
   primaryColor: defaultPrimary,
   secondaryColor: defaultSecondary,
 

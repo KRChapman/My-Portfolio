@@ -14,6 +14,11 @@ const ControlStyle = styled.button`
   font-family: Lato,sans-serif;
   background-color: ${props => props.color};
   cursor: pointer;
+
+  &:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
 `;
 
 
@@ -22,7 +27,9 @@ const ControlBtns = (props) => {
 
   return (
     <ControlStyle onClick={() =>{props.clicked !== null ? props.clicked() : null;
-                                 props.clickClose !== null ? props.clickClose() : null;}} color={props.color}>{props.children}</ControlStyle>
+                                 props.clickClose !== null ? props.clickClose() : null;}} 
+                                 color={props.color} disabled={props.disabled}>{props.children} 
+                                 </ControlStyle>
   )
 }
 

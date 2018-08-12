@@ -15,22 +15,47 @@ const Label = styled.label`
 `;
 
 const InputElement = styled.input`
-  outline: none;
-  border: 1px solid #ccc;
-  font: inherit;
-  padding: 6px 10px;
+      outline: none;
+    border: ${ props => props.inputStyle.border };
+    background-color: ${ props => props.inputStyle.backgroundColor };
+    font: inherit;
+    padding: 6px 10px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+ 
 
 `;
 
+// outline: none;
+
+
+// font: inherit;
+// padding: 6px 10px;
+
+
 const Input = (props) => {
   let inputElement = null;
-
+  let invalidStyles = {
+    border: "1px solid red",
+    backgroundColor: "#FDA49A",
+  }
+  let validStyles = {
+    border: "1px solid #ccc",
+    backgroundColor: "#f8f8f8",
+  }
+  let inputStyle = invalidStyles;
+  
+  if (props.isValid || props.isValid == null){
+    inputStyle = validStyles;
+  }
+  console.log("props.isValid", inputStyle);
   switch (props.inputtype) {
     case ('input'):
-      inputElement = <InputElement value={props.input} name={props.name} {...props.elementConfig} onChange={props.updateInput} />
+      inputElement = <InputElement inputStyle={inputStyle} value={props.input} name={props.name} {...props.elementConfig} onChange={props.updateInput} />
       break;
     case ('textarea'):
-      inputElement = <textarea style={{ height: "150px", width: "250px" }} value={props.input} name={props.name}  {...props.elementConfig} onChange={props.updateInput} />
+      inputElement = <textarea style={{ height: "150px", width: "100%", ...inputStyle }} value={props.input} name={props.name}  {...props.elementConfig} onChange={props.updateInput} />
       break;
     case ('select'):
       inputElement = (<select  name={props.name} value={props.input} onChange={props.updateInput} >
