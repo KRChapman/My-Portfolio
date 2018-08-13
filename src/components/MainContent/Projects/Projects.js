@@ -45,7 +45,7 @@ const Projects = (props) => {
         link={wikiResourceData.githubLink} textInfo={wikiResourceData.textInfo}>
       </IndividualProjects>,
     
-    linkTo: voteNowData.projectLink,
+    linkTo: wikiResourceData.projectLink,
   }
 
   const conway = {

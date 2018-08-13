@@ -1,23 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-import techSmallA from './../../../assets/images/techSmallA.jpg';
-import techE from './../../../assets/images/techE.jpg';
+import techFSmall from './../../../assets/images/techFSmall.jpg';
+// import techSmall from './../../../assets/images/techSmall.jpg';
+import techSmall from './../../../assets/images/techSmall.jpg';
+import techD from './../../../assets/images/techD.jpg';
+import techDVerySmall from './../../../assets/images/techDVerySmall.jpg';
 import danceA from './../../../assets/images/danceA.jpg';
+import danceASmall from './../../../assets/images/danceASmall.jpg';
+import ImageDisplay from './ImageDisplay/ImageDisplay';
 
-const ImageCrop = styled.div`
-   width: 100%;
-   height: 220px;
-   overflow: hidden;
 
-  background-image: url(${ props => props.picture});
 
-  background-size: cover;
-  background-position: center;
-  @media (min-width: 1600px) {
-        height: 250px;
-        overflow: auto;
-    }; 
-`;
 
 const Container = styled.div`
   margin-bottom: 1px;
@@ -36,6 +29,7 @@ const Container = styled.div`
 `;
 
 const Header = styled.h1`
+
   font-size: 32px;
   color: #fff;
   font-family: Lato,sans-serif;
@@ -47,6 +41,7 @@ const Header = styled.h1`
   padding: 0;
   display: inline-block;
   position: absolute;
+  z-index: 600;
   text-decoration: none;
   line-height: 1.1;
   letter-spacing: .95px;
@@ -57,33 +52,48 @@ const Header = styled.h1`
   };
 `;
 
-const BackGroundPicture = (props) => {
+class BackGroundPicture extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {}
+    
+  }
 
-  const sunSetMountainProjects = props.backgroundpic === '/projects' ?
-   <Container >
-    <Header style={{ marginTop: "10px", marginRigth: "94%", width: "200px",  textDecoration: "none"}}>Seattle, WA</Header>
-    <Header style={{  textDecoration: "underline" }} >Projects:</Header>
-      <ImageCrop picture={techSmallA}/>
-  </Container> : null;
-  
-  const computerContact = props.backgroundpic === '/contact' ?
-    <Container >
-      <ImageCrop picture={techE}/>
-    </Container> : null;
-                                
-  const aboutMe = props.backgroundpic === '/aboutme' ? 
-    <Container >
-      <ImageCrop picture={danceA}/> 
-    </Container> : null;
+ 
 
-  return (
-    <React.Fragment>
-      {computerContact}
-      {sunSetMountainProjects}
-      {aboutMe}
-    </React.Fragment>
+  render() {
+
+    const sunSetMountainProjects = this.props.backgroundpic === '/projects' ?
+      <Container >
+        <Header style={{ marginTop: "10px", marginRigth: "94%", width: "200px", textDecoration: "none" }}>Seattle, WA</Header>
+        <Header style={{ textDecoration: "underline" }} >Projects:</Header>
+       
+        <ImageDisplay srcLoaded={techSmall} pictureSmall={techFSmall} />
+      </Container> : null;
+
+    const computerContact = this.props.backgroundpic === '/contact' ?
+      <Container >
+        <ImageDisplay srcLoaded={techD} pictureSmall={techDVerySmall} />
+
+      </Container> : null;
+
+    const aboutMe = this.props.backgroundpic === '/aboutme' ?
+      <Container >
+        <ImageDisplay srcLoaded={danceA} pictureSmall={danceASmall} />
   
-  )
+      </Container> : null;
+
+
+
+    return (
+      <React.Fragment>
+        {computerContact}
+        {sunSetMountainProjects}
+        {aboutMe}
+      </React.Fragment>
+    
+    )
+  }
 }
 
 export default BackGroundPicture;

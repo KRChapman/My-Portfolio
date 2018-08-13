@@ -3,36 +3,26 @@ import React from 'react';
 import styled from 'styled-components';
 
 const InputContainer = styled.div`
-   width: 100%;
+  width: 100%;
   padding: 10px;
-
 `;
  
 const Label = styled.label`
-   font-weight: bold;
+  font-weight: bold;
   display: block;
   margin-bottom: 8px;
 `;
 
 const InputElement = styled.input`
-      outline: none;
-    border: ${ props => props.inputStyle.border };
-    background-color: ${ props => props.inputStyle.backgroundColor };
-    font: inherit;
-    padding: 6px 10px;
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
- 
-
+  outline: none;
+  border: ${ props => props.inputStyle.border };
+  background-color: ${ props => props.inputStyle.backgroundColor };
+  font: inherit;
+  padding: 6px 10px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
 `;
-
-// outline: none;
-
-
-// font: inherit;
-// padding: 6px 10px;
-
 
 const Input = (props) => {
   let inputElement = null;
@@ -49,7 +39,7 @@ const Input = (props) => {
   if (props.isValid || props.isValid == null){
     inputStyle = validStyles;
   }
-  console.log("props.isValid", inputStyle);
+  console.log("props.input", props.input);
   switch (props.inputtype) {
     case ('input'):
       inputElement = <InputElement inputStyle={inputStyle} value={props.input} name={props.name} {...props.elementConfig} onChange={props.updateInput} />

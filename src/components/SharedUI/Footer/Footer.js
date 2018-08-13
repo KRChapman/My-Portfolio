@@ -115,12 +115,14 @@ const Footer = (props) => {
             </SkillsUL>
           </SkillsContainer>
           <LinkContainer>
+            <li><Links to={'/portfoliogithub'}>portfolio</Links></li>
+            <li><Links to={'/github'}>github</Links></li>     
             <li><Links to={'/projects'}>projects</Links></li>
             <li><Links to={'/contact'}>contact</Links></li>
             <li><Links to={'/aboutme'}>about</Links></li>
             <li><Links to={'/resume'}>resume</Links></li>
-            <li><Links to={'/github'}>github</Links></li>         
-            <li><Links to={'/portfoliogithub'}>portfolio</Links></li>
+                
+            
           </LinkContainer>    
       </FooterContainer>
     </Container>

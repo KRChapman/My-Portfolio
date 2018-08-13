@@ -6,7 +6,7 @@ import Card from '../../SharedUI/Card/Card';
 
 const Container = styled.div`
   width: 70%;
-  margin: 40px auto;
+  margin: 10px auto;
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.4;
@@ -15,19 +15,21 @@ const Container = styled.div`
 const CardContainer = styled.div`
   width: 200px;
   height: 260px;
-  margin-right: 5px;
-  margin-top: 35px;
+  /* margin-right: 5px;
+  margin-top: 35px; */
+  margin: 10px auto;
 `;
 
 const AboutMe = (props) => {
   const wikiResourceData = { ...props.wikiResourceProject };
-
+  const wikiText = <p style={{ margin: 0, fontSize: "10px", width: "180px", }}>
+    {wikiResourceData.textInfo}
+  </p>
   const wikiResource = {
     text:
       <IndividualProjects iconsInfo={wikiResourceData.iconsInfo} header={wikiResourceData.header}
-        link={wikiResourceData.githubLink} textInfo={""}>
+        link={wikiResourceData.githubLink} textInfo={wikiText}>
       </IndividualProjects>,
-
     linkTo: wikiResourceData.projectLink,
   }
 
@@ -41,10 +43,9 @@ const AboutMe = (props) => {
       <CardContainer>
         <Card containerStyle={{width: "175px", height: "125px"}} linkTo={wikiResource.linkTo} textComponent={wikiResource.text}
           boxOpacicty={props.boxOpacicty} boxSpread={props.boxSpread} src={wiki} />
+       
       </CardContainer>   
-      <p style={{ textIndent: "40px" }}>
-        {wikiResourceData.textInfo}
-      </p>
+ 
     </Container>
   )
 }

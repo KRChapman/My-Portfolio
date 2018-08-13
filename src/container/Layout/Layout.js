@@ -95,7 +95,7 @@ class Layout extends Component {
           break;
         case ('conway'):
           iconsToDisplay = [icons.react, icons.sass]
-          textInfo = "A React application visually representing my algorithm to display Conway's game of life."
+          textInfo = "A React application visually representing my algorithm to display Conway's Game of Life."
           break;
         case ('simon'):
           iconsToDisplay = [icons.javaScript, icons.sass]
