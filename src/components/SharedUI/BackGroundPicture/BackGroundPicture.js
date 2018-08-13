@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import techFSmall from './../../../assets/images/techFSmall.jpg';
-// import techSmall from './../../../assets/images/techSmall.jpg';
 import techSmall from './../../../assets/images/techSmall.jpg';
 import techD from './../../../assets/images/techD.jpg';
 import techDVerySmall from './../../../assets/images/techDVerySmall.jpg';
@@ -9,14 +8,11 @@ import danceA from './../../../assets/images/danceA.jpg';
 import danceASmall from './../../../assets/images/danceASmall.jpg';
 import ImageDisplay from './ImageDisplay/ImageDisplay';
 
-
-
-
 const Container = styled.div`
   margin-bottom: 1px;
   width: 100%;
   height: 220px;
- overflow: hidden;
+  overflow: hidden;
 
   @media (min-width: 1600px) {
        height: 250px;

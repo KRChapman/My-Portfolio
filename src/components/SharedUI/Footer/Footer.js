@@ -22,7 +22,6 @@ const FooterContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between; 
-  /* background:  */
   align-items: center;
 
     @media (max-width: 908px) {

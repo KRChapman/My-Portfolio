@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import techSmall from './../../../../assets/images/techSmall.jpg';
-//  background-image: url(${ props => props.picture});
-  // 
 const ImageCrop = styled.div`
 
 
-         width: 100%;
+   width: 100%;
    height: 220px;
    overflow: hidden;
 
@@ -25,9 +22,6 @@ const ImageCrop = styled.div`
         overflow: auto;
     }; 
 
-
-
-
 `;
 
 
@@ -41,22 +35,16 @@ const ImagePreload = styled.div`
   background-size: cover;
 
   background-position: center;
-    position: absolute;
+  position: absolute;
   z-index: -1;
 
   top: 0;
-right: 0;
-bottom: 0;
-left: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 
   background-size: cover;
-
 `;
-
-// top: 0;
-// right: 0;
-// bottom: 0;
-// left: 0;
 
 
 class ImageDisplay extends Component {
