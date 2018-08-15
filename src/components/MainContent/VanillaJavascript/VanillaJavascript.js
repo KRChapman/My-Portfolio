@@ -38,8 +38,9 @@ const VanillaJavascript = (props) => {
   props.hiddenProjects.forEach(ele => {
     for (const key in projectData) {
 
-      if (ele.name === key) {
-
+      if (ele.name === key && ele.route === props.route) {
+        // console.log("ele.route", ele.route);
+        // console.log("hiddenProjects", props.route);
         projectsStatuses[key] = { pointerEvents: "none", opacity: 0 };
       }
 

@@ -79,7 +79,7 @@ class Menu extends Component {
     
     if ((prevProps.hiddenProjects !== this.props.hiddenProjects || this.props.projectPath !== prevProps.projectPath)){
       const route = this.props.projectPath;
-      console.log("route", route);
+
       this.setState(currentState => {
         const contentLinks = {...currentState.contentLinks}
         const subLinks = this.hiddenProjectSubLinks(route);
@@ -104,7 +104,7 @@ class Menu extends Component {
         subLinks = subLinks == null ? {} : subLinks;
         
         subLinks[ele.name] = this.createLink(ele.name, faLink, ele.route);
-        console.log("subLinks", subLinks);
+
       }
 
 

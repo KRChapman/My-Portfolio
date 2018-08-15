@@ -321,15 +321,14 @@ class Layout extends Component {
   showProjectHandler(projectRoute, projectName){
     let name = projectName;
     let route = projectRoute;
-//&& ele.route !== route;
+
     this.setState(currentState => {
       let hiddenProjects = [...currentState.hiddenProjects];
 
-      hiddenProjects = hiddenProjects.filter(ele => {
-        console.log("hiddenProjects", route);
-        return ele.name !== name;
+      hiddenProjects = hiddenProjects.filter(ele => {;
+        return ele.name !== name || ele.route !== route;
       })
-      
+      console.log("hiddenProjects", hiddenProjects);
       return {
         hiddenProjects
       }
@@ -352,7 +351,7 @@ class Layout extends Component {
             <Route path='/projects'  render={() => {
               return <AsyncProjects projectsInfo={this.state.projectsInfo}  boxOpacicty={this.state.boxOpacicty} 
                         boxSpread={this.state.boxSpread} hideProject={this.hideProjectHandler} 
-                        projectOff={this.state.projectOff} hiddenProjects={this.state.hiddenProjects}/>         
+                        projectOff={this.state.projectOff} hiddenProjects={this.state.hiddenProjects} route={'/projects'}/>         
             }}/>
             <Route path="/contact" render={() => {
               return <AsyncContact  />

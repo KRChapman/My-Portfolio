@@ -2,16 +2,11 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import styled, { ThemeProvider} from 'styled-components';
-
-
-
 import Layout from './container/Layout/Layout';
 import {
   BrowserRouter,
 
 } from 'react-router-dom';
-
-
 
 const AppContainer = styled.div`
 

@@ -39,7 +39,7 @@ const AboutMe = (props) => {
   props.hiddenProjects.forEach(ele => {
     for (const key in projectData) {
 
-      if (ele.name === key) {
+      if (ele.name === key && ele.route === props.route) {
 
         projectsStatuses[key] = { pointerEvents: "none", opacity: 0 };
       }
