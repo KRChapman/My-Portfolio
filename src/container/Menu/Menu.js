@@ -15,9 +15,11 @@ import {
  
 } from "@fortawesome/free-brands-svg-icons";
 import { faMobileAlt, faFileAlt, faInfoCircle, faAddressCard, faListAlt, faLink, faCodeBranch} from '@fortawesome/free-solid-svg-icons';
-// 'fas fa-file-alt'
-//'fas fa-info-circle'
-//'fas fa-mobile-alt'
+import {
+  withRouter,
+
+
+} from 'react-router-dom';
 class Menu extends Component {
   constructor(props) {
     super(props);
@@ -27,51 +29,98 @@ class Menu extends Component {
       
 
       contentLinks: {
-        projects: { linkAttributes: createLink('Projects', faFileAlt,'/projects',  ), 
+        projects: { linkAttributes: this.createLink('Projects', faFileAlt,'/projects',  ), 
                     subLinks: null, 
                   },
-        contact: { linkAttributes: createLink('Contact',faMobileAlt , '/contact'), 
+        contact: { linkAttributes: this.createLink('Contact',faMobileAlt , '/contact'), 
                     subLinks: null,  
                  },
-        myInfo: { linkAttributes: createLink('My Info', faInfoCircle, '#', true), 
-                    subLinks: { aboutMe: createLink('About Me', faAddressCard, '/aboutme'), resume: createLink('Resume', faListAlt, '/resume', ),
+        myInfo: { linkAttributes: this.createLink('My Info', faInfoCircle, '#', true), 
+                    subLinks: { aboutMe: this.createLink('About Me', faAddressCard, '/aboutme'), resume: this.createLink('Resume', faListAlt, '/resume', ),
                     
                               },
                 showSubLinks: true, 
                 },
   
         links: {
-          linkAttributes: createLink('Links', faLink, '#', true),
+          linkAttributes: this.createLink('Links', faLink, '#', true),
           subLinks: {
-            gitHub: createLink('GitHub', faGithub, '/github'), linkedin: createLink('Linkedin', faLinkedin , '/linkedin'),
-            portfolioGitHub: createLink('Portfolio GitHub', faCodeBranch, '/portfoliogithub'),
+            gitHub: this.createLink('GitHub', faGithub, '/github'), linkedin: this.createLink('Linkedin', faLinkedin , '/linkedin'),
+            portfolioGitHub: this.createLink('Portfolio GitHub', faCodeBranch, '/portfoliogithub'),
           },
           showSubLinks: false, 
         },
         
 
-        vanillaJavaScriptProjects: { linkAttributes: createLink(' Vannila javaScript Projects',  faJsSquare, '/vanillajavascript'), 
+        vanillaJavaScriptProjects: { linkAttributes: this.createLink(' Vannila javaScript Projects',  faJsSquare, '/vanillajavascript'), 
                                     subLinks: null,
                                   },
-
-      },
-
-     }
-
-     function createLink(title, icon, to , expandFunction = false){
-     
-
-        return {
-          title,
-          icon,
-          to,
-          expandFunction,
+        hiddenProjects: {
+          linkAttributes: this.createLink('Hidden Projects', faLink, '#', true),
+          subLinks: this.hiddenProjectSubLinks(),
+          showSubLinks: false,
         }
 
+      },
+ 
+
      }
 
+     
+
+    
     this.handleChangeMenu = this.handleChangeMenu.bind(this);
     this.handleExpandLinks = this.handleExpandLinks.bind(this);
+    this.hiddenProjectSubLinks = this.hiddenProjectSubLinks.bind(this);
+    this.createLink = this.createLink.bind(this);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    
+    if ((prevProps.hiddenProjects !== this.props.hiddenProjects || this.props.projectPath !== prevProps.projectPath)){
+      const route = this.props.projectPath;
+      console.log("route", route);
+      this.setState(currentState => {
+        const contentLinks = {...currentState.contentLinks}
+        const subLinks = this.hiddenProjectSubLinks(route);
+        const hiddenProjects = {...contentLinks.hiddenProjects}
+        hiddenProjects.subLinks = subLinks;
+        contentLinks.hiddenProjects = hiddenProjects;
+        return {
+          contentLinks
+        }
+      });
+    }
+  }
+
+
+  hiddenProjectSubLinks(route) {
+    // 
+    // const route = this.props.location.pathname;
+
+    let subLinks = null;
+    this.props.hiddenProjects.forEach(ele => {
+      if (route === ele.route) {
+        subLinks = subLinks == null ? {} : subLinks;
+        
+        subLinks[ele.name] = this.createLink(ele.name, faLink, ele.route);
+        console.log("subLinks", subLinks);
+      }
+
+
+    })
+    return subLinks;
+  }
+
+  createLink(title, icon, to, expandFunction = false) {
+
+
+    return {
+      title,
+      icon,
+      to,
+      expandFunction,
+    }
 
   }
 
@@ -101,11 +150,11 @@ class Menu extends Component {
         <SideTopInfo secondaryColor={this.props.secondaryColor} />
         <MidControlNav secondaryColor={this.props.secondaryColor} buttonClicked={this.state.buttonClicked}
           changeMenu={this.handleChangeMenu} closeMenu={this.props.closeMenu}/>
-        <MenuWrapper primaryColor={this.props.primaryColor} showSubLinks={this.state.showSubLinks} 
+        <MenuWrapper primaryColor={this.props.primaryColor} showSubLinks={this.state.showSubLinks} showProject={this.props.showProject}
           contentLinks={this.state.contentLinks}  expandLinks={this.handleExpandLinks}  slideLocation={this.state.slideLocation}/>
       </Styled.Container >
      )
   }
 }
  
-export default Menu;
+export default withRouter(Menu);

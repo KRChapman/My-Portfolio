@@ -1,11 +1,13 @@
 import React from 'react';
 import Card from '../../SharedUI/Card/Card';
-import styled from 'styled-components';
-import vote from './../../../assets/images/testA.png';
-import gameB from './../../../assets/images/gameB.png';
-import wiki from './../../../assets/images/wiki.png';
-
+import styled, { keyframes } from 'styled-components';
+import voteNow from './../../../assets/images/testA.png';
+import conway from './../../../assets/images/gameB.png';
+import wikiResource from './../../../assets/images/wiki.png';
 import IndividualProjects from './IndividualProjects/IndividualProjects';
+import {
+  withRouter,
+} from 'react-router-dom';
 
 const Container = styled.div`
   width: 100%;
@@ -15,68 +17,77 @@ const Container = styled.div`
   flex-wrap: wrap;
 `;
 
+
 const CardContainer = styled.div`
-  width: 300px;
+  width: 325px;
   height: 360px;
   margin-right: 5px;
-  margin-top: 28px;
+  margin-top: 25px;
+
+  
+  opacity: ${ props => props.projectOpacity}; 
+ 
+  transition: opacity 0.8s ease; 
+
+    & * {
+      pointer-events: ${props => props.pointerEvents};
+    }
+
 `;
 
+//transition-delay: 2s;
+//  display: ${props => props.projectOpacity === 1 ? "block" : "none"};
+//  
+  // animation-name: ${ props => props.projectOpacity === 1 ?   "none": AnimateFade};
+  // animation-duration: 1s;
+  // animation-fill-mode: forwards;
+
+//
+//animation-fill-mode: forwards;
 const Projects = (props) => {
 
+  const projects = ["voteNow", "wikiResource", "conway"]
+  const projectsPictures = {voteNow, conway, wikiResource}
+  const projectData = { ...props.projectsInfo}
 
-  const voteNowData = {...props.projectsInfo.voteNow};
-  const wikiResourceData  = {...props.projectsInfo.wikiResource};
-  const conwayData = {...props.projectsInfo.conway};
-
-
-  const voteNow = {   
-    text: 
-      <IndividualProjects iconsInfo={voteNowData.iconsInfo} header={voteNowData.header} 
-        link={voteNowData.githubLink} textInfo={voteNowData.textInfo}>
-        <span>aa</span>
-      </IndividualProjects>,
-      linkTo: voteNowData.projectLink
-  }
+  const projectsStatuses = {};
   
-  const wikiResource = {
-    text: 
-      <IndividualProjects iconsInfo={wikiResourceData.iconsInfo} header={wikiResourceData.header}
-        link={wikiResourceData.githubLink} textInfo={wikiResourceData.textInfo}>
-      </IndividualProjects>,
-    
-    linkTo: wikiResourceData.projectLink,
-  }
+  props.hiddenProjects.forEach(ele =>{
+    for (const key in projectData) {
 
-  const conway = {
-    text:    
-      <IndividualProjects iconsInfo={conwayData.iconsInfo} header={conwayData.header}
-        link={conwayData.githubLink} textInfo={conwayData.textInfo}>
-       
-      </IndividualProjects>,
-    linkTo: conwayData.projectLink
-  }
+      if (ele.name === key){
+        
+        projectsStatuses[key] = { pointerEvents: "none", opacity: 0};
+      }
+  
+      
+    }
+  });
+ 
+  
+  const projectsToDisplay = projects.map((ele) =>{
+    // let opacity = props.projectOff.name === ele ? 0 : 1;
+    let pointerEvents = projectsStatuses[ele] ? projectsStatuses[ele].pointerEvents : "auto";
+    let opacity = projectsStatuses[ele] ? projectsStatuses[ele].opacity : 1;
+    let text = <IndividualProjects iconsInfo={projectData[ele].iconsInfo} header={projectData[ele].header}
+      link={projectData[ele].githubLink} textInfo={projectData[ele].textInfo} route={props.location.pathname} hideProject={props.hideProject}>
+               </IndividualProjects>;
+
+    return <CardContainer key={ele} projectOpacity={opacity} pointerEvents={pointerEvents}>
+              <Card linkTo={projectData[ele].projectLink} textComponent={text} 
+                boxOpacicty={props.boxOpacicty} boxSpread={props.boxSpread} 
+                containerStyle={projectData[ele].additionalStyle.containerStyle}
+                pictureStyle={projectData[ele].additionalStyle.pictureStyle} src={projectsPictures[ele]} />
+           </CardContainer>;
+  });
+
+
   
   return (
-    <React.Fragment>
     <Container>
-      <CardContainer>
-        <Card linkTo={voteNow.linkTo} textComponent={voteNow.text}
-          boxOpacicty={props.boxOpacicty} boxSpread={props.boxSpread} 
-          pictureStyle={{ marginLeft: "-45px" }}  src={vote} />
-      </CardContainer>
-      <CardContainer>
-        <Card linkTo={wikiResource.linkTo} textComponent={wikiResource.text} 
-          boxOpacicty={props.boxOpacicty} boxSpread={props.boxSpread} 
-          containerStyle={{ border: "1px solid black" }} pictureStyle={{ marginLeft: "-6px" }} src={wiki} />
-      </CardContainer>
-      <CardContainer>
-          <Card linkTo={conway.linkTo} textComponent={conway.text}  
-          boxOpacicty={props.boxOpacicty} boxSpread={props.boxSpread} src={gameB} />
-      </CardContainer>   
+      {projectsToDisplay}
     </Container>
-    </React.Fragment>
   )
 }
 
-export default Projects;
+export default withRouter(Projects);

@@ -29,7 +29,7 @@ const MenuWrapper = (props) => {
       slideLocation={props.slideLocation}> 
       <MenuSliderContainer >     
         <SideBottomMenu textColor={textColor} showSubLinks={props.showSubLinks} 
-          contentLinks={props.contentLinks} expandLinks={props.expandLinks} /> 
+          contentLinks={props.contentLinks} expandLinks={props.expandLinks} showProject={props.showProject} /> 
       </MenuSliderContainer >
       <MenuSliderContainer > 
         <About /> 

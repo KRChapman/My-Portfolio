@@ -28,6 +28,8 @@ const theme = { verticle: "75px",
                zindexLowest: 1,          
                transitionTime: "0.4s",
                fontSize: "16px",
+  
+               backgroundPictureHeight: "350px"
               };
 
 class App extends Component {

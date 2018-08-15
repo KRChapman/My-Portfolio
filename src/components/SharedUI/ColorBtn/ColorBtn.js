@@ -11,7 +11,7 @@ const Container = styled.div`
 
 
 const ColorBtn = (props) => {
-  // console.log("props", props);
+
   return (
     <Container onClick={(e) => props.selectColor(props.colorName)} color={props.color}></Container>
   )

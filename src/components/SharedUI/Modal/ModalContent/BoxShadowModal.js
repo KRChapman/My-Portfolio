@@ -5,9 +5,9 @@ import Style from './BoxShadowStyle'
 
 
 const BoxShadowModal = (props) => {
-  console.log("props.boxSpread", props);
   const boxShadowNumber = props.boxSpread.replace("px", "");
   const boxOpacicty = props.boxOpacicty * 100;
+  
   return (
     <div>
       <div style={{ textAlign: "center" }}>

@@ -5,7 +5,7 @@ const ImageCrop = styled.div`
 
 
    width: 100%;
-   height: 220px;
+   height: ${ props => props.theme.backgroundPictureHeight};
    overflow: hidden;
 
  
@@ -18,7 +18,7 @@ const ImageCrop = styled.div`
 
   transition: opacity 0.8s ease;
   @media (min-width: 1600px) {
-        height: 250px;
+        height: 450px;
         overflow: auto;
     }; 
 
@@ -27,7 +27,7 @@ const ImageCrop = styled.div`
 
 const ImagePreload = styled.div`
    width: 100%;
-   height: 220px;
+   height: ${ props => props.theme.backgroundPictureHeight};
    overflow: hidden;
 
   background-image: url(${ props => props.pictureSmall});
@@ -44,6 +44,11 @@ const ImagePreload = styled.div`
   left: 0;
 
   background-size: cover;
+
+    @media (min-width: 1600px) {
+        height: 450px;
+        overflow: auto;
+    }; 
 `;
 
 
@@ -59,7 +64,7 @@ class ImageDisplay extends Component {
     const hdLoaderImg = new Image();
 
     hdLoaderImg.src = this.props.srcLoaded;
-    console.log("this.currentImageHd", this.currentImageHd);
+
     hdLoaderImg.onload = () => {
       this.currentImageHd.setAttribute(
         'style',

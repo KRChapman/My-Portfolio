@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import TechIcons from '../../../SharedUI/TechIcons/TechIconsContainer';
+import ControlBtns from '../../../SharedUI/Modal/ControlBtns/ControlBtns';
 
 const Header = styled.h5`
   margin: 10px;
@@ -12,15 +13,15 @@ const Para = styled.p`
   font-size: 14px;
   line-height: 1.4;
 `;
-
+// margin-left: 125px;
 const Anchor = styled.a`
-width: 100%;
+width: 55px;
 text-align: center;
 font-size: 10px;
   color: #41505a;
   text-decoration: none;
 
-  margin-left: 125px;
+ 
 `;
 
 const HeaderContainer = styled.div`
@@ -28,6 +29,18 @@ const HeaderContainer = styled.div`
    align-items: baseline;
 
 `;
+const ButtonContainer = styled.div`
+margin-top: 5px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 100%;
+  & > button{
+
+    color: #8d8d8d;
+    
+  }
+`
 
 const IndividualProjects = (props) => {
 
@@ -40,10 +53,13 @@ const IndividualProjects = (props) => {
   
         {props.textInfo}
       </Para>
-      <Anchor href={props.link}>GitHub</Anchor>
+      <ButtonContainer>
+        <ControlBtns clicked={() => props.hideProject(props.route, props.header)} clickClose={null}>Hide</ControlBtns><Anchor href={props.link}>GitHub</Anchor>
+      </ButtonContainer>
+      
       {props.chidlren}
     </div>
   )
 }
-
+//route, props.header
 export default IndividualProjects;

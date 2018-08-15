@@ -10,7 +10,7 @@ const Container = styled.div`
   
   padding: 12.5px;
   border-radius: 10px;
- ${ props => console.log(props.boxSpread) }
+
 
 
   -webkit-box-shadow: 4px 4px 16px ${props => props.boxSpread} rgba(0,0,0, ${props => props.boxOpacicty});
@@ -21,8 +21,8 @@ const Container = styled.div`
 `;
 
 const ImageCrop = styled.div`
-   width: 275px;
-   height: 225px;
+   width: 300px;
+   height: 220px;
    overflow: hidden;
   
 `;

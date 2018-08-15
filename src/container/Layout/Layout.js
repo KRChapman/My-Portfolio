@@ -2,15 +2,12 @@ import React, { Component } from 'react';
 import Menu from '../../container/Menu/Menu.js';
 import Header from '../Header/Header.js';
 import ContentBody from '../../components/MainContent/ContentBody/ContentBody.js';
-
 import {
   withRouter ,
   Route,
   Switch,
  
 } from 'react-router-dom';
-
-
 import { defaultPrimary, defaultSecondary, 
         primaryTurquoise, primaryLightBlue, 
         secondaryTurquoise, secondaryBrown } from './../../variables/ColorVariables';
@@ -18,14 +15,7 @@ import {
   icons
 } from './../../variables/IconVariables.js';
 
-// import Resume from '../../components/MainContent/Resume/Resume.js';
-// import AboutMe from '../../components/MainContent/AboutMe/AboutMe.js';
-// import VanillaJavascript from '../../components/MainContent/VanillaJavascript/VanillaJavascript.js';
-// import Projects from './../../components/MainContent/Projects/Projects';
-// import Contact from './../../components/MainContent/Contact/Contact';
-
 import asyncComponent from './../../hoc/asyncComponent';
-
 const AsyncContact = asyncComponent(() => {
   return import('./../../components/MainContent/Contact/Contact');
 });
@@ -38,17 +28,15 @@ const AsyncAboutMe = asyncComponent(() => {
 const AsyncResume = asyncComponent(() => {
   return import('../../components/MainContent/Resume/Resume.js');
 })
-
-
 const AsyncVanillaJavascript = asyncComponent(() => {
   return import('../../components/MainContent/VanillaJavascript/VanillaJavascript.js');
 });
 
 
-
+// used for reseting back to default in resetToDefaultsHandler()
 const defaults = {
-  boxSpread: "10px",
-  boxOpacicty: "0.45",
+  boxSpread: "6px",
+  boxOpacicty: "0.4",
   primaryColor: defaultPrimary,
   secondaryColor: defaultSecondary,
 
@@ -69,6 +57,11 @@ class Layout extends Component {
       mediaQuery: defaults.mediaQuery,
       projectPath: "",
 
+      hiddenProjects: [],
+      projectOff: {name: "", opacity: 0}, 
+      projectOn: { name: "", route: "", opacity: 1 }, 
+
+
       projectsInfo:{
         voteNow: createProjectsInfo("Vote-Now-Omatic", "voteNow", "https://github.com/KRChapman/VotingApp",
           "https://protected-fjord-13167.herokuapp.com/"),
@@ -76,13 +69,14 @@ class Layout extends Component {
           "https://mywiki-1306.appspot.com/"),
         conway: createProjectsInfo("Conway's Game Of Life", "conway", "https://github.com/KRChapman/GameOfLife", ""),
         simon: createProjectsInfo("Simon Game", "simon", "https://github.com/KRChapman/FCCProjects/tree/master/simonGame", "http://simongame-kc.surge.sh/")
-      }
+      },
       
      }
 
     function createProjectsInfo(header, iconsInfo, githubLink, projectLink){
       let iconsToDisplay = [];
       let textInfo = "";
+      let additionalStyle = { containerStyle : null, pictureStyle : null};
 
       switch (iconsInfo) {
         case ('voteNow'):
@@ -91,11 +85,12 @@ class Layout extends Component {
           break;
         case ('wikiResource'):
           iconsToDisplay = [icons.python, icons.javaScript, icons.gql]
-          textInfo = "Full stack Python application. Log in and create pages and posts. Save links and edit or delete your content after posting."
+          textInfo = "Full stack Python application. Log in and create pages and posts. Save links and edit or delete content."
+          additionalStyle = { containerStyle: { border: "1px solid black" }, pictureStyle: { marginLeft: "-5px" }};
           break;
         case ('conway'):
           iconsToDisplay = [icons.react, icons.sass]
-          textInfo = "A React application visually representing my algorithm to display Conway's Game of Life."
+          textInfo = "React application using Sass that is a visual representaion of my algorithm to display Conway's Game of Life."
           break;
         case ('simon'):
           iconsToDisplay = [icons.javaScript, icons.sass]
@@ -114,6 +109,7 @@ class Layout extends Component {
         githubLink,
         projectLink,
         textInfo,
+        additionalStyle,
 
       }
     }
@@ -125,6 +121,8 @@ class Layout extends Component {
     this.saveToLocalStorageHandler = this.saveToLocalStorageHandler.bind(this);
     this.resetToDefaultsHandler = this.resetToDefaultsHandler.bind(this);
     this.selectRandomColorHandler = this.selectRandomColorHandler.bind(this);
+    this.hideProjectHandler = this.hideProjectHandler.bind(this);
+    this.showProjectHandler = this.showProjectHandler.bind(this);
   }
 
   componentDidMount() {
@@ -137,6 +135,7 @@ class Layout extends Component {
 
     if(this.props.location !== prevProps.location){
       const pathName = this.props.location.pathname;
+
       this.updatePicture(pathName);
     }
   }
@@ -239,7 +238,6 @@ class Layout extends Component {
       secondaryBrown
     }
     const colors = name === "primary" ? createPrimaryArray(colorsPrimary, initialStateColors) : createSecondaryArray(colorsSecondary, initialSecondaryColorColors);
-    console.log("possibleColors", colors);
 
     const maxNumber = colors.length;
     const colorToChange = colors[Math.floor(Math.random() * Math.floor(maxNumber))];
@@ -270,8 +268,7 @@ class Layout extends Component {
       let valuesArray = [];
 
       for (const key in colorsPrimary) {
-        let values = Object.values(colorsPrimary[key]);
-  
+        let values = Object.values(colorsPrimary[key]); 
         valuesArray = [...valuesArray, ...values]
       }
 
@@ -285,7 +282,6 @@ class Layout extends Component {
       let valuesArray = [];
 
       for (const key in colorsSecondary) {
-        console.log("valuesArrayvaluesArray", colorsSecondary[key]);
         let values = Object.values(colorsSecondary[key]);
         valuesArray = [...valuesArray, ...values]  
       }
@@ -296,20 +292,67 @@ class Layout extends Component {
     }
   }
 
+  hideProjectHandler(projectRoute, projectHeader) {
+    let header = projectHeader;
+    let route = projectRoute;
+
+   
+
+    const fadeOutProject = (route, header) =>{
+      this.setState(currentState => {
+        let hiddenProjects = [...currentState.hiddenProjects];
+        const projectOff = { ...currentState.projectOff }
+        for (const key in currentState.projectsInfo) {
+          if (currentState.projectsInfo[key].header === header) {
+            hiddenProjects = hiddenProjects.concat({ route, name: key });;
+          }
+        }
+ 
+        return {
+          projectOff,
+          hiddenProjects
+        }
+      });
+    }
+    
+    fadeOutProject(route, header);
+    }
+
+  showProjectHandler(projectRoute, projectName){
+    let name = projectName;
+    let route = projectRoute;
+//&& ele.route !== route;
+    this.setState(currentState => {
+      let hiddenProjects = [...currentState.hiddenProjects];
+
+      hiddenProjects = hiddenProjects.filter(ele => {
+        console.log("hiddenProjects", route);
+        return ele.name !== name;
+      })
+      
+      return {
+        hiddenProjects
+      }
+    });
+  }
+   
+
   render() {   
 
     return ( 
       <React.Fragment>      
-        <Menu primaryColor={this.state.primaryColor} secondaryColor={this.state.secondaryColor} 
-          mediaQuery={this.state.mediaQuery} closeMenu={this.closeMenuHandler} showToggleMenu={this.state.isShowMenu}/>
+        <Menu primaryColor={this.state.primaryColor} secondaryColor={this.state.secondaryColor} projectPath={this.state.projectPath} hiddenProjects={this.state.hiddenProjects}
+          mediaQuery={this.state.mediaQuery} closeMenu={this.closeMenuHandler} showToggleMenu={this.state.isShowMenu} showProject={this.showProjectHandler}/>
         <Header boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread} changeBoxShadow={this.changeBoxShadowHandler} 
           selectColor={this.selectColorHandler} primaryColor={this.state.primaryColor} saveToLocalStorage={this.saveToLocalStorageHandler} 
           mediaQuery={this.state.mediaQuery} toggleMenu={this.toggleMenuHandler} showToggleMenu={this.state.isShowMenu} 
-          resetToDefaults={this.resetToDefaultsHandler} selectRandomColor={this.selectRandomColorHandler} /> 
+          resetToDefaults={this.resetToDefaultsHandler} selectRandomColor={this.selectRandomColorHandler}  /> 
         <ContentBody backgroundpic={this.state.projectPath} mediaQuery={this.state.mediaQuery} showToggleMenu={this.state.isShowMenu}>
           <Switch>
             <Route path='/projects'  render={() => {
-              return <AsyncProjects projectsInfo={this.state.projectsInfo}  boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread}/>         
+              return <AsyncProjects projectsInfo={this.state.projectsInfo}  boxOpacicty={this.state.boxOpacicty} 
+                        boxSpread={this.state.boxSpread} hideProject={this.hideProjectHandler} 
+                        projectOff={this.state.projectOff} hiddenProjects={this.state.hiddenProjects}/>         
             }}/>
             <Route path="/contact" render={() => {
               return <AsyncContact  />
@@ -318,10 +361,13 @@ class Layout extends Component {
               return <AsyncResume boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread} />
             }} />
             <Route path="/aboutme" render={() => {
-              return <AsyncAboutMe wikiResourceProject={this.state.projectsInfo.wikiResource} boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread}/>
+              return <AsyncAboutMe projectsInfo={this.state.projectsInfo} boxOpacicty={this.state.boxOpacicty} 
+                        boxSpread={this.state.boxSpread} route={"/aboutme"}  hideProject={this.hideProjectHandler}
+                        hiddenProjects={this.state.hiddenProjects} projectOpacity={this.state.hiddenProjectsOpacity}/>
             }} />
             <Route path="/vanillajavascript" render={() => {
-              return <AsyncVanillaJavascript projectsInfo={this.state.projectsInfo} boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread} />
+              return <AsyncVanillaJavascript projectsInfo={this.state.projectsInfo} boxOpacicty={this.state.boxOpacicty} 
+                boxSpread={this.state.boxSpread} route={"/vanillajavascript"}  hideProject={this.hideProjectHandler} hiddenProjects={this.state.hiddenProjects} projectOpacity={this.state.hiddenProjectsOpacity}/>
             }} />     
                 
             <Route path='/github' component={() => window.location.replace('https://github.com/KRChapman') } />

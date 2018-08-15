@@ -11,11 +11,11 @@ import ImageDisplay from './ImageDisplay/ImageDisplay';
 const Container = styled.div`
   margin-bottom: 1px;
   width: 100%;
-  height: 220px;
+  height: ${ props => props.theme.backgroundPictureHeight};
   overflow: hidden;
 
   @media (min-width: 1600px) {
-       height: 250px;
+       height: 450px;
        overflow: hidden ;
   };
 
@@ -41,10 +41,10 @@ const Header = styled.h1`
   text-decoration: none;
   line-height: 1.1;
   letter-spacing: .95px;
-  margin-top: 170px;
+  margin-top: 290px;
   opacity: 0.85;
    @media (min-width: 1600px) {
-       margin-top: 195px;
+       margin-top: 395px;
   };
 `;
 

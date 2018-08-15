@@ -19,7 +19,7 @@ const LinkElem = styled(NavLink)`
   font-size:  ${props => props.theme.fontSize};
 
   padding: 15px 10px;
-  height: 100%;
+  height: 56px;
    
   text-decoration: none;
 
@@ -42,9 +42,6 @@ const ListItem = styled.li`
 
 `;
 
-
-
-////////
 const IconContainer = styled(FontAwesomeIcon)`
   margin-right: 15px;
   margin-left: 10px;
@@ -80,16 +77,18 @@ const LinkCounter = (props) => {
   )
 }
 
-//
 
 const ListItemLink = (props) => {
   const counter = props.count ? <LinkCounter count={props.count} /> : null;
-  const clickToExpand = props.expandLinks != null ?  () => props.expandLinks(props.name) : null
- 
-  return (
-    <ListItem textColor={props.textColor}>
-      <LinkElem to={props.to} onClick={clickToExpand}>
-        <Flex><IconContainer icon={props.icon}></IconContainer><div>{props.children} </div></Flex> 
+  const clickToExpand = props.expandLinks != null ?  () => props.expandLinks(props.name) : null;
+  const clickToShowProject = props.showProject != null ? () => props.showProject(props.to, props.children ) : null;
+
+ return (
+   <ListItem textColor={props.textColor}>
+     <LinkElem to={props.to} onClick={() => {
+       clickToExpand !== null ? clickToExpand() : null;
+       clickToShowProject !== null ? clickToShowProject() : null;}} >
+       <Flex><IconContainer icon={props.icon}></IconContainer><div style={{ display: "flex", alignItems: "center"}}><span >{props.children} </span></div></Flex> 
         <RightContainer>{counter}</RightContainer>
       </LinkElem>
       {props.ul}

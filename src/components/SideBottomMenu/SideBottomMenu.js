@@ -24,8 +24,9 @@ const SideBottomMenu = (props) => {
     const subLinks = linkObject[ele].subLinks;
     const isShowSubLinks = linkObject[ele].showSubLinks != null ? linkObject[ele].showSubLinks : null;  
     const expandLinks = linkAttributes.expandFunction ? props.expandLinks : null;
+    const showProject = ele === "hiddenProjects" ? props.showProject : null;
     let count = null;  
-
+   // debugger;
     if (subLinks != null ){
       const subLinkKeys = Object.keys(subLinks);
       count = subLinkKeys.length;
@@ -35,7 +36,7 @@ const SideBottomMenu = (props) => {
             let subLinksAttributes = subLinks[ele];
             return <ListItemLink textColor={props.textColor} count={null} expandLinks={null}
                     icon={subLinksAttributes.icon} to={subLinksAttributes.to} key={subLinksAttributes.title}
-                    >{subLinksAttributes.title}
+                    showProject={showProject}>{subLinksAttributes.title} 
                   </ListItemLink>
           })} 
         </ul> : null;              

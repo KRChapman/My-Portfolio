@@ -39,7 +39,7 @@ const Input = (props) => {
   if (props.isValid || props.isValid == null){
     inputStyle = validStyles;
   }
-  console.log("props.input", props.input);
+
   switch (props.inputtype) {
     case ('input'):
       inputElement = <InputElement inputStyle={inputStyle} value={props.input} name={props.name} {...props.elementConfig} onChange={props.updateInput} />
