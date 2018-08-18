@@ -26,7 +26,7 @@ const SideBottomMenu = (props) => {
     const expandLinks = linkAttributes.expandFunction ? props.expandLinks : null;
     const showProject = ele === "hiddenProjects" ? props.showProject : null;
     let count = null;  
-   // debugger;
+
     if (subLinks != null ){
       const subLinkKeys = Object.keys(subLinks);
       count = subLinkKeys.length;

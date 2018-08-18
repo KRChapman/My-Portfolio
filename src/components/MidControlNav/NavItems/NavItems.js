@@ -1,9 +1,5 @@
 import React from 'react';
 import styled, {css} from 'styled-components';
-import {
-  Link,
-  NavLink,
-} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faBookOpen, faSitemap, faClipboardList } from '@fortawesome/free-solid-svg-icons'
 
@@ -52,17 +48,17 @@ const ButtonElem = styled.span`
     border-color: ${ props => props.backgroundActiveColor};
 ` };
 `;
-// ${ props => props.iconsIdleColor}
+
 const NavItems = (props) => {
   const menuRelativeLocation = "0";
   const aboutRelativeLocation = "250px";
   const featuresRelativeLocation = "500px";
+
   const buttons = {Menu: false, About: false, Features: false}
   buttons[props.buttonClicked] = true;
 
   const backgroundActiveColor = props.secondaryActiveColors.backgroundColor;
   const iconsPressedColor = props.secondaryActiveColors.iconsPressedColor;
-
   const iconsIdleColor = props.iconsIdleColor;
   const boardersRight = props.boardersRight;
 

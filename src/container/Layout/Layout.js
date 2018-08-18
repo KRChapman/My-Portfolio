@@ -52,26 +52,23 @@ class Layout extends Component {
       boxOpacicty: defaults.boxOpacicty,
       primaryColor: defaults.primaryColor,
       secondaryColor: defaults.secondaryColor,
-    
+  
       isShowMenu: defaults.isShowMenu,
       mediaQuery: defaults.mediaQuery,
       projectPath: "",
-
       hiddenProjects: [],
       projectOff: {name: "", opacity: 0}, 
       projectOn: { name: "", route: "", opacity: 1 }, 
-
 
       projectsInfo:{
         voteNow: createProjectsInfo("Vote-Now-Omatic", "voteNow", "https://github.com/KRChapman/VotingApp",
           "https://protected-fjord-13167.herokuapp.com/"),
         wikiResource: createProjectsInfo("MyWiki Saver", "wikiResource", "https://github.com/KRChapman/personalWiki", 
           "https://mywiki-1306.appspot.com/"),
-        conway: createProjectsInfo("Conway's Game Of Life", "conway", "https://github.com/KRChapman/GameOfLife", ""),
+        conway: createProjectsInfo("Conway's Game Of Life", "conway", "https://github.com/KRChapman/GameOfLife", "https://krchapman.github.io/GameOfLife/"),
         simon: createProjectsInfo("Simon Game", "simon", "https://github.com/KRChapman/FCCProjects/tree/master/simonGame", "http://simongame-kc.surge.sh/")
-      },
-      
-     }
+      },     
+    }
 
     function createProjectsInfo(header, iconsInfo, githubLink, projectLink){
       let iconsToDisplay = [];
@@ -90,7 +87,7 @@ class Layout extends Component {
           break;
         case ('conway'):
           iconsToDisplay = [icons.react, icons.sass]
-          textInfo = "React application using Sass that is a visual representaion of my algorithm to display Conway's Game of Life."
+          textInfo = "React application using Sass that is a visual representation of my algorithm to display Conway's Game of Life."
           break;
         case ('simon'):
           iconsToDisplay = [icons.javaScript, icons.sass]
@@ -102,15 +99,12 @@ class Layout extends Component {
       }
 
       return{
-
         header,
-        iconsInfo: iconsToDisplay,
-      
+        iconsInfo: iconsToDisplay,    
         githubLink,
         projectLink,
         textInfo,
         additionalStyle,
-
       }
     }
 
@@ -132,7 +126,6 @@ class Layout extends Component {
   }
 
   componentDidUpdate(prevProps) {
-
     if(this.props.location !== prevProps.location){
       const pathName = this.props.location.pathname;
 
@@ -141,9 +134,7 @@ class Layout extends Component {
   }
 
   updatePicture(pathName){
-
     this.setState({ projectPath: pathName });
-   
   }
 
   updateStateWithLocalStorage() {
@@ -165,11 +156,9 @@ class Layout extends Component {
 
   saveToLocalStorageHandler() {
     for (let key in this.state) {
-      // save to localStorage
       if (key !== "mediaQuery" && key !== "isShowMenu")
       localStorage.setItem(key, JSON.stringify(this.state[key]));
     }
-    
   }
 
   resetToDefaultsHandler(){
@@ -209,8 +198,7 @@ class Layout extends Component {
       const newSecondaryColor = color in colorsSecondary ? colorsSecondary[color]  : currentState.secondaryColor;
      
       return { primaryColor: newPrimaryColor, secondaryColor: newSecondaryColor}
-    });
-   
+    });  
   }
 
   changeBoxShadowHandler(e) {
@@ -297,8 +285,6 @@ class Layout extends Component {
     let route = projectRoute;
 
    
-
-    const fadeOutProject = (route, header) =>{
       this.setState(currentState => {
         let hiddenProjects = [...currentState.hiddenProjects];
         const projectOff = { ...currentState.projectOff }
@@ -313,9 +299,7 @@ class Layout extends Component {
           hiddenProjects
         }
       });
-    }
-    
-    fadeOutProject(route, header);
+
     }
 
   showProjectHandler(projectRoute, projectName){

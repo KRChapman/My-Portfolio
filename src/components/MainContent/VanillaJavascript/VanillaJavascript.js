@@ -39,8 +39,6 @@ const VanillaJavascript = (props) => {
     for (const key in projectData) {
 
       if (ele.name === key && ele.route === props.route) {
-        // console.log("ele.route", ele.route);
-        // console.log("hiddenProjects", props.route);
         projectsStatuses[key] = { pointerEvents: "none", opacity: 0 };
       }
 
@@ -48,9 +46,8 @@ const VanillaJavascript = (props) => {
     }
   });
 
-
   const projectsToDisplay = projects.map((ele) => {
-    // let opacity = props.projectOff.name === ele ? 0 : 1;
+
     let pointerEvents = projectsStatuses[ele] ? projectsStatuses[ele].pointerEvents : "auto";
     let opacity = projectsStatuses[ele] ? projectsStatuses[ele].opacity : 1;
     let text = <IndividualProjects iconsInfo={projectData[ele].iconsInfo} header={projectData[ele].header}
@@ -65,41 +62,6 @@ const VanillaJavascript = (props) => {
     </CardContainer>;
   });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // const simonData = { ...props.projectsInfo.simon };
-  
-  // const voteNowData = { ...props.projectsInfo.voteNow };
-
-  // const simon = {
-  //   text:
-  //     <IndividualProjects iconsInfo={simonData.iconsInfo} header={simonData.header}
-  //       link={simonData.githubLink} textInfo={simonData.textInfo}>
-
-  //     </IndividualProjects>,
-  //   linkTo: simonData.projectLink
-  // }
-
-  // const voteNow = {
-  //   text:
-  //     <IndividualProjects iconsInfo={voteNowData.iconsInfo} header={voteNowData.header}
-  //       link={voteNowData.githubLink} textInfo={voteNowData.textInfo}>
-  //       <span>aa</span>
-  //     </IndividualProjects>,
-  //   linkTo: voteNowData.projectLink
-  // }
-
   return (
     <Container>
      
@@ -108,13 +70,5 @@ const VanillaJavascript = (props) => {
   )
 }
 
-{/* <CardContainer>
-  <Card linkTo={simon.linkTo} textComponent={simon.text}
-    boxOpacicty={props.boxOpacicty} boxSpread={props.boxSpread} src={simonA} />
-</CardContainer>
-  <CardContainer>
-    <Card linkTo={voteNow.linkTo} textComponent={voteNow.text}
-      boxOpacicty={props.boxOpacicty} boxSpread={props.boxSpread} src={vote} />
-  </CardContainer>  */}
 
 export default VanillaJavascript;

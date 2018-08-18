@@ -21,15 +21,21 @@ const ControlStyle = styled.button`
   }
 `;
 
-
-
 const ControlBtns = (props) => {
-
+  const clicked = props.clicked;
+  const clickClose = props.clickClose;
+  function click(){
+    if (clicked !== null){
+      clicked();
+    }
+    if (clickClose !== null){
+      clickClose();
+    }
+  }
   return (
-    <ControlStyle onClick={() =>{props.clicked !== null ? props.clicked() : null;
-                                 props.clickClose !== null ? props.clickClose() : null;}} 
-                                 color={props.color} disabled={props.disabled}>{props.children} 
-                                 </ControlStyle>
+    <ControlStyle 
+      onClick={click} color={props.color} disabled={props.disabled}>{props.children} 
+    </ControlStyle>
   )
 }
 

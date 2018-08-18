@@ -1,5 +1,3 @@
-const size = "15px";
-
 export const defaultSecondary = { 
   backgroundColorTop: "#FA7252", backgroundColorMidNav: "#DE5939",                         
   iconsIdleColor: "#993F31", boardersRight: "#cf4d2e",                               
@@ -10,13 +8,12 @@ export const defaultSecondary = {
                   
 export const defaultPrimary = { 
   backgroundColor: "#273135", buttonColor: "rgba(114, 133, 137, 0.45)", 
-
 };                        
-//#103033 #1c474b
+
 export const primaryTurquoise = { 
   backgroundColor: "#103033", buttonColor: "#1c474b"
 };
-//#273d56 79B0EC
+
 export const primaryLightBlue = { 
   backgroundColor: "#273d56", buttonColor: "#476b91"
 };

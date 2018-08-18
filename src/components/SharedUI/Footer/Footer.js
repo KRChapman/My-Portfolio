@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import {
   Link,
-  NavLink,
 } from 'react-router-dom';
 
 const fontSize = "12px";
@@ -68,7 +67,6 @@ const Links = styled(Link)`
 const SkillsContainer = styled.div`
   flex-wrap: wrap;
   text-align: center;
-  
 `;
 
 const SkillsUL = styled.ul`
@@ -119,9 +117,7 @@ const Footer = (props) => {
             <li><Links to={'/projects'}>projects</Links></li>
             <li><Links to={'/contact'}>contact</Links></li>
             <li><Links to={'/aboutme'}>about</Links></li>
-            <li><Links to={'/resume'}>resume</Links></li>
-                
-            
+            <li><Links to={'/resume'}>resume</Links></li>         
           </LinkContainer>    
       </FooterContainer>
     </Container>

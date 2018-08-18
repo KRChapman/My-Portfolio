@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import {
-  Link,
   NavLink,
 } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faMobileAlt } from '@fortawesome/free-solid-svg-icons'
-//
+
 const LinkElem = styled(NavLink)`
 
 
@@ -86,8 +84,9 @@ const ListItemLink = (props) => {
 
  return (
    <ListItem textColor={props.textColor}>
-     <LinkElem to={route} active={"false"} onClick={() => {
-       clickToExpand !== null ? clickToExpand() : null;
+
+     <LinkElem to={route} active={"false"} onClick={() => {   // eslint-disable-next-line
+       clickToExpand !== null ? clickToExpand() : null;// eslint-disable-next-line
        clickToShowProject !== null ? clickToShowProject() : null;}} >
        <Flex><IconContainer icon={props.icon}></IconContainer><div style={{ display: "flex", alignItems: "center"}}><span >{props.children} </span></div></Flex> 
         <RightContainer>{counter}</RightContainer>

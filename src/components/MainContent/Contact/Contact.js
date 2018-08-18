@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Card from '../../SharedUI/Card/Card';
 import Input from '../../SharedUI/Input/Input';
 import ControlBtns from '../../SharedUI/Modal/ControlBtns/ControlBtns';
 import styled from 'styled-components';
@@ -112,7 +111,7 @@ class Contact extends Component {
       var elements = form.elements;
 
       var fields = Object.keys(elements).filter(function (k) {
-        return (elements[k].name !== "honeypot");
+        return (elements[k].name !== "honeypot");       // eslint-disable-next-line
       }).map(function (k) {
         if (elements[k].name !== undefined) {
           return elements[k].name;
@@ -121,7 +120,7 @@ class Contact extends Component {
           return elements[k].item(0).name;
         }
       }).filter(function (item, pos, self) {
-        return self.indexOf(item) == pos && item;
+        return self.indexOf(item) === pos && item;
       });
 
       var formData = {};

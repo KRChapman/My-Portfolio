@@ -9,7 +9,6 @@ const Container = styled.div`
   height: ${props => props.theme.verticle};
   background-color: ${ props => props.backgroundColor};
   padding: 12px;
-
 `;
 
 const SideTopInfo = (props) => {

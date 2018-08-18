@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '../../SharedUI/Card/Card';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import voteNow from './../../../assets/images/testA.png';
 import conway from './../../../assets/images/gameB.png';
 import wikiResource from './../../../assets/images/wiki.png';
@@ -35,15 +35,6 @@ const CardContainer = styled.div`
 
 `;
 
-//transition-delay: 2s;
-//  display: ${props => props.projectOpacity === 1 ? "block" : "none"};
-//  
-  // animation-name: ${ props => props.projectOpacity === 1 ?   "none": AnimateFade};
-  // animation-duration: 1s;
-  // animation-fill-mode: forwards;
-
-//
-//animation-fill-mode: forwards;
 const Projects = (props) => {
 
   const projects = ["voteNow", "wikiResource", "conway"]

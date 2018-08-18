@@ -6,20 +6,15 @@ import SideTopInfo from '../../components/SideTopInfo/SideTopInfo';
 import MidControlNav from '../../components/MidControlNav/MidControlNav';
 import MenuWrapper from '../../components/MenuWrapper/MenuWrapper';
 import {
-  faTwitter,
-  faFacebook,
-  faStackOverflow,
   faGithub,
   faLinkedin,
   faJsSquare,
- 
 } from "@fortawesome/free-brands-svg-icons";
 import { faMobileAlt, faFileAlt, faInfoCircle, faAddressCard, faListAlt, faLink, faCodeBranch, faSearchPlus} from '@fortawesome/free-solid-svg-icons';
 import {
   withRouter,
-
-
 } from 'react-router-dom';
+
 class Menu extends Component {
   constructor(props) {
     super(props);
