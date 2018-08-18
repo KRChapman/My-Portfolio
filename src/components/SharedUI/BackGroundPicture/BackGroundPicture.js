@@ -59,7 +59,7 @@ class BackGroundPicture extends Component {
 
   render() {
 
-    const sunSetMountainProjects = this.props.backgroundpic === '/projects' ?
+    const sunSetMountainProjects = this.props.backgroundpic === '/projects' || this.props.backgroundpic === '/' ?
       <Container >
         <Header style={{ marginTop: "10px", marginRigth: "94%", width: "200px", textDecoration: "none" }}>Seattle, WA</Header>
         <Header style={{ textDecoration: "underline" }} >Projects:</Header>

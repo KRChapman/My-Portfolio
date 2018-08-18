@@ -69,8 +69,9 @@ const Projects = (props) => {
     // let opacity = props.projectOff.name === ele ? 0 : 1;
     let pointerEvents = projectsStatuses[ele] ? projectsStatuses[ele].pointerEvents : "auto";
     let opacity = projectsStatuses[ele] ? projectsStatuses[ele].opacity : 1;
+    const route = props.route === '/' ? "/projects" : props.route;
     let text = <IndividualProjects iconsInfo={projectData[ele].iconsInfo} header={projectData[ele].header}
-      link={projectData[ele].githubLink} textInfo={projectData[ele].textInfo} route={props.location.pathname} hideProject={props.hideProject}>
+      link={projectData[ele].githubLink} textInfo={projectData[ele].textInfo} route={route} hideProject={props.hideProject}>
                </IndividualProjects>;
 
     return <CardContainer key={ele} projectOpacity={opacity} pointerEvents={pointerEvents}>

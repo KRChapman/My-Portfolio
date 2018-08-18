@@ -348,6 +348,11 @@ class Layout extends Component {
           resetToDefaults={this.resetToDefaultsHandler} selectRandomColor={this.selectRandomColorHandler}  /> 
         <ContentBody backgroundpic={this.state.projectPath} mediaQuery={this.state.mediaQuery} showToggleMenu={this.state.isShowMenu}>
           <Switch>
+            <Route exact path='/' render={() => {
+              return <AsyncProjects projectsInfo={this.state.projectsInfo} boxOpacicty={this.state.boxOpacicty}
+                boxSpread={this.state.boxSpread} hideProject={this.hideProjectHandler}
+                projectOff={this.state.projectOff} hiddenProjects={this.state.hiddenProjects} route={'/projects'} />
+            }} />
             <Route path='/projects'  render={() => {
               return <AsyncProjects projectsInfo={this.state.projectsInfo}  boxOpacicty={this.state.boxOpacicty} 
                         boxSpread={this.state.boxSpread} hideProject={this.hideProjectHandler} 

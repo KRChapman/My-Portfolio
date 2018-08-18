@@ -12,6 +12,8 @@ const Features = (props) => {
   return (
     <Container>
       <h5>Features</h5>
+      <div> Toggle Hide Project Cards On individual pages</div>
+      <br />
       <div> Customize box shadow spread and opacity of Info Card</div>
       <br />
       <div> Customize box shadow spread and opacity of Info Card</div>

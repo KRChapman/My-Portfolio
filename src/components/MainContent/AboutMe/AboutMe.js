@@ -27,13 +27,9 @@ const CardContainer = styled.div`
 `;
 
 const AboutMe = (props) => {
-  const wikiResourceData = { ...props.wikiResourceProject };
-
-
-  const projects = ["wikiResource"]
-  const projectsPictures = { wikiResource }
-  const projectData = { ...props.projectsInfo }
-
+  const projects = ["wikiResource"];
+  const projectsPictures = { wikiResource };
+  const projectData = { ...props.projectsInfo };
   const projectsStatuses = {};
 
   props.hiddenProjects.forEach(ele => {
@@ -48,19 +44,10 @@ const AboutMe = (props) => {
     }
   });
 
-
-  // const wikiResource = {
-  //   text:
-  //     <IndividualProjects iconsInfo={wikiResourceData.iconsInfo} header={wikiResourceData.header}
-  //       link={wikiResourceData.githubLink} textInfo={wikiText} route={props.route} hideProject={props.hideProject}>
-  //     </IndividualProjects>,
-  //   linkTo: wikiResourceData.projectLink,
-  // }
-
   const projectsToDisplay = projects.map((ele) => {
-    let smallText = <p style={{ margin: 0, fontSize: "10px", width: "180px", }}>
-      {projectData[ele].textInfo}
-    </p>
+    let smallText = <p style={{ margin: 0, fontSize: "9px", width: "180px", }}>
+                    {projectData[ele].textInfo}
+                  </p>;
     let pointerEvents = projectsStatuses[ele] ? projectsStatuses[ele].pointerEvents : "auto";
     let opacity = projectsStatuses[ele] ? projectsStatuses[ele].opacity : 1;
     let text = <IndividualProjects iconsInfo={projectData[ele].iconsInfo} textInfo={smallText} header={projectData[ele].header}
@@ -90,9 +77,7 @@ const AboutMe = (props) => {
     </Container>
   )
 }
-{/* <CardContainer>
-  <Card containerStyle={{ width: "175px", height: "125px" }} linkTo={wikiResource.linkTo} textComponent={wikiResource.text}
-    boxOpacicty={props.boxOpacicty} boxSpread={props.boxSpread} src={wiki} />
 
-</CardContainer>    */}
 export default AboutMe;
+
+

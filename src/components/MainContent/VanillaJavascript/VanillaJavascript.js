@@ -29,7 +29,7 @@ const CardContainer = styled.div`
 
 const VanillaJavascript = (props) => {
 
-  const projects = ["voteNow", "simon"]
+  const projects = ["simon", "voteNow"]
   const projectsPictures = { voteNow, simon}
   const projectData = { ...props.projectsInfo }
 

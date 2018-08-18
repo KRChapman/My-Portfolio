@@ -1,4 +1,3 @@
-//main #FA7252;
 import React from 'react';
 import styled from 'styled-components';
 import PictureInfo from './PictureInfo/PictureInfo';

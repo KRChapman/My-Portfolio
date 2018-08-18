@@ -190,7 +190,7 @@ class Contact extends Component {
         <h4>Contact me by email</h4>
         <form onSubmit={(this.submitFormHandler)} id={"gform"} method="POST" >
           {inputArray}
-          <ControlBtns clicked={null} clickClose={null} color={"#388038;"}>Send </ControlBtns >       
+          <ControlBtns clicked={null} clickClose={null} color={"#388038"} disabled={!this.state.formIsValid}>Send </ControlBtns >       
         </form> 
         {thankYou}
       </ContactContainer>

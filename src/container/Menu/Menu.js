@@ -14,7 +14,7 @@ import {
   faJsSquare,
  
 } from "@fortawesome/free-brands-svg-icons";
-import { faMobileAlt, faFileAlt, faInfoCircle, faAddressCard, faListAlt, faLink, faCodeBranch} from '@fortawesome/free-solid-svg-icons';
+import { faMobileAlt, faFileAlt, faInfoCircle, faAddressCard, faListAlt, faLink, faCodeBranch, faSearchPlus} from '@fortawesome/free-solid-svg-icons';
 import {
   withRouter,
 
@@ -56,7 +56,7 @@ class Menu extends Component {
                                     subLinks: null,
                                   },
         hiddenProjects: {
-          linkAttributes: this.createLink('Hidden Projects', faLink, '#', true),
+          linkAttributes: this.createLink('Hidden Projects', faSearchPlus, '#', true),
           subLinks: this.hiddenProjectSubLinks(),
           showSubLinks: false,
         }
@@ -78,7 +78,7 @@ class Menu extends Component {
   componentDidUpdate(prevProps, prevState) {
     
     if ((prevProps.hiddenProjects !== this.props.hiddenProjects || this.props.projectPath !== prevProps.projectPath)){
-      const route = this.props.projectPath;
+      const route = this.props.projectPath === '/' ? '/projects' : this.props.projectPath;
 
       this.setState(currentState => {
         const contentLinks = {...currentState.contentLinks}
@@ -95,15 +95,12 @@ class Menu extends Component {
 
 
   hiddenProjectSubLinks(route) {
-    // 
-    // const route = this.props.location.pathname;
-
     let subLinks = null;
     this.props.hiddenProjects.forEach(ele => {
       if (route === ele.route) {
         subLinks = subLinks == null ? {} : subLinks;
         
-        subLinks[ele.name] = this.createLink(ele.name, faLink, ele.route);
+        subLinks[ele.name] = this.createLink(ele.name, faSearchPlus, ele.route);
 
       }
 

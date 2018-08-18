@@ -82,10 +82,11 @@ const ListItemLink = (props) => {
   const counter = props.count ? <LinkCounter count={props.count} /> : null;
   const clickToExpand = props.expandLinks != null ?  () => props.expandLinks(props.name) : null;
   const clickToShowProject = props.showProject != null ? () => props.showProject(props.to, props.children ) : null;
+  const route =  props.showProject != null ? '#' : props.to;
 
  return (
    <ListItem textColor={props.textColor}>
-     <LinkElem to={props.to} onClick={() => {
+     <LinkElem to={route} active={"false"} onClick={() => {
        clickToExpand !== null ? clickToExpand() : null;
        clickToShowProject !== null ? clickToShowProject() : null;}} >
        <Flex><IconContainer icon={props.icon}></IconContainer><div style={{ display: "flex", alignItems: "center"}}><span >{props.children} </span></div></Flex> 
