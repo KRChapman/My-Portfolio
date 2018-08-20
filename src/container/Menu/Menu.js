@@ -21,6 +21,8 @@ class Menu extends Component {
     this.state = { 
       slideLocation: 0,
       buttonClicked: "Menu",
+      isDesktop: true,
+      tabletSize: 700,
       
 
       contentLinks: {
@@ -68,6 +70,12 @@ class Menu extends Component {
     this.handleExpandLinks = this.handleExpandLinks.bind(this);
     this.hiddenProjectSubLinks = this.hiddenProjectSubLinks.bind(this);
     this.createLink = this.createLink.bind(this);
+    this.updateWindow = this.updateWindow.bind(this);
+  }
+
+  componentDidMount() {
+    this.updateWindow();
+    window.addEventListener("resize", this.updateWindow);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -86,6 +94,14 @@ class Menu extends Component {
         }
       });
     }
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateWindow);
+  }
+
+  updateWindow(){
+    const tabletSize = this.state.tabletSize;
+    this.setState({ isDesktop: window.innerWidth > tabletSize});
   }
 
 
@@ -143,7 +159,8 @@ class Menu extends Component {
         <MidControlNav secondaryColor={this.props.secondaryColor} buttonClicked={this.state.buttonClicked}
           changeMenu={this.handleChangeMenu} closeMenu={this.props.closeMenu}/>
         <MenuWrapper primaryColor={this.props.primaryColor} showSubLinks={this.state.showSubLinks} showProject={this.props.showProject}
-          contentLinks={this.state.contentLinks}  expandLinks={this.handleExpandLinks}  slideLocation={this.state.slideLocation}/>
+          contentLinks={this.state.contentLinks}  expandLinks={this.handleExpandLinks}  slideLocation={this.state.slideLocation} 
+          closeMenu={this.props.closeMenu} isDesktop={this.state.isDesktop}/>
       </Styled.Container >
      )
   }

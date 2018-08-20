@@ -49,7 +49,7 @@ const Card = (props) => {
   
   return (
     <Container boxOpacicty={props.boxOpacicty} boxSpread={props.boxSpread}>
-      <Anchor href={props.linkTo} style={{ ...props.anchorStyle }}>
+      <Anchor target='_blank' href={props.linkTo} style={{ ...props.anchorStyle }}>
       <ImageCrop style={{ ...props.containerStyle }} >
         
         <Image style={{ ...props.pictureStyle}} src={props.src} alt="" />

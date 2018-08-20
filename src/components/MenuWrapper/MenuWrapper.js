@@ -28,8 +28,9 @@ const MenuWrapper = (props) => {
     <Container backgroundColor={props.primaryColor.backgroundColor} textColor={textColor} 
       slideLocation={props.slideLocation}> 
       <MenuSliderContainer >     
-        <SideBottomMenu textColor={textColor} showSubLinks={props.showSubLinks} 
-          contentLinks={props.contentLinks} expandLinks={props.expandLinks} showProject={props.showProject} /> 
+        <SideBottomMenu textColor={textColor} showSubLinks={props.showSubLinks} isDesktop={props.isDesktop}
+          contentLinks={props.contentLinks} expandLinks={props.expandLinks} showProject={props.showProject}
+          closeMenu={props.closeMenu} /> 
       </MenuSliderContainer >
       <MenuSliderContainer > 
         <About /> 

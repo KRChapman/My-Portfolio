@@ -56,6 +56,10 @@ const LinkContainer = styled.ul`
   & > li {
     margin: 6px;
     color: #CCD6DF;   
+       @media (max-width: 600px) {
+     margin: 2px;
+    
+    }
   }
 `;
 
@@ -75,13 +79,18 @@ const SkillsUL = styled.ul`
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
   color: #CCD6DF;
 
   width: 180px;
 
   & > li {
     font-size: 14px;
+
+    @media (max-width: 620px) {
+     font-size: ${fontSize};
+    
+    }
   }
 `;
 const Tittle = styled.div`
@@ -103,12 +112,15 @@ const Footer = (props) => {
           <SkillsContainer>
           <Tittle >Skills:</Tittle>
             <SkillsUL>
+
               <li>javaScript</li>
               <li>React</li>
+              <li>SQL</li>
+              <li>MongoDb</li>
+           
               <li>Node</li>
               <li>Express</li>
-              <li>MongoDb</li>
-              <li>SQL</li>
+            
             </SkillsUL>
           </SkillsContainer>
           <LinkContainer>

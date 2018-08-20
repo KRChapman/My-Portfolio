@@ -360,7 +360,7 @@ class Layout extends Component {
                 
             <Route path='/github' component={() => window.location.replace('https://github.com/KRChapman') } />
             <Route path='/linkedin' component={() => window.location.replace('https://www.linkedin.com/in/kyle-chapman-76969b167/')} />
-            <Route path='/portfoliogithub' component={() => window.location.replace('https://github.com/KRChapman/My-Portfolio')} />
+            <Route path='/portfoliogithub' render={() => window.location.replace('https://github.com/KRChapman/My-Portfolio')} />
           </Switch>      
         </ContentBody>        
       </React.Fragment>

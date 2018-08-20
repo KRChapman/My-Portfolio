@@ -60,6 +60,8 @@ const AboutMe = (props) => {
         containerStyle={{ width: "175px", height: "125px" }}
         pictureStyle={projectData[ele].additionalStyle.pictureStyle} src={projectsPictures[ele]} />
     </CardContainer>;
+
+    
   });
 
  
@@ -68,9 +70,9 @@ const AboutMe = (props) => {
   return (
     <Container>
       <h2>About Me</h2>
-      <p style={ {textIndent: "40px"}}>	I am currently a Teacher. I started programming as a hobby. However, the more applications I created and the deeper I dove into programming the more I loved it. My first major project was a full stack  python wiki.
-       In my free time I enjoy playing video and board games, fishing, and swing dancing!
-        I have become very passionate about programming and web development and I want to make it a career. I do not have a formal computer science education, but I am self-taught and eager to learn.
+      <p>	I am currently a Teacher. I started programming as a hobby. However, the more applications I created and the deeper I dove into programming the more I loved it. My first major project was a full stack  python wiki.
+       In my free time I enjoy playing video and board games, fishing and swing dancing!
+        I have become very passionate about programming and web development and I want to make it a career. I do not have a formal computer science education. I am self-taught and eager to learn.
       </p>
       {projectsToDisplay}
  

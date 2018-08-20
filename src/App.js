@@ -20,7 +20,8 @@ const theme = {
   zindexLowest: 1,          
   transitionTime: "0.4s",
   fontSize: "16px", 
-  backgroundPictureHeight: "350px"
+  backgroundPictureHeight: "350px",
+  tablet: 900,
 };
 
 class App extends Component {

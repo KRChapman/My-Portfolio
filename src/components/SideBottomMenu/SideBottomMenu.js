@@ -34,16 +34,17 @@ const SideBottomMenu = (props) => {
         <ul style={{ listStyleType: "none" }} >
           {subLinkKeys.map(ele => {
             let subLinksAttributes = subLinks[ele];
-            return <ListItemLink textColor={props.textColor} count={null} expandLinks={null}
+            return <ListItemLink textColor={props.textColor} count={null} expandLinks={null} isDesktop={props.isDesktop}
                     icon={subLinksAttributes.icon} to={subLinksAttributes.to} key={subLinksAttributes.title}
-                    showProject={showProject}>{subLinksAttributes.title} 
+                    showProject={showProject} closeMenu={props.closeMenu}>{subLinksAttributes.title} 
                   </ListItemLink>
           })} 
         </ul> : null;              
     }
 
     return <ListItemLink textColor={props.textColor}  count={count} name={ele} expandLinks={expandLinks} icon={linkAttributes.icon} 
-             ul={ulComponent} to={linkAttributes.to} key={linkAttributes.title} >{linkAttributes.title}
+             ul={ulComponent} to={linkAttributes.to} key={linkAttributes.title} closeMenu={props.closeMenu} isDesktop={props.isDesktop}
+             >{linkAttributes.title} 
            </ListItemLink>
   })
 

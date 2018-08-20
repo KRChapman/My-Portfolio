@@ -10,7 +10,7 @@ const ContentBody = (props) => {
     <React.Fragment>
     <Style.BodyContainer mediaQuery={props.mediaQuery} showToggleMenu={props.showToggleMenu}>
       <BackGroundPicture backgroundpic={props.backgroundpic} />    
-      <Style.ContentContainer >
+        <Style.ContentContainer showToggleMenu={props.showToggleMenu} >
         <Style.Title></Style.Title>
           {props.children}
       </Style.ContentContainer >

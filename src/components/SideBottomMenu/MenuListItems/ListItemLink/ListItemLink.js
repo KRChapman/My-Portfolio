@@ -69,6 +69,14 @@ const Flex = styled.div`
   display: flex;
 `;
 
+const addBlankTarget = (link, isDesktop) => {
+
+  const links = {"/github": true, "/linkedin": true, "/portfoliogithub" : true};
+
+  const targetValue = links[link] === true && isDesktop ? "_blank" : "";
+  return targetValue;
+}
+
 const LinkCounter = (props) => {
   return(
     <DivContainer>{props.count}</DivContainer>
@@ -76,16 +84,19 @@ const LinkCounter = (props) => {
 }
 
 
+
+
 const ListItemLink = (props) => {
   const counter = props.count ? <LinkCounter count={props.count} /> : null;
   const clickToExpand = props.expandLinks != null ?  () => props.expandLinks(props.name) : null;
   const clickToShowProject = props.showProject != null ? () => props.showProject(props.to, props.children ) : null;
   const route =  props.showProject != null ? '#' : props.to;
+  const targetValue = addBlankTarget(props.to, props.isDesktop);
 
- return (
-   <ListItem textColor={props.textColor}>
-
-     <LinkElem to={route} active={"false"} onClick={() => {   // eslint-disable-next-line
+  return (// eslint-disable-next-line
+    <ListItem textColor={props.textColor} onClick={() => props.isDesktop === false && 
+      (props.showProject == null && props.expandLinks == null) ? props.closeMenu() : null }>
+     <LinkElem target={targetValue} to={route} onClick={() => {   // eslint-disable-next-line
        clickToExpand !== null ? clickToExpand() : null;// eslint-disable-next-line
        clickToShowProject !== null ? clickToShowProject() : null;}} >
        <Flex><IconContainer icon={props.icon}></IconContainer><div style={{ display: "flex", alignItems: "center"}}><span >{props.children} </span></div></Flex> 
@@ -93,8 +104,6 @@ const ListItemLink = (props) => {
       </LinkElem>
       {props.ul}
     </ListItem>
-
-    
   )
 }
 
