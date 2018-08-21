@@ -7,14 +7,14 @@ import {
 const fontSize = "12px";
 
 const Container = styled.div`
-  margin-top: 90px;
+  margin-top: 100px;
   width: 100%;
-  height: 80px;
+  height: 100px;
 `;
 
 const FooterContainer = styled.div`
   width: 100%;
-  height: 80px;
+  height: 100px;
   position: absolute;
   bottom: 0;
   background: rgb(137, 148, 155);

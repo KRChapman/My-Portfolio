@@ -10,13 +10,11 @@ const Container = styled.div`
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.4;
-
-
-
 `;
+
 const CardContainer = styled.div`
-  width: 200px;
-  height: 260px;
+  width: 250px;
+  height: 310px;
   margin: 10px auto;
   opacity: ${ props => props.projectOpacity}; 
   transition: opacity 0.8s ease; 
@@ -34,20 +32,16 @@ const AboutMe = (props) => {
 
   props.hiddenProjects.forEach(ele => {
     for (const key in projectData) {
-
       if (ele.name === key && ele.route === props.route) {
-
         projectsStatuses[key] = { pointerEvents: "none", opacity: 0 };
       }
-
-
     }
   });
 
   const projectsToDisplay = projects.map((ele) => {
-    let smallText = <p style={{ margin: 0, fontSize: "9px", width: "180px", }}>
+    let smallText = <p style={{ margin: 0, fontSize: "12px", width: "235px", }}>
                     {projectData[ele].textInfo}
-                  </p>;
+                   </p>;
     let pointerEvents = projectsStatuses[ele] ? projectsStatuses[ele].pointerEvents : "auto";
     let opacity = projectsStatuses[ele] ? projectsStatuses[ele].opacity : 1;
     let text = <IndividualProjects iconsInfo={projectData[ele].iconsInfo} textInfo={smallText} header={projectData[ele].header}
@@ -57,15 +51,10 @@ const AboutMe = (props) => {
     return <CardContainer key={ele} projectOpacity={opacity} pointerEvents={pointerEvents}>
       <Card linkTo={projectData[ele].projectLink} textComponent={text}
         boxOpacicty={props.boxOpacicty} boxSpread={props.boxSpread}
-        containerStyle={{ width: "175px", height: "125px" }}
+        containerStyle={{ width: "225px", height: "175px", border: "1px solid black" }}
         pictureStyle={projectData[ele].additionalStyle.pictureStyle} src={projectsPictures[ele]} />
     </CardContainer>;
-
-    
   });
-
- 
-
 
   return (
     <Container>
@@ -75,7 +64,6 @@ const AboutMe = (props) => {
         I have become very passionate about programming and web development and I want to make it a career. I do not have a formal computer science education. I am self-taught and eager to learn.
       </p>
       {projectsToDisplay}
- 
     </Container>
   )
 }

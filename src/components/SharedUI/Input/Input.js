@@ -56,8 +56,6 @@ const Input = (props) => {
         ))}
 
       </select >)
-
-
       break;
     default:
       inputElement = <InputElement  {...props} />

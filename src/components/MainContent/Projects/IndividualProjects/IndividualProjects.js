@@ -6,8 +6,8 @@ import ControlBtns from '../../../SharedUI/Modal/ControlBtns/ControlBtns';
 const Header = styled.h5`
   margin: 10px;
   margin-left: 1px;
-
 `;
+
 const Para = styled.p`
   margin: 1px;
   font-size: 14px;
@@ -20,14 +20,11 @@ const Anchor = styled.a`
   font-size: 10px;
   color: #41505a;
   text-decoration: none;
-
- 
 `;
 
 const HeaderContainer = styled.div`
   display: flex;
-   align-items: baseline;
-
+  align-items: baseline;
 `;
 
 const ButtonContainer = styled.div`
@@ -36,10 +33,9 @@ const ButtonContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  
   & > button{
-
     color: #8d8d8d;
-    
   }
 `;
 

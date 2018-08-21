@@ -9,7 +9,6 @@ const Container = styled.div`
   cursor: pointer;
 `;
 
-
 const ColorBtn = (props) => {
 
   return (

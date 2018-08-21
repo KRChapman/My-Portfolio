@@ -32,7 +32,6 @@ const AsyncVanillaJavascript = asyncComponent(() => {
   return import('../../components/MainContent/VanillaJavascript/VanillaJavascript.js');
 });
 
-
 // used for reseting back to default in resetToDefaultsHandler()
 const defaults = {
   boxSpread: "6px",
@@ -58,7 +57,6 @@ class Layout extends Component {
       projectPath: "",
       hiddenProjects: [],
       projectOff: {name: "", opacity: 0}, 
-      projectOn: { name: "", route: "", opacity: 1 }, 
 
       projectsInfo:{
         voteNow: createProjectsInfo("Vote-Now-Omatic", "voteNow", "https://github.com/KRChapman/VotingApp",
@@ -79,19 +77,21 @@ class Layout extends Component {
         case ('voteNow'):
           iconsToDisplay = [icons.mongoDB, icons.node, icons.javaScript, icons.sass]
           textInfo = "Full stack vanilla Javascript application. Log in and create polls for other people around the world to vote on and chart the results."
+          additionalStyle = { containerStyle: null, pictureStyle: { marginLeft: "-40px" } };
           break;
         case ('wikiResource'):
           iconsToDisplay = [icons.python, icons.javaScript, icons.gql]
           textInfo = "Full stack Python application. Log in and create pages and posts. Save links and edit or delete content."
-          additionalStyle = { containerStyle: { border: "1px solid black" }, pictureStyle: { marginLeft: "-5px" }};
+          additionalStyle = { containerStyle: { border: "1px solid black"}, pictureStyle: { marginLeft: "-10px" }};
           break;
         case ('conway'):
           iconsToDisplay = [icons.react, icons.sass]
           textInfo = "React application using Sass that is a visual representation of my algorithm to display Conway's Game of Life."
+          additionalStyle = { containerStyle: null, pictureStyle: { marginLeft: "-19px" } };
           break;
         case ('simon'):
           iconsToDisplay = [icons.javaScript, icons.sass]
-          textInfo = "Vanilla Javascript Project that is a replication of the game simon says it even needs tobe turned on"
+          textInfo = "Vanilla Javascript Project that is a replication of the game simon says it even needs tobe turned on"        
           break;
         default:
           iconsToDisplay = [];
@@ -231,22 +231,20 @@ class Layout extends Component {
     const colorToChange = colors[Math.floor(Math.random() * Math.floor(maxNumber))];
 
     this.setState(currentState => {
-      let newObj = { ...currentState.primaryColor };
-      let colorData = name === "primary" ? { key: "primaryColor", obj: newObj} : 
-                                            { key: "secondaryColor", obj: { ...currentState.secondaryColor }};
-    
-      
-      let changedColor = changeChosenColor(colorData.obj, colorToChange, currentState);
-      return { [colorData.key]: changedColor};
+      let primaryColors = { ...currentState.primaryColor };
+      let colorData = name === "primary" ? { name: "primaryColor", colors: primaryColors} : 
+                                            { name: "secondaryColor", colors: { ...currentState.secondaryColor }};
+      let changedColor = changeChosenColor(colorData.colors, colorToChange);
+      return { [colorData.name]: changedColor};
     });
-    function changeChosenColor(colors, colorToChange, currentState) {
+    function changeChosenColor(colors, colorToChange) {
       const primaryKeys = Object.keys(colors);
       const filteredKeys = primaryKeys.filter(ele => {
         return typeof colors[ele] === 'string';
       });
       const maxNumber = filteredKeys.length;
       const indexToChange = Math.floor(Math.random() * Math.floor(maxNumber));
-       colors[filteredKeys[indexToChange]] = colorToChange;
+      colors[filteredKeys[indexToChange]] = colorToChange;
 
       return colors;
     }
@@ -299,7 +297,6 @@ class Layout extends Component {
           hiddenProjects
         }
       });
-
     }
 
   showProjectHandler(projectRoute, projectName){
@@ -312,14 +309,12 @@ class Layout extends Component {
       hiddenProjects = hiddenProjects.filter(ele => {;
         return ele.name !== name || ele.route !== route;
       })
-      console.log("hiddenProjects", hiddenProjects);
       return {
         hiddenProjects
       }
     });
   }
    
-
   render() {   
 
     return ( 
@@ -358,8 +353,8 @@ class Layout extends Component {
                 boxSpread={this.state.boxSpread} route={"/vanillajavascript"}  hideProject={this.hideProjectHandler} hiddenProjects={this.state.hiddenProjects} projectOpacity={this.state.hiddenProjectsOpacity}/>
             }} />     
                 
-            <Route path='/github' component={() => window.location.replace('https://github.com/KRChapman') } />
-            <Route path='/linkedin' component={() => window.location.replace('https://www.linkedin.com/in/kyle-chapman-76969b167/')} />
+            <Route path='/github' render={() => window.location.replace('https://github.com/KRChapman') } />
+            <Route path='/linkedin' render={() => window.location.replace('https://www.linkedin.com/in/kyle-chapman-76969b167/')} />
             <Route path='/portfoliogithub' render={() => window.location.replace('https://github.com/KRChapman/My-Portfolio')} />
           </Switch>      
         </ContentBody>        

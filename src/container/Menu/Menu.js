@@ -26,18 +26,22 @@ class Menu extends Component {
       
 
       contentLinks: {
-        projects: { linkAttributes: this.createLink('Projects', faFileAlt,'/projects',  ), 
-                    subLinks: null, 
-                  },
-        contact: { linkAttributes: this.createLink('Contact',faMobileAlt , '/contact'), 
-                    subLinks: null,  
-                 },
-        myInfo: { linkAttributes: this.createLink('My Info', faInfoCircle, '#', true), 
-                    subLinks: { aboutMe: this.createLink('About Me', faAddressCard, '/aboutme'), resume: this.createLink('Resume', faListAlt, '/resume', ),
-                    
-                              },
-                showSubLinks: true, 
-                },
+        projects: {
+          linkAttributes: this.createLink('Projects', faFileAlt, '/projects', ),
+          subLinks: null,
+        },
+        contact: {
+          linkAttributes: this.createLink('Contact', faMobileAlt, '/contact'),
+          subLinks: null,
+        },
+        myInfo: {
+          linkAttributes: this.createLink('My Info', faInfoCircle, '#', true),
+          subLinks: {
+            aboutMe: this.createLink('About Me', faAddressCard, '/aboutme'), resume: this.createLink('Resume', faListAlt, '/resume', ),
+
+          },
+          showSubLinks: true,
+        },
   
         links: {
           linkAttributes: this.createLink('Links', faLink, '#', true),
@@ -49,9 +53,10 @@ class Menu extends Component {
         },
         
 
-        vanillaJavaScriptProjects: { linkAttributes: this.createLink(' Vannila javaScript Projects',  faJsSquare, '/vanillajavascript'), 
-                                    subLinks: null,
-                                  },
+        vanillaJavaScriptProjects: {
+          linkAttributes: this.createLink(' Vannila javaScript Projects', faJsSquare, '/vanillajavascript'),
+          subLinks: null,
+        },
         hiddenProjects: {
           linkAttributes: this.createLink('Hidden Projects', faSearchPlus, '#', true),
           subLinks: this.hiddenProjectSubLinks(),
@@ -121,7 +126,6 @@ class Menu extends Component {
   }
 
   createLink(title, icon, to, expandFunction = false) {
-
 
     return {
       title,

@@ -4,6 +4,7 @@ import simon from './../../../assets/images/simonA.png';
 import IndividualProjects from '../Projects/IndividualProjects/IndividualProjects';
 import styled from 'styled-components';
 import voteNow from './../../../assets/images/testA.png';
+import { getProjectStatus } from '../../../UtilityHelpers/UtilityHelpers';
 
 const Container = styled.div`
   display: flex;
@@ -28,26 +29,12 @@ const CardContainer = styled.div`
 `;
 
 const VanillaJavascript = (props) => {
-
   const projects = ["simon", "voteNow"]
   const projectsPictures = { voteNow, simon}
   const projectData = { ...props.projectsInfo }
-
-  const projectsStatuses = {};
-
-  props.hiddenProjects.forEach(ele => {
-    for (const key in projectData) {
-
-      if (ele.name === key && ele.route === props.route) {
-        projectsStatuses[key] = { pointerEvents: "none", opacity: 0 };
-      }
-
-
-    }
-  });
+  const projectsStatuses = getProjectStatus(props, projectData);
 
   const projectsToDisplay = projects.map((ele) => {
-
     let pointerEvents = projectsStatuses[ele] ? projectsStatuses[ele].pointerEvents : "auto";
     let opacity = projectsStatuses[ele] ? projectsStatuses[ele].opacity : 1;
     let text = <IndividualProjects iconsInfo={projectData[ele].iconsInfo} header={projectData[ele].header}
@@ -63,8 +50,7 @@ const VanillaJavascript = (props) => {
   });
 
   return (
-    <Container>
-     
+    <Container>    
       {projectsToDisplay}
     </Container>
   )
