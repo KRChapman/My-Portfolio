@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import Styled from './MenuStyle';
+import { Container} from './MenuStyle';
 import SideTopInfo from '../../components/SideTopInfo/SideTopInfo';
 
 import MidControlNav from '../../components/MidControlNav/MidControlNav';
@@ -157,7 +157,7 @@ class Menu extends Component {
   render() { 
 
     return ( 
-      <Styled.Container backgroundColor={this.props.primaryColor.backgroundColor}
+      <Container backgroundColor={this.props.primaryColor.backgroundColor}
         mediaQuery={this.props.mediaQuery} showToggleMenu={this.props.showToggleMenu}>
         <SideTopInfo secondaryColor={this.props.secondaryColor} />
         <MidControlNav secondaryColor={this.props.secondaryColor} buttonClicked={this.state.buttonClicked}
@@ -165,7 +165,7 @@ class Menu extends Component {
         <MenuWrapper primaryColor={this.props.primaryColor} showSubLinks={this.state.showSubLinks} showProject={this.props.showProject}
           contentLinks={this.state.contentLinks}  expandLinks={this.handleExpandLinks}  slideLocation={this.state.slideLocation} 
           closeMenu={this.props.closeMenu} isDesktop={this.state.isDesktop}/>
-      </Styled.Container >
+      </Container >
      )
   }
 }

@@ -8,7 +8,6 @@ const HeaderBtn = styled.button`
   outline:none;
   margin: 6px;
   margin-left: 1px;
-  
   border: 1px solid rgba(78, 91, 94, 0.45);
   border-radius: 10px;
   cursor: pointer;

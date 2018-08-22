@@ -1,7 +1,3 @@
-
-
-// main background #273135;
-//main color text #89949B;
 import React from 'react';
 import styled from 'styled-components';
 import MenuSliderContainer from './MenuSliderContainer/MenuSliderContainer';
@@ -21,10 +17,9 @@ const Container = styled.div`
 `;
 
 const MenuWrapper = (props) => {
-
   const textColor = "#89949B";
-  return (
 
+  return (
     <Container backgroundColor={props.primaryColor.backgroundColor} textColor={textColor} 
       slideLocation={props.slideLocation}> 
       <MenuSliderContainer >     

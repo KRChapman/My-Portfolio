@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
 const Container = styled.div`
   color: #d3bcbc;
   padding: 10px;
@@ -16,17 +15,16 @@ const Features = (props) => {
       <br />
       <div> Generate random selection of available colors</div>
       <br />
-      <div> Customize box shadow spread and opacity of projects card</div>
+      <div> Customize box shadow spread and opacity of project cards</div>
       <br />
       <div>Save changes to local storage or reset to default</div>
       <br />
-      <div> Toggle hide projects On individual pages</div>
+      <div> Toggle hide projects per individual page</div>
       <br />
       <div>Expand and colapse links</div>
       <br /> 
       <div> Press arrow to slide menu and page over</div>
       <br />
-
     </Container>
   )
 }

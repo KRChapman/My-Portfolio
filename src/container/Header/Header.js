@@ -1,4 +1,4 @@
-import Style from './HeaderStyle.js'
+import { Container, NavBtnsContainer, Title} from './HeaderStyle.js'
 import React, { Component } from 'react';
 import HamburgerMenu from '../../components/SharedUI/HamburgerMenu/HamburgerMenu.js';
 import HeaderBtns from './../../components/SharedUI/HeaderBtns/HeaderBtns.js';
@@ -10,7 +10,6 @@ class Header extends Component {
     this.state = {  
       isSettings: false,
       isColor: false,
-
     }
 
     this.toggleDisplayColorsOptions = this.toggleDisplayColorsOptions.bind(this);
@@ -40,17 +39,17 @@ class Header extends Component {
                             
     return (
       <React.Fragment>
-      <Style.Container backgroundColor={this.props.primaryColor.backgroundColor} 
+      <Container backgroundColor={this.props.primaryColor.backgroundColor} 
         mediaQuery={this.props.mediaQuery} showToggleMenu={this.props.showToggleMenu}>       
         <HamburgerMenu mediaQuery={this.props.mediaQuery} toggleMenu={this.props.toggleMenu}/>
-        <Style.Title>Full Stack Web Developer </Style.Title>
-        <Style.NavBtnsContainer>
+        <Title>Full Stack Web Developer </Title>
+        <NavBtnsContainer>
           <HeaderBtns buttonColor={this.props.primaryColor.buttonColor} 
-          toggleOptions={this.toggleDisplaySettingsOptions}> Custimize Shadow  </HeaderBtns >
+          toggleOptions={this.toggleDisplaySettingsOptions}> Custimize Shadow </HeaderBtns >
           <HeaderBtns  buttonColor={this.props.primaryColor.buttonColor}
             toggleOptions={this.toggleDisplayColorsOptions} >Change Colors</HeaderBtns >           
-        </Style.NavBtnsContainer>            
-      </Style.Container>
+        </NavBtnsContainer>            
+      </Container>
       { settingsModal }      
       </React.Fragment>
     )

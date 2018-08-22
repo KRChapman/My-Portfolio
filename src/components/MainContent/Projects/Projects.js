@@ -46,7 +46,7 @@ const Projects = (props) => {
                </IndividualProjects>;
 
     return <CardContainer key={ele} projectOpacity={opacity} pointerEvents={pointerEvents}>
-              <Card linkTo={projectData[ele].projectLink} textComponent={text} 
+              <Card linkTo={projectData[ele].projectLink} textComponent={text} altText={ele}
                 boxOpacicty={props.boxOpacicty} boxSpread={props.boxSpread} 
                 containerStyle={projectData[ele].additionalStyle.containerStyle}
                 pictureStyle={projectData[ele].additionalStyle.pictureStyle} src={projectsPictures[ele]} />

@@ -87,7 +87,7 @@ class Layout extends Component {
         case ('conway'):
           iconsToDisplay = [icons.react, icons.sass]
           textInfo = "React application using Sass that is a visual representation of my algorithm to display Conway's Game of Life."
-          additionalStyle = { containerStyle: null, pictureStyle: { marginLeft: "-19px" } };
+          additionalStyle = { containerStyle: null, pictureStyle: { marginLeft: "-16px" } };
           break;
         case ('simon'):
           iconsToDisplay = [icons.javaScript, icons.sass]
@@ -282,22 +282,21 @@ class Layout extends Component {
     let header = projectHeader;
     let route = projectRoute;
 
-   
-      this.setState(currentState => {
-        let hiddenProjects = [...currentState.hiddenProjects];
-        const projectOff = { ...currentState.projectOff }
-        for (const key in currentState.projectsInfo) {
-          if (currentState.projectsInfo[key].header === header) {
-            hiddenProjects = hiddenProjects.concat({ route, name: key });;
-          }
+    this.setState(currentState => {
+      let hiddenProjects = [...currentState.hiddenProjects];
+      const projectOff = { ...currentState.projectOff }
+      for (const key in currentState.projectsInfo) {
+        if (currentState.projectsInfo[key].header === header) {
+          hiddenProjects = hiddenProjects.concat({ route, name: key });;
         }
- 
-        return {
-          projectOff,
-          hiddenProjects
-        }
-      });
-    }
+      }
+
+      return {
+        projectOff,
+        hiddenProjects
+      }
+    });
+  }
 
   showProjectHandler(projectRoute, projectName){
     let name = projectName;

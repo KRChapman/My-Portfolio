@@ -57,7 +57,8 @@ const IndividualProjects = (props) => {
       </HeaderContainer>
       {paragraph}
       <ButtonContainer>
-        <ControlBtns clicked={() => props.hideProject(props.route, props.header)} clickClose={null}>Hide</ControlBtns><Anchor href={props.link}>GitHub</Anchor>
+        <ControlBtns clicked={() => props.hideProject(props.route, props.header)} 
+          clickClose={null}>Hide</ControlBtns><Anchor target='_blank' href={props.link}>GitHub</Anchor>
       </ButtonContainer>   
       {props.chidlren}
     </div>

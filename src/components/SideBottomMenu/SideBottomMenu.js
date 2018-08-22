@@ -14,7 +14,6 @@ const List = styled.ul`
 `;
 
 const SideBottomMenu = (props) => {
-
   const contentLinksKeys = Object.keys(props.contentLinks);
   const linkObject = props.contentLinks;
 

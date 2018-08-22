@@ -5,7 +5,6 @@ import styled from 'styled-components';
 const Container = styled.div`
   width: 80px;
   height: 100%;
-
   flex-flow: column;
   justify-content: space-around;
   align-items: center;
@@ -25,8 +24,6 @@ const RowDiv = styled.div`
   border-radius: 1px;
   background-color: #fff;
 `;
-
-
 
 const HamburgerMenu = (props) => {
 

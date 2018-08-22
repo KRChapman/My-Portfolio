@@ -1,5 +1,4 @@
 import React from 'react';
-
 import styled from 'styled-components';
 
 const InputContainer = styled.div`
@@ -24,6 +23,11 @@ const InputElement = styled.input`
   box-sizing: border-box;
 `;
 
+const TextArea = styled.textarea`
+  height: 150px;
+  width: 100%;
+`;
+
 const Input = (props) => {
   let inputElement = null;
   let invalidStyles = {
@@ -45,17 +49,7 @@ const Input = (props) => {
       inputElement = <InputElement inputStyle={inputStyle} value={props.input} name={props.name} {...props.elementConfig} onChange={props.updateInput} />
       break;
     case ('textarea'):
-      inputElement = <textarea style={{ height: "150px", width: "100%", ...inputStyle }} value={props.input} name={props.name}  {...props.elementConfig} onChange={props.updateInput} />
-      break;
-    case ('select'):
-      inputElement = (<select  name={props.name} value={props.input} onChange={props.updateInput} >
-        {props.elementConfig.options.map(option => (
-          <option key={option.displayValue} value={option.value}>
-            {option.displayValue}
-          </option>
-        ))}
-
-      </select >)
+      inputElement = <TextArea style={{...inputStyle}} value={props.input} name={props.name}  {...props.elementConfig} onChange={props.updateInput} />
       break;
     default:
       inputElement = <InputElement  {...props} />
@@ -66,7 +60,6 @@ const Input = (props) => {
       <Label htmlFor="">{props.label}</Label>
       {inputElement}
     </InputContainer>
-
   )
 }
 

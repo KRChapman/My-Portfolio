@@ -28,8 +28,6 @@ const HR = styled.div`
   box-shadow: inset 35px 1px 2px rgba(0,0,0,0.2);
 `;
 
-// needed because styled components passes all props from styled(FontAwesomeIcon) to the dom
-// and that produces a react error
 const Span = styled.div`
   & > svg{
     color: ${props => props.backgroundColor};
@@ -37,7 +35,6 @@ const Span = styled.div`
   }
 `
 const Icon = styled(FontAwesomeIcon)`
-  
   font-size: 20px;
 `;
 
@@ -45,7 +42,7 @@ const PictureInfo = (props) => {
 
   return (
       <Container>      
-        <img style={{ height: "35px" }} src={picture} alt="Kyle Chapman" />         
+        <img style={{ height: "38px" }} src={picture} alt="Kyle Chapman" />         
         <div>
           <Name>Kyle Chapman</Name>
         <HR backgroundColor={props.secondaryColor.backgroundColorMidNav }/>

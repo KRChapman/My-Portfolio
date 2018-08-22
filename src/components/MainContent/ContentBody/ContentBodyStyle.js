@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-//    
-const BodyContainer = styled.div`
+
+export const BodyContainer = styled.div`
   margin-top: ${props => props.theme.verticle};
   margin-left: ${props => props.theme.horizontal};
   position: relative;
@@ -22,7 +22,7 @@ const BodyContainer = styled.div`
   `};
 `;
 
-const ContentContainer = styled.main`
+export const ContentContainer = styled.main`
   margin: 10px auto;
   width: 99%;
   
@@ -46,15 +46,11 @@ const ContentContainer = styled.main`
   `};
 `;
 
-const Title = styled.span`
+export const Title = styled.span`
   width: 100px;
   margin: 0;
 `;
 
 
-const Style = {
-  Title, ContentContainer,
-  BodyContainer
-};
 
-export default Style;
+

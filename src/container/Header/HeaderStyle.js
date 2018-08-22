@@ -1,6 +1,6 @@
 import styled, {css} from 'styled-components';
 
-const Container = styled.header`
+export const Container = styled.header`
   margin-left: ${props => props.theme.horizontal};
   position: fixed;
   right: 0;
@@ -21,18 +21,17 @@ const Container = styled.header`
   @media (min-width: 1px) {
     width: calc(100% - ${props => props.theme.horizontal});
     }
-  `};
-             
+  `}; 
 `;
     
-const NavBtnsContainer = styled.nav`
+export const NavBtnsContainer = styled.nav`
   display: flex;
   width: 300px;
   height: 100%;
   justify-content: space-around;
 `;
 
-const Title = styled.h2`
+ export const Title = styled.h2`
   color: #fff;
   margin-left: 5px;
 
@@ -41,18 +40,3 @@ const Title = styled.h2`
   }
 `;
 
-const Test = styled.div`
-  position: relative;
-  transform: translateY(-100%);
-  /* transform: translateX(-100%); */
-  right: 5px;
-  top: 70px;
-  z-index: -1;
-  transition: transform ${props => props.theme.transitionTime} ease-out; 
-
-`
-//   ${props => props.}
-
-const Style = { Container, NavBtnsContainer, Title, Test}
-
-export default Style;

@@ -11,21 +11,19 @@ const Container = styled.div`
   justify-content: space-evenly;
   width: 100%;
   flex-wrap: wrap;
-`
+`;
 
 const CardContainer = styled.div`
   width: 325px;
   height: 360px;
   margin-right: 5px;
-  margin-top: 35px;
-
-   opacity: ${ props => props.projectOpacity}; 
- 
+  margin-top: 65px;
+  opacity: ${ props => props.projectOpacity}; 
   transition: opacity 0.8s ease; 
 
-    & * {
-      pointer-events: ${props => props.pointerEvents};
-    }
+  & * {
+    pointer-events: ${props => props.pointerEvents};
+  }
 `;
 
 const VanillaJavascript = (props) => {

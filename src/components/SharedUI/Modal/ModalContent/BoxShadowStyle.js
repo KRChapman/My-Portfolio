@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const height = "26px"
 
 
-const SliderAll = styled.input`
+export const SliderAll = styled.input`
 
   -webkit-appearance: none;
   width: 100%;
@@ -93,17 +93,17 @@ const SliderAll = styled.input`
 
 `;
 
-
-
-const ControlBtnContainer = styled.div`
-  margin-top: 25px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-around;
+export const SliderContainer = styled.div`
+  width: 80%;
+  margin: 1px auto;
+   display: flex;
 
 `;
 
+export const TitleContainer = styled.div`
+        text-align: center;
+`;
 
-const Style = { SliderAll, ControlBtnContainer }
-
-export default Style;
+export const Title = styled.h5`
+        margin-bottom: 4px;
+`;

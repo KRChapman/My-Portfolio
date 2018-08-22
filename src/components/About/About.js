@@ -25,9 +25,8 @@ const Anchor = styled.a`
   font-size: 10px;
   color: #2EB398;;
   text-decoration: none;
-
   margin-left: 125px;
-`
+`;
 
 const About = (props) => {
 
@@ -36,7 +35,6 @@ const About = (props) => {
       <Header>About This Portfolio:</Header>
       <Para>The purpose of this portfolio is to show off my work. However, I also wanted to show
         off what I can do by making an interactive single page app with React.
- 
       </Para>
       <Para style={{margin: 0}}>
           In addition I decided to use the styled components to make the dynamic CSS and color changes

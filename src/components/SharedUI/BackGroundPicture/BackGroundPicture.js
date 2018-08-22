@@ -5,7 +5,9 @@ import techSmall from './../../../assets/images/techSmall.jpg';
 import techD from './../../../assets/images/techD.jpg';
 import techDVerySmall from './../../../assets/images/techDVerySmall.jpg';
 import danceA from './../../../assets/images/danceA.jpg';
+import wasteA from './../../../assets/images/wasteA.jpg';
 import danceASmall from './../../../assets/images/danceASmall.jpg';
+import wasteSmall from './../../../assets/images/wasteSmall.jpg';
 import ImageDisplay from './ImageDisplay/ImageDisplay';
 
 const Container = styled.div`
@@ -25,7 +27,7 @@ const Container = styled.div`
 `;
 
 const Header = styled.h1`
-  font-size: 32px;
+  font-size: 34px;
   color: #fff;
   font-family: Lato,sans-serif;
   font-weight: 500;
@@ -39,27 +41,42 @@ const Header = styled.h1`
   text-decoration: underline;
   line-height: 1.1;
   letter-spacing: .95px;
-  margin-top: 265px;
+  margin-top: 260px;
   opacity: 0.85;
    @media (min-width: 1600px) {
-       margin-top: 370px;
+       margin-top: 365px;
+   
+  };
+
+
+
+`;
+
+const TopHeaderContainer = styled.div`
+  @media (max-width: 900px) {
+    margin: 0px auto;
+    width: 201px; 
   };
 `;
 
 const Skills = styled.div`
-  font-size: 14px;
+  font-size: 12px;
   text-decoration: none;
   display: inline-block;
-  margin-top: 8px;
+  margin-top: 12px;
 `;
 
 const BackGroundPicture = (props) =>  {
-
   const mountainProjects = props.backgroundpic === '/projects' || props.backgroundpic === '/' ?
     <Container >
-      <Header style={{ marginTop: "10px", marginRigth: "94%", width: "200px", textDecoration: "none" }}>Seattle, WA</Header>
-      <Header>Projects:<br></br><Skills >Skills: Html/Css, javaScript, React, SQL, MongoDb, Node, Express</Skills></Header>
-
+      <TopHeaderContainer>
+        <Header style={{ marginTop: "15px", width: "200px", textDecoration: "none" }}>
+          Seattle, WA
+        </Header>
+      </TopHeaderContainer>  
+      <Header>Projects<br></br>
+        <Skills >Skills: Html/Css, javaScript, React, SQL, MongoDb, Node, Express</Skills>
+      </Header>
       <ImageDisplay srcLoaded={techSmall} pictureSmall={techFSmall} />
     </Container> : null;
 
@@ -73,11 +90,17 @@ const BackGroundPicture = (props) =>  {
       <ImageDisplay srcLoaded={danceA} pictureSmall={danceASmall} />
     </Container> : null;
 
+  const vanillaJavascript = props.backgroundpic === '/vanillajavascript' ?
+    <Container style={{ height: "100%", position: "absolute", zIndex: "-1"}} >
+      <ImageDisplay pictureStyle={{ height: "100%"}} srcLoaded={wasteA} pictureSmall={wasteSmall} />
+    </Container> : null;
+
   return (
     <React.Fragment>
       {computerContact}
       {mountainProjects}
       {aboutMe}
+      {vanillaJavascript}
     </React.Fragment>
   )
 }

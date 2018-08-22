@@ -16,31 +16,26 @@ const ImageCrop = styled.div`
   width: 300px;
   height: 220px;
   overflow: hidden;
-
 `;
-//   line-height: 0; vertical-align: -webkit-bottom;  display: block;
+
 const Image = styled.img`
-vertical-align: bottom;
-border: 0;
+  vertical-align: bottom;
+  border: 0;
 
-
-
-
-
-   &:hover{
+  &:hover{
     background: red;
     opacity: 0.4; 
   }
 `;
 
 const Card = (props) => {
-  
+
   return (
     <Container boxOpacicty={props.boxOpacicty} boxSpread={props.boxSpread}>
       <a target='_blank' href={props.linkTo} style={{ ...props.anchorStyle }}>
       <ImageCrop style={{ ...props.containerStyle }} >
-        <Image style={{ ...props.pictureStyle}} src={props.src} alt="" />       
-        </ImageCrop>
+        <Image style={{ ...props.pictureStyle }} src={props.src} alt={props.altText} />       
+      </ImageCrop>
       </a>
       <div>
         {props.textComponent}

@@ -1,5 +1,5 @@
 import React from 'react';
-import Style from './ContentBodyStyle';
+import { BodyContainer, ContentContainer } from './ContentBodyStyle';
 import BackGroundPicture from '../../SharedUI/BackGroundPicture/BackGroundPicture';
 import Footer from '../../SharedUI/Footer/Footer';
 
@@ -8,14 +8,13 @@ const ContentBody = (props) => {
   return (
 
     <React.Fragment>
-    <Style.BodyContainer mediaQuery={props.mediaQuery} showToggleMenu={props.showToggleMenu}>
+    <BodyContainer mediaQuery={props.mediaQuery} showToggleMenu={props.showToggleMenu}>
       <BackGroundPicture backgroundpic={props.backgroundpic} />    
-        <Style.ContentContainer showToggleMenu={props.showToggleMenu} >
-        <Style.Title></Style.Title>
+        <ContentContainer showToggleMenu={props.showToggleMenu} >
           {props.children}
-      </Style.ContentContainer >
+      </ContentContainer >
         <Footer> </Footer> 
-    </Style.BodyContainer>    
+    </BodyContainer>    
     </React.Fragment>
   )
 }

@@ -4,17 +4,16 @@ import {
   Link,
 } from 'react-router-dom';
 
-const fontSize = "12px";
 
 const Container = styled.div`
   margin-top: 100px;
   width: 100%;
-  height: 100px;
+  height: 90px;
 `;
 
 const FooterContainer = styled.div`
   width: 100%;
-  height: 100px;
+  height: 90px;
   position: absolute;
   bottom: 0;
   background: rgb(137, 148, 155);
@@ -23,11 +22,11 @@ const FooterContainer = styled.div`
   justify-content: space-between; 
   align-items: center;
 
-    @media (max-width: 908px) {
+  @media (max-width: 908px) {
       justify-content: space-around; 
   }
 
-  font-size: ${fontSize};
+  font-size: 12px;
 `;
 
 const CopyRight = styled.div`
@@ -38,7 +37,6 @@ const CopyRight = styled.div`
 const CopyRightItems = styled.span`
   margin: 2px;
   color: #CCD6DF;
- 
 `;
 
 const LinkContainer = styled.ul`
@@ -49,16 +47,15 @@ const LinkContainer = styled.ul`
   flex-wrap: wrap;
   color: #CCD6DF;
 
-    @media (min-width: 908px) {
-      width: 160px; 
+  @media (min-width: 908px) {
+    width: 160px; 
   }
 
   & > li {
     margin: 6px;
     color: #CCD6DF;   
-       @media (max-width: 600px) {
-     margin: 2px;
-    
+    @media (max-width: 600px) {
+     margin: 2px; 
     }
   }
 `;
@@ -73,30 +70,14 @@ const SkillsContainer = styled.div`
   text-align: center;
 `;
 
-const SkillsUL = styled.ul`
+const DescriptionContainer = styled.div`
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
   color: #CCD6DF;
-
-  width: 180px;
-
-  & > li {
-    font-size: 14px;
-
-    @media (max-width: 620px) {
-     font-size: ${fontSize};
-    
-    }
-  }
-`;
-const Tittle = styled.div`
-  color:  #CCD6DF;
-  margin-bottom: 2px;
-  font-size: 14px;
+  width: 270px;
 `;
 
 const Footer = (props) => {
@@ -110,18 +91,13 @@ const Footer = (props) => {
             ©</CopyRightItems><CopyRightItems>{year}</CopyRightItems><CopyRightItems>Kyle Chapman</CopyRightItems>
           </CopyRight>
           <SkillsContainer>
-          <Tittle >Skills:</Tittle>
-            <SkillsUL>
-
-              <li>javaScript</li>
-              <li>React</li>
-              <li>SQL</li>
-              <li>MongoDb</li>
-           
-              <li>Node</li>
-              <li>Express</li>
-            
-            </SkillsUL>
+              <DescriptionContainer>
+             <p style={{margin: "1px 0 0"}}>
+               I Started with create-react-app and styled components. Interactive portfolio created from ground up to demonstrate
+              React skills.
+               <Links style={{marginLeft: "4px", textDecoration: "underline"}} to={'/portfoliogithub'}>GitHubLink</Links>
+             </p>
+            </DescriptionContainer>
           </SkillsContainer>
           <LinkContainer>
             <li><Links to={'/portfoliogithub'}>portfolio</Links></li>

@@ -38,12 +38,10 @@ class Contact extends Component {
           placeholder: placeholder,
        
         },
-
         input: '',
         validation: {
           required: true,
-        },
-     
+        },    
         valid: null,
       };
     }
