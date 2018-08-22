@@ -81,7 +81,8 @@ const DescriptionContainer = styled.div`
 `;
 
 const Footer = (props) => {
-  let year = new Date().getFullYear();
+  // let year = new Date().getFullYear();
+  let year = 2018;
  
   return (
     <Container>
@@ -93,7 +94,7 @@ const Footer = (props) => {
           <SkillsContainer>
               <DescriptionContainer>
              <p style={{margin: "1px 0 0"}}>
-               I Started with create-react-app and styled components. Interactive portfolio created from ground up to demonstrate
+               I started with create-react-app and styled components. Interactive portfolio created from ground up to demonstrate
               React skills.
                <Links style={{marginLeft: "4px", textDecoration: "underline"}} to={'/portfoliogithub'}>GitHubLink</Links>
              </p>
