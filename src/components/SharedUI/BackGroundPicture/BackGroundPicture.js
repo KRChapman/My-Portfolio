@@ -60,7 +60,7 @@ const TopHeaderContainer = styled.div`
 `;
 
 const Skills = styled.div`
-  font-size: 12px;
+  font-size: 14px;
   text-decoration: none;
   display: inline-block;
   margin-top: 12px;
