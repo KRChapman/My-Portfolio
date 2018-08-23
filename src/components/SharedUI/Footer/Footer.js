@@ -77,7 +77,7 @@ const DescriptionContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   color: #CCD6DF;
-  width: 270px;
+  width: 220px;
 `;
 
 const Footer = (props) => {
@@ -94,9 +94,9 @@ const Footer = (props) => {
           <SkillsContainer>
               <DescriptionContainer>
              <p style={{margin: "1px 0 0"}}>
-               I started with create-react-app and styled components. Interactive portfolio created from ground up to demonstrate
-              React skills.
-               <Links style={{marginLeft: "4px", textDecoration: "underline"}} to={'/portfoliogithub'}>GitHubLink</Links>
+              Interactive React portfolio for demonstrating skills
+              
+               <Links style={{marginLeft: "4px", textDecoration: "underline", fontSize: "14px", display: "block"}} target={"_blank"} to={'/portfoliogithub'}>Portfolio GitHub</Links>
              </p>
             </DescriptionContainer>
           </SkillsContainer>

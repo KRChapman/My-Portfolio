@@ -6,6 +6,13 @@ const Container = styled.div`
   padding: 10px;
 `;
 
+const Anchor = styled.a`
+  width: 100%;
+  font-size: 12px;
+  color: #d3bcbc;
+  text-decoration: none;
+`;
+
 const Features = (props) => {
 
   return (
@@ -25,6 +32,7 @@ const Features = (props) => {
       <br /> 
       <div> Press arrow to slide menu and page over</div>
       <br />
+      <Anchor target={"_blank"} href="https://github.com/KRChapman/My-Portfolio">Portfolio GitHub</Anchor>
     </Container>
   )
 }

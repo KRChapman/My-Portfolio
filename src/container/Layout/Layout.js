@@ -81,7 +81,7 @@ class Layout extends Component {
           break;
         case ('wikiResource'):
           iconsToDisplay = [icons.python, icons.javaScript, icons.gql]
-          textInfo = "Full stack Python application. Log in and create pages and posts. Save links and edit or delete content."
+          textInfo = "Full stack Python application. Log in and generate pages and posts. Save links and edit or delete content."
           additionalStyle = { containerStyle: { border: "1px solid black"}, pictureStyle: { marginLeft: "-10px" }};
           break;
         case ('conway'):
@@ -91,7 +91,7 @@ class Layout extends Component {
           break;
         case ('simon'):
           iconsToDisplay = [icons.javaScript, icons.sass]
-          textInfo = "Vanilla Javascript Project that is a replication of the game simon says it even needs tobe turned on"        
+          textInfo = "Vanilla Javascript Project that is a replication of the game simon says it even needs to be turned on."        
           break;
         default:
           iconsToDisplay = [];

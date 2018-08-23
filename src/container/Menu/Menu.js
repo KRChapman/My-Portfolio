@@ -46,8 +46,8 @@ class Menu extends Component {
         links: {
           linkAttributes: this.createLink('Links', faLink, '#', true),
           subLinks: {
-            gitHub: this.createLink('GitHub', faGithub, '/github'), linkedin: this.createLink('Linkedin', faLinkedin , '/linkedin'),
-            portfolioGitHub: this.createLink('Portfolio GitHub', faCodeBranch, '/portfoliogithub'),
+            portfolioGitHub: this.createLink('Portfolio GitHub', faCodeBranch, '/portfoliogithub'), linkedin: this.createLink('Linkedin', faLinkedin , '/linkedin'),
+            gitHub: this.createLink('GitHub', faGithub, '/github'),
           },
           showSubLinks: false, 
         },

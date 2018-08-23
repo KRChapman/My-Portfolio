@@ -34,7 +34,7 @@ const Resume = (props) => {
         <h4>Projects:</h4>	
         <ul>
           <li>Portfolio:  It demonstrates what I can do with React by making an 
-            interactive single page app. While at the same time showing off my work.
+            interactive single page app. While at the same time displaying my work.
             <br/>
             <Link href="https://kyle-chapman.me/">kyle-chapman.me</Link>
             <br />
@@ -81,9 +81,9 @@ const Resume = (props) => {
           <li>Discipline to complete a task and not falter when it is not
              going as planned or motivation is low
             </li>
-          <li>Work well with others. </li>
+          <li>Work well with others </li>
           <li>Fast at learning new skills.  Being a self-taught programmer showed me the
-            importance of being able to persevere and learn.
+            importance of being able to persevere and learn
             </li>
         </ul>  
       </div>

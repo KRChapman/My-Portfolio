@@ -10,7 +10,7 @@ const Header = styled.h5`
 
 const Para = styled.p`
   margin: 1px;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.4;
 `;
 
