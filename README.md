@@ -30,7 +30,7 @@ Interactive portfolio created from ground up with create-react-app and styled co
 
 * [React](https://reactjs.org/) 
 * [Styled Components](https://www.styled-components.com/) 
-* [react-app-rewired] https://github.com/timarney/react-app-rewired) - no need to eject and babel plugins can be used
+* [react-app-rewired] (https://github.com/timarney/react-app-rewired) - no need to eject and babel plugins can be used
 * [babel-plugin-styled-components] (https://github.com/styled-components/babel-plugin-styled-components)
 
 
