@@ -28,7 +28,7 @@ const Features = (props) => {
       <br />
       <div> Toggle hide projects per individual page</div>
       <br />
-      <div>Expand and colapse links</div>
+      <div>Expand and collapse links</div>
       <br /> 
       <div> Press arrow to slide menu and page over</div>
       <br />

@@ -76,7 +76,7 @@ class Layout extends Component {
       switch (iconsInfo) {
         case ('voteNow'):
           iconsToDisplay = [icons.mongoDB, icons.node, icons.javaScript, icons.sass]
-          textInfo = "Full stack vanilla Javascript application. Log in and create polls for other people around the world to vote on and chart the results."
+          textInfo = "Full stack vanilla JavaScript application. Log in and create polls for other people around the world to vote on and chart the results."
           additionalStyle = { containerStyle: null, pictureStyle: { marginLeft: "-40px" } };
           break;
         case ('wikiResource'):

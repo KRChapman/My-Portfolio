@@ -54,7 +54,7 @@ class Menu extends Component {
         
 
         vanillaJavaScriptProjects: {
-          linkAttributes: this.createLink(' Vannila javaScript Projects', faJsSquare, '/vanillajavascript'),
+          linkAttributes: this.createLink(' Vanilla JavaScript Projects', faJsSquare, '/vanillajavascript'),
           subLinks: null,
         },
         hiddenProjects: {

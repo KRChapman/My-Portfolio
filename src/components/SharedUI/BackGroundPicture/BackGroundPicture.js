@@ -75,7 +75,7 @@ const BackGroundPicture = (props) =>  {
         </Header>
       </TopHeaderContainer>  
       <Header>Projects<br></br>
-        <Skills >Skills: Html/Css, javaScript, React, SQL, MongoDb, Node, Express</Skills>
+        <Skills >Skills: Html/Css, JavaScript, React, SQL, MongoDb, Node, Express</Skills>
       </Header>
       <ImageDisplay srcLoaded={techSmall} pictureSmall={techFSmall} />
     </Container> : null;
