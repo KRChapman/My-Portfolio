@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import resume from './../../../assets/images/resume-1.jpg';
+import resume from './../../../assets/images/resume-2.jpg';
 const Container = styled.div`
 
 `
