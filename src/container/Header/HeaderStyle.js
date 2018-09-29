@@ -26,7 +26,7 @@ export const Container = styled.header`
     
 export const NavBtnsContainer = styled.nav`
   display: flex;
-  width: 300px;
+  width: 305px;
   height: 100%;
   justify-content: space-around;
 `;
