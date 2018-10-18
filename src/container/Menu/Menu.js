@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { Container} from './MenuStyle';
+import { Container } from './MenuStyle';
 import SideTopInfo from '../../components/SideTopInfo/SideTopInfo';
 
 import MidControlNav from '../../components/MidControlNav/MidControlNav';
@@ -10,7 +10,7 @@ import {
   faLinkedin,
   faJsSquare,
 } from "@fortawesome/free-brands-svg-icons";
-import { faMobileAlt, faFileAlt, faInfoCircle, faAddressCard, faListAlt, faLink, faCodeBranch, faSearchPlus} from '@fortawesome/free-solid-svg-icons';
+import { faMobileAlt, faFileAlt, faInfoCircle, faAddressCard, faListAlt, faLink, faCodeBranch, faSearchPlus } from '@fortawesome/free-solid-svg-icons';
 import {
   withRouter,
 } from 'react-router-dom';
@@ -18,12 +18,12 @@ import {
 class Menu extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       slideLocation: 0,
       buttonClicked: "Menu",
       isDesktop: true,
       tabletSize: 700,
-      
+
 
       contentLinks: {
         projects: {
@@ -42,35 +42,35 @@ class Menu extends Component {
           },
           showSubLinks: true,
         },
-  
+
         links: {
           linkAttributes: this.createLink('Links', faLink, '#', true),
           subLinks: {
-            portfolioGitHub: this.createLink('Portfolio GitHub', faCodeBranch, '/portfoliogithub'), linkedin: this.createLink('Linkedin', faLinkedin , '/linkedin'),
+            portfolioGitHub: this.createLink('Portfolio GitHub', faCodeBranch, '/portfoliogithub'), linkedin: this.createLink('Linkedin', faLinkedin, '/linkedin'),
             gitHub: this.createLink('GitHub', faGithub, '/github'),
           },
-          showSubLinks: false, 
+          showSubLinks: false,
         },
-        
+
 
         vanillaJavaScriptProjects: {
           linkAttributes: this.createLink(' Vanilla JavaScript Projects', faJsSquare, '/vanillajavascript'),
           subLinks: null,
         },
-        hiddenProjects: {
+        hiddenProjects:
+        {
           linkAttributes: this.createLink('Hidden Projects', faSearchPlus, '#', true),
           subLinks: this.hiddenProjectSubLinks(),
           showSubLinks: false,
         }
 
+
       },
- 
 
-     }
 
-     
+    }
 
-    
+
     this.handleChangeMenu = this.handleChangeMenu.bind(this);
     this.handleExpandLinks = this.handleExpandLinks.bind(this);
     this.hiddenProjectSubLinks = this.hiddenProjectSubLinks.bind(this);
@@ -84,14 +84,14 @@ class Menu extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    
-    if ((prevProps.hiddenProjects !== this.props.hiddenProjects || this.props.projectPath !== prevProps.projectPath)){
+
+    if ((prevProps.hiddenProjects !== this.props.hiddenProjects || this.props.projectPath !== prevProps.projectPath)) {
       const route = this.props.projectPath === '/' ? '/projects' : this.props.projectPath;
 
       this.setState(currentState => {
-        const contentLinks = {...currentState.contentLinks}
+        const contentLinks = { ...currentState.contentLinks }
         const subLinks = this.hiddenProjectSubLinks(route);
-        const hiddenProjects = {...contentLinks.hiddenProjects}
+        const hiddenProjects = { ...contentLinks.hiddenProjects }
         hiddenProjects.subLinks = subLinks;
         contentLinks.hiddenProjects = hiddenProjects;
         return {
@@ -104,9 +104,9 @@ class Menu extends Component {
     window.removeEventListener("resize", this.updateWindow);
   }
 
-  updateWindow(){
+  updateWindow() {
     const tabletSize = this.state.tabletSize;
-    this.setState({ isDesktop: window.innerWidth > tabletSize});
+    this.setState({ isDesktop: window.innerWidth > tabletSize });
   }
 
 
@@ -115,7 +115,7 @@ class Menu extends Component {
     this.props.hiddenProjects.forEach(ele => {
       if (route === ele.route) {
         subLinks = subLinks == null ? {} : subLinks;
-        
+
         subLinks[ele.name] = this.createLink(ele.name, faSearchPlus, ele.route);
 
       }
@@ -136,38 +136,38 @@ class Menu extends Component {
 
   }
 
-  handleChangeMenu(e){
+  handleChangeMenu(e) {
     const slideLocation = e.currentTarget.dataset.location;
     const buttonClicked = e.currentTarget.dataset.btnname;
 
-    this.setState({ slideLocation, buttonClicked});
+    this.setState({ slideLocation, buttonClicked });
   }
 
-  handleExpandLinks(name){
- 
+  handleExpandLinks(name) {
+
     this.setState(currentState => {
       const contentObj = { ...currentState.contentLinks }
       contentObj[name].showSubLinks = !contentObj[name].showSubLinks;
-      return { contentLinks: contentObj}
+      return { contentLinks: contentObj }
     });
   }
 
- 
 
-  render() { 
 
-    return ( 
+  render() {
+
+    return (
       <Container backgroundColor={this.props.primaryColor.backgroundColor}
         mediaQuery={this.props.mediaQuery} showToggleMenu={this.props.showToggleMenu}>
         <SideTopInfo secondaryColor={this.props.secondaryColor} />
         <MidControlNav secondaryColor={this.props.secondaryColor} buttonClicked={this.state.buttonClicked}
-          changeMenu={this.handleChangeMenu} closeMenu={this.props.closeMenu}/>
+          changeMenu={this.handleChangeMenu} closeMenu={this.props.closeMenu} />
         <MenuWrapper primaryColor={this.props.primaryColor} showSubLinks={this.state.showSubLinks} showProject={this.props.showProject}
-          contentLinks={this.state.contentLinks}  expandLinks={this.handleExpandLinks}  slideLocation={this.state.slideLocation} 
-          closeMenu={this.props.closeMenu} isDesktop={this.state.isDesktop}/>
+          contentLinks={this.state.contentLinks} expandLinks={this.handleExpandLinks} slideLocation={this.state.slideLocation}
+          closeMenu={this.props.closeMenu} isDesktop={this.state.isDesktop} />
       </Container >
-     )
+    )
   }
 }
- 
+
 export default withRouter(Menu);

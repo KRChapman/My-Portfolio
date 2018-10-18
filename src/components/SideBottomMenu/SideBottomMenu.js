@@ -15,6 +15,8 @@ const List = styled.ul`
 
 const SideBottomMenu = (props) => {
   const contentLinksKeys = Object.keys(props.contentLinks);
+  let indexToCut = contentLinksKeys.indexOf("hiddenProjects");
+  contentLinksKeys.splice(indexToCut,1);
   const linkObject = props.contentLinks;
 
   let linkList =  contentLinksKeys.map(ele => {

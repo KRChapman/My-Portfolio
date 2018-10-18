@@ -16,6 +16,7 @@ const ImageCrop = styled.div`
   width: 300px;
   height: 220px;
   overflow: hidden;
+
 `;
 
 const Image = styled.img`

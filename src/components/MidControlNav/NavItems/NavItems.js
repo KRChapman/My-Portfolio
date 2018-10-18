@@ -8,6 +8,7 @@ const CloseArrowSpan = styled.span`
   color:  ${ props => props.iconsIdleColor};
   flex-basis: 100%;
   height: 100%;
+  padding: 2px;
   cursor: pointer;
 `;
 
@@ -19,12 +20,12 @@ const ArrowIcon = styled(FontAwesomeIcon)`
 
 const Icon = styled(FontAwesomeIcon)`
   margin-top: 2%;
-  font-size: 16px;
+  font-size: 14px;
 `;
 
 const LinkContainer = styled.span`
   height: 100%;
-
+  padding: 2px;
   &:hover {
     background-color: ${ props => props.backgroundActiveColor};
     
@@ -38,6 +39,7 @@ const ButtonElem = styled.span`
   display: flex;
   flex-direction: column;
   text-decoration: none;
+  
   cursor: pointer;
 
   ${ props => props.isClicked && css`
