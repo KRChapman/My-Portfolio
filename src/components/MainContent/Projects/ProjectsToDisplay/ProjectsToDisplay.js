@@ -15,15 +15,17 @@ const CardContainer = styled.div`
 
     ${ props => props.projectOpacity === 0 && css`
  
-      transform: scale(1.21);
+      transform: scale(1.31);
      
   
   `};  
 
-  & * {
-    pointer-events: ${props => props.pointerEvents};
-  }
+
 `;
+
+//   & * {
+//   pointer-events: ${ props => props.pointerEvents };
+// }
 
 const ProjectsToDisplay = (props) => {
   const { projects, projectsStatuses, route, projectData, projectsPictures, hideProject} = props;
@@ -35,7 +37,7 @@ const ProjectsToDisplay = (props) => {
       let opacity = projectsStatuses[ele] ? projectsStatuses[ele].opacity : 1;
       let routeCheck = route === '/' ? "/projects" : route;
       let text = <IndividualProjects iconsInfo={projectData[ele].iconsInfo} header={projectData[ele].header} link={projectData[ele].githubLink} textInfo={projectData[ele].textInfo}
-       route={routeCheck} hideProject={hideProject}>
+        route={routeCheck} hideProject={hideProject} projectOpacity={opacity}>
       </IndividualProjects>;
       return <CardContainer key={ele} projectOpacity={opacity} pointerEvents={pointerEvents}>
         <Card linkTo={projectData[ele].projectLink} textComponent={text} altText={ele} boxOpacicty={props.boxOpacicty} boxSpread={props.boxSpread} containerStyle={projectData[ele].additionalStyle.containerStyle} pictureStyle={projectData[ele].additionalStyle.pictureStyle} src={projectsPictures[ele]} />

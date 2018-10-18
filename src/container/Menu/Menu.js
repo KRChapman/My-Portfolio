@@ -59,7 +59,7 @@ class Menu extends Component {
         },
         hiddenProjects:
         {
-          linkAttributes: this.createLink('Hidden Projects', faSearchPlus, '#', true),
+          linkAttributes: this.createLink('Zoomed Projects in Section', faSearchPlus, '#', true),
           subLinks: this.hiddenProjectSubLinks(),
           showSubLinks: false,
         }
@@ -162,9 +162,9 @@ class Menu extends Component {
         <SideTopInfo secondaryColor={this.props.secondaryColor} />
         <MidControlNav secondaryColor={this.props.secondaryColor} buttonClicked={this.state.buttonClicked}
           changeMenu={this.handleChangeMenu} closeMenu={this.props.closeMenu} />
-        <MenuWrapper primaryColor={this.props.primaryColor} showSubLinks={this.state.showSubLinks} showProject={this.props.showProject}
+        <MenuWrapper primaryColor={this.props.primaryColor} showSubLinks={this.state.showSubLinks} projectPath={this.props.projectPath} showProject={this.props.showProject}
           contentLinks={this.state.contentLinks} expandLinks={this.handleExpandLinks} slideLocation={this.state.slideLocation}
-          closeMenu={this.props.closeMenu} isDesktop={this.state.isDesktop} />
+          closeMenu={this.props.closeMenu} isDesktop={this.state.isDesktop} hiddenProjects={this.props.hiddenProjects}/>
       </Container >
     )
   }

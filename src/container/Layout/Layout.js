@@ -278,27 +278,46 @@ class Layout extends Component {
     }
   }
 
-  hideProjectHandler(projectRoute, projectHeader) {
+  hideProjectHandler(projectRoute, projectHeader, zoomed) {
     let header = projectHeader;
     let route = projectRoute;
+    if(zoomed === 1){
+      this.setState(currentState => {
+        let hiddenProjects = [...currentState.hiddenProjects];
+        const projectOff = { ...currentState.projectOff }
+        for (const key in currentState.projectsInfo) {
+          if (currentState.projectsInfo[key].header === header) {
+            hiddenProjects = hiddenProjects.concat({ route, name: key });;
+          }
+        }
 
-    this.setState(currentState => {
-      let hiddenProjects = [...currentState.hiddenProjects];
-      const projectOff = { ...currentState.projectOff }
-      for (const key in currentState.projectsInfo) {
-        if (currentState.projectsInfo[key].header === header) {
-          hiddenProjects = hiddenProjects.concat({ route, name: key });;
+        return {
+          projectOff,
+          hiddenProjects
+        }
+      });
+
+
+    }
+    else{
+      let projectsInfo = {...this.state.projectsInfo}
+      let projectsKeys = Object.keys(this.state.projectsInfo);
+      let projectName;
+      for (const key of projectsKeys) {
+        // console.log("header", header)
+        // console.log(projectsInfo[key].header)
+        if (header === projectsInfo[key].header ){
+          console.log("header", projectsInfo[key].header)
+          projectName = key;
         }
       }
+      this.showProjectHandler(projectRoute, projectName);
+    }
 
-      return {
-        projectOff,
-        hiddenProjects
-      }
-    });
   }
 
   showProjectHandler(projectRoute, projectName){
+    console.log('a', projectRoute, projectName);
     let name = projectName;
     let route = projectRoute;
 

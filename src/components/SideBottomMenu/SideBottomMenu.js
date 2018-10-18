@@ -15,8 +15,18 @@ const List = styled.ul`
 
 const SideBottomMenu = (props) => {
   const contentLinksKeys = Object.keys(props.contentLinks);
+ 
   let indexToCut = contentLinksKeys.indexOf("hiddenProjects");
-  contentLinksKeys.splice(indexToCut,1);
+
+
+  let isVisable = props.hiddenProjects.some(function (element){
+   return   element.route === props.projectPath;
+  });
+  console.log('dddd',isVisable,props.projectPath);
+  if (!isVisable){
+       contentLinksKeys.splice(indexToCut,1);
+  }
+
   const linkObject = props.contentLinks;
 
   let linkList =  contentLinksKeys.map(ele => {
@@ -31,6 +41,7 @@ const SideBottomMenu = (props) => {
     if (subLinks != null ){
       const subLinkKeys = Object.keys(subLinks);
       count = subLinkKeys.length;
+     // expandLinks ?  : null;
       ulComponent = isShowSubLinks ?
         <ul style={{ listStyleType: "none" }} >
           {subLinkKeys.map(ele => {

@@ -50,6 +50,8 @@ const IndividualProjects = (props) => {
     paragraph = props.textInfo;
   }
 
+  let btnText = props.projectOpacity === 1 ? "Zoom In" : "Zoom Out"
+
   return (
     <div>
       <HeaderContainer>
@@ -57,8 +59,8 @@ const IndividualProjects = (props) => {
       </HeaderContainer>
       {paragraph}
       <ButtonContainer>
-        <ControlBtns clicked={() => props.hideProject(props.route, props.header)} 
-          clickClose={null}>Hide</ControlBtns><Anchor target='_blank' href={props.link}>GitHub</Anchor>
+        <ControlBtns clicked={() => props.hideProject(props.route, props.header, props.projectOpacity)} 
+          clickClose={null}>{btnText}</ControlBtns><Anchor target='_blank' href={props.link}>GitHub</Anchor>
       </ButtonContainer>   
       {props.chidlren}
     </div>
