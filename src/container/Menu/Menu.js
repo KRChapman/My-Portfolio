@@ -30,17 +30,14 @@ class Menu extends Component {
           linkAttributes: this.createLink('Projects', faFileAlt, '/projects', ),
           subLinks: null,
         },
-        contact: {
-          linkAttributes: this.createLink('Contact', faMobileAlt, '/contact'),
-          subLinks: null,
-        },
+    
         myInfo: {
           linkAttributes: this.createLink('My Info', faInfoCircle, '#', true),
           subLinks: {
             aboutMe: this.createLink('About Me', faAddressCard, '/aboutme'), resume: this.createLink('Resume', faListAlt, '/resume', ),
 
           },
-          showSubLinks: true,
+          showSubLinks: false,
         },
 
         links: {
@@ -49,14 +46,14 @@ class Menu extends Component {
             portfolioGitHub: this.createLink('Portfolio GitHub', faCodeBranch, '/portfoliogithub'), linkedin: this.createLink('Linkedin', faLinkedin, '/linkedin'),
             gitHub: this.createLink('GitHub', faGithub, '/github'),
           },
-          showSubLinks: false,
+          showSubLinks: true,
         },
 
-
-        vanillaJavaScriptProjects: {
-          linkAttributes: this.createLink(' Vanilla JavaScript Projects', faJsSquare, '/vanillajavascript'),
+        contact: {
+          linkAttributes: this.createLink('Contact', faMobileAlt, '/contact'),
           subLinks: null,
         },
+    
         hiddenProjects:
         {
           linkAttributes: this.createLink('Zoomed Projects in Section', faSearchPlus, '#', true),
@@ -70,6 +67,10 @@ class Menu extends Component {
 
     }
 
+    // vanillaJavaScriptProjects: {
+    //   linkAttributes: this.createLink(' Vanilla JavaScript Projects', faJsSquare, '/vanillajavascript'),
+    //     subLinks: null,
+    //     },
 
     this.handleChangeMenu = this.handleChangeMenu.bind(this);
     this.handleExpandLinks = this.handleExpandLinks.bind(this);

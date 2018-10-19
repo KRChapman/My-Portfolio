@@ -40,7 +40,7 @@ const SideBottomMenu = (props) => {
 
     if (subLinks != null ){
       const subLinkKeys = Object.keys(subLinks);
-      count = subLinkKeys.length;
+      count = isShowSubLinks ?  null :subLinkKeys.length ;
      // expandLinks ?  : null;
       ulComponent = isShowSubLinks ?
         <ul style={{ listStyleType: "none" }} >
