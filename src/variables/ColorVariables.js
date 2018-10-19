@@ -5,17 +5,19 @@ export const defaultSecondary = {
     backgroundColor: "#ba4e3b", iconsPressedColor: "#FA7252"
   } 
 };
+
+export const defaultPrimary = {
+  backgroundColor: "#242424", buttonColor: "#1c474b"
+};
+
                   
-export const defaultPrimary = { 
+export const primaryTurquoise = { 
   backgroundColor: "#273135", buttonColor: "rgba(114, 133, 137, 0.45)", 
 };                        
 
-export const primaryTurquoise = { 
-  backgroundColor: "#103033", buttonColor: "#1c474b"
-};
 
 export const primaryLightBlue = { 
-  backgroundColor: "#273d56", buttonColor: "#476b91"
+  backgroundColor: "#02122a", buttonColor: "#476b91"
 };
 
 export const secondaryTurquoise =  { 

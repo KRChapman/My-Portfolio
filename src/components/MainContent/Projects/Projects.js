@@ -31,11 +31,12 @@ const Projects = (props) => {
   const projectsStatuses = getProjectStatus(props, projectData);
  
   // const projectsToDisplay = newFunction(projects, projectsStatuses, route, projectData, projectsPictures);
-
+  console.log("props.isDesktop", props.isDesktop);
   return (
     
     <Container>
-      <ProjectsToDisplay projects={projects} projectsStatuses={projectsStatuses} route={props.route} hideProject={props.hideProject}
+      <ProjectsToDisplay projects={projects} projectsStatuses={projectsStatuses} route={props.route} 
+        hideProject={props.hideProject} isDesktop={props.isDesktop}
         projectData={projectData} projectsPictures={projectsPictures} boxOpacicty={props.boxOpacicty} boxSpread={props.boxSpread}/>
     </Container>
   )

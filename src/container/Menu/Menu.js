@@ -21,9 +21,7 @@ class Menu extends Component {
     this.state = {
       slideLocation: 0,
       buttonClicked: "Menu",
-      isDesktop: true,
-      tabletSize: 700,
-
+   
 
       contentLinks: {
         projects: {
@@ -43,7 +41,7 @@ class Menu extends Component {
         links: {
           linkAttributes: this.createLink('Links', faLink, '#', true),
           subLinks: {
-            portfolioGitHub: this.createLink('Portfolio GitHub', faCodeBranch, '/portfoliogithub'), linkedin: this.createLink('Linkedin', faLinkedin, '/linkedin'),
+            portfolioGitHub: this.createLink('Portfolio Code', faCodeBranch, '/portfoliogithub'), linkedin: this.createLink('Linkedin', faLinkedin, '/linkedin'),
             gitHub: this.createLink('GitHub', faGithub, '/github'),
           },
           showSubLinks: true,
@@ -76,13 +74,10 @@ class Menu extends Component {
     this.handleExpandLinks = this.handleExpandLinks.bind(this);
     this.hiddenProjectSubLinks = this.hiddenProjectSubLinks.bind(this);
     this.createLink = this.createLink.bind(this);
-    this.updateWindow = this.updateWindow.bind(this);
+    
   }
 
-  componentDidMount() {
-    this.updateWindow();
-    window.addEventListener("resize", this.updateWindow);
-  }
+ 
 
   componentDidUpdate(prevProps, prevState) {
 
@@ -101,14 +96,9 @@ class Menu extends Component {
       });
     }
   }
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateWindow);
-  }
 
-  updateWindow() {
-    const tabletSize = this.state.tabletSize;
-    this.setState({ isDesktop: window.innerWidth > tabletSize });
-  }
+
+
 
 
   hiddenProjectSubLinks(route) {
@@ -165,7 +155,7 @@ class Menu extends Component {
           changeMenu={this.handleChangeMenu} closeMenu={this.props.closeMenu} />
         <MenuWrapper primaryColor={this.props.primaryColor} showSubLinks={this.state.showSubLinks} projectPath={this.props.projectPath} showProject={this.props.showProject}
           contentLinks={this.state.contentLinks} expandLinks={this.handleExpandLinks} slideLocation={this.state.slideLocation}
-          closeMenu={this.props.closeMenu} isDesktop={this.state.isDesktop} hiddenProjects={this.props.hiddenProjects}/>
+          closeMenu={this.props.closeMenu} isDesktop={this.props.isDesktop} hiddenProjects={this.props.hiddenProjects}/>
       </Container >
     )
   }

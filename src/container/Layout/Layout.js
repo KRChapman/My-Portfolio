@@ -56,7 +56,10 @@ class Layout extends Component {
       mediaQuery: defaults.mediaQuery,
       projectPath: "",
       hiddenProjects: [],
-      projectOff: {name: "", opacity: 0}, 
+      projectOff: {name: "", opacity: 0},
+
+      isDesktop: true,
+      tabletSize: 700,
 
       projectsInfo:{
         voteNow: createProjectsInfo("Vote-Now-Omatic", "voteNow", "https://github.com/KRChapman/VotingApp",
@@ -117,12 +120,16 @@ class Layout extends Component {
     this.selectRandomColorHandler = this.selectRandomColorHandler.bind(this);
     this.hideProjectHandler = this.hideProjectHandler.bind(this);
     this.showProjectHandler = this.showProjectHandler.bind(this);
+    this.updateWindow = this.updateWindow.bind(this);
   }
 
   componentDidMount() {
     const pathName = this.props.location.pathname;
     this.updateStateWithLocalStorage();
     this.updatePicture(pathName);
+
+    this.updateWindow();
+    window.addEventListener("resize", this.updateWindow);
   }
 
   componentDidUpdate(prevProps) {
@@ -131,6 +138,15 @@ class Layout extends Component {
 
       this.updatePicture(pathName);
     }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateWindow);
+  }
+
+  updateWindow() {
+    const tabletSize = this.state.tabletSize;
+    this.setState({ isDesktop: window.innerWidth > tabletSize });
   }
 
   updatePicture(pathName){
@@ -332,13 +348,13 @@ class Layout extends Component {
       }
     });
   }
-   
+ 
   render() {   
-
+   
     return ( 
       <React.Fragment>      
         <Menu primaryColor={this.state.primaryColor} secondaryColor={this.state.secondaryColor} projectPath={this.state.projectPath} hiddenProjects={this.state.hiddenProjects}
-          mediaQuery={this.state.mediaQuery} closeMenu={this.closeMenuHandler} showToggleMenu={this.state.isShowMenu} showProject={this.showProjectHandler}/>
+          mediaQuery={this.state.mediaQuery} closeMenu={this.closeMenuHandler} showToggleMenu={this.state.isShowMenu} showProject={this.showProjectHandler} isDesktop={this.state.isDesktop}/>
         <Header boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread} changeBoxShadow={this.changeBoxShadowHandler} 
           selectColor={this.selectColorHandler} primaryColor={this.state.primaryColor} saveToLocalStorage={this.saveToLocalStorageHandler} 
           mediaQuery={this.state.mediaQuery} toggleMenu={this.toggleMenuHandler} showToggleMenu={this.state.isShowMenu} 
@@ -347,12 +363,12 @@ class Layout extends Component {
           <Switch>
             <Route exact path='/' render={() => {
               return <AsyncProjects projectsInfo={this.state.projectsInfo} boxOpacicty={this.state.boxOpacicty}
-                boxSpread={this.state.boxSpread} hideProject={this.hideProjectHandler}
+                boxSpread={this.state.boxSpread} hideProject={this.hideProjectHandler} isDesktop={this.state.isDesktop}
                 projectOff={this.state.projectOff} hiddenProjects={this.state.hiddenProjects} route={'/projects'} />
             }} />
             <Route path='/projects'  render={() => {
               return <AsyncProjects projectsInfo={this.state.projectsInfo}  boxOpacicty={this.state.boxOpacicty} 
-                        boxSpread={this.state.boxSpread} hideProject={this.hideProjectHandler} 
+                        boxSpread={this.state.boxSpread} hideProject={this.hideProjectHandler} isDesktop={this.state.isDesktop}
                         projectOff={this.state.projectOff} hiddenProjects={this.state.hiddenProjects} route={'/projects'}/>         
             }}/>
             <Route path="/contact" render={() => {
@@ -362,13 +378,14 @@ class Layout extends Component {
               return <AsyncResume boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread} />
             }} />
             <Route path="/aboutme" render={() => {
-              return <AsyncAboutMe projectsInfo={this.state.projectsInfo} boxOpacicty={this.state.boxOpacicty} 
+              return <AsyncAboutMe projectsInfo={this.state.projectsInfo} isDesktop={this.state.isDesktops} boxOpacicty={this.state.boxOpacicty} 
                         boxSpread={this.state.boxSpread} route={"/aboutme"}  hideProject={this.hideProjectHandler}
                         hiddenProjects={this.state.hiddenProjects} projectOpacity={this.state.hiddenProjectsOpacity}/>
             }} />
             <Route path="/vanillajavascript" render={() => {
               return <AsyncVanillaJavascript projectsInfo={this.state.projectsInfo} boxOpacicty={this.state.boxOpacicty} 
-                boxSpread={this.state.boxSpread} route={"/vanillajavascript"}  hideProject={this.hideProjectHandler} hiddenProjects={this.state.hiddenProjects} projectOpacity={this.state.hiddenProjectsOpacity}/>
+                boxSpread={this.state.boxSpread} route={"/vanillajavascript"}  hideProject={this.hideProjectHandler}
+                hiddenProjects={this.state.hiddenProjects} projectOpacity={this.state.hiddenProjectsOpacity}/>
             }} />     
                 
             <Route path='/github' render={() => window.location.replace('https://github.com/KRChapman') } />

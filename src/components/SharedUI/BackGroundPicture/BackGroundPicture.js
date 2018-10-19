@@ -25,9 +25,9 @@ const Container = styled.div`
        margin-bottom: 25px;
   };
 `;
-
+//  text-decoration: underline;
 const Header = styled.h1`
-  font-size: 34px;
+  font-size: 28px;
   color: #fff;
   font-family: Lato,sans-serif;
   font-weight: 500;
@@ -38,7 +38,7 @@ const Header = styled.h1`
   display: inline-block;
   position: absolute;
   z-index: 600;
-  text-decoration: underline;
+
   line-height: 1.1;
   letter-spacing: .95px;
   margin-top: 260px;
@@ -47,7 +47,10 @@ const Header = styled.h1`
        margin-top: 365px;
    
   };
-
+   @media (max-width: 600px) {
+  
+   font-size: 18px;
+  };
 
 
 `;
@@ -74,8 +77,8 @@ const BackGroundPicture = (props) =>  {
           Seattle, WA
         </Header>
       </TopHeaderContainer>  
-      <Header>Projects<br></br>
-        <Skills >Skills: Html/Css, JavaScript, React, SQL, MongoDb, Node, Express</Skills>
+      <Header>Interactive Portfolio with Projects<br></br>
+        <Skills >Skills: HTML/CSS, JavaScript, React, SQL, MongoDb, Node, Express</Skills>
       </Header>
       <ImageDisplay srcLoaded={techSmall} pictureSmall={techFSmall} />
     </Container> : null;
