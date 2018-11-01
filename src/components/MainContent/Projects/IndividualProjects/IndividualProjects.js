@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 import TechIcons from '../../../SharedUI/TechIcons/TechIconsContainer';
 import ControlBtns from '../../../SharedUI/Modal/ControlBtns/ControlBtns';
 
@@ -39,16 +39,10 @@ const ButtonContainer = styled.div`
     pointer-events: ${props => (props.isDesktop ? 'auto' : 'none')};
 
     visibility:  ${props => (props.isDesktop ? 'visible' : 'hidden')};;
-    
-
- 
-  
   }
-
- 
 `;
 
- //  
+
 
 const IndividualProjects = (props) => {
   let paragraph = null;
@@ -60,9 +54,9 @@ const IndividualProjects = (props) => {
   else{
     paragraph = props.textInfo;
   }
- // console.log("props.isDesktop", props.isDesktop);
-  let btnText = props.projectOpacity === 1 ? "Zoom In" : "Zoom Out"
- // let 
+
+  let btnText = props.projectOpacity === 1 ? "Zoom In" : "Return"
+
   return (
     <div>
       <HeaderContainer>

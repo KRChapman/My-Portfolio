@@ -58,17 +58,8 @@ class Menu extends Component {
           subLinks: this.hiddenProjectSubLinks(),
           showSubLinks: false,
         }
-
-
       },
-
-
     }
-
-    // vanillaJavaScriptProjects: {
-    //   linkAttributes: this.createLink(' Vanilla JavaScript Projects', faJsSquare, '/vanillajavascript'),
-    //     subLinks: null,
-    //     },
 
     this.handleChangeMenu = this.handleChangeMenu.bind(this);
     this.handleExpandLinks = this.handleExpandLinks.bind(this);
@@ -97,10 +88,6 @@ class Menu extends Component {
     }
   }
 
-
-
-
-
   hiddenProjectSubLinks(route) {
     let subLinks = null;
     this.props.hiddenProjects.forEach(ele => {
@@ -108,9 +95,7 @@ class Menu extends Component {
         subLinks = subLinks == null ? {} : subLinks;
 
         subLinks[ele.name] = this.createLink(ele.name, faSearchPlus, ele.route);
-
       }
-
 
     })
     return subLinks;
@@ -146,14 +131,14 @@ class Menu extends Component {
 
 
   render() {
-
+    const route = this.props.projectPath === '/' ? '/projects' : this.props.projectPath;
     return (
       <Container backgroundColor={this.props.primaryColor.backgroundColor}
         mediaQuery={this.props.mediaQuery} showToggleMenu={this.props.showToggleMenu}>
         <SideTopInfo secondaryColor={this.props.secondaryColor} />
         <MidControlNav secondaryColor={this.props.secondaryColor} buttonClicked={this.state.buttonClicked}
           changeMenu={this.handleChangeMenu} closeMenu={this.props.closeMenu} />
-        <MenuWrapper primaryColor={this.props.primaryColor} showSubLinks={this.state.showSubLinks} projectPath={this.props.projectPath} showProject={this.props.showProject}
+        <MenuWrapper primaryColor={this.props.primaryColor} showSubLinks={this.state.showSubLinks} projectPath={route} showProject={this.props.showProject}
           contentLinks={this.state.contentLinks} expandLinks={this.handleExpandLinks} slideLocation={this.state.slideLocation}
           closeMenu={this.props.closeMenu} isDesktop={this.props.isDesktop} hiddenProjects={this.props.hiddenProjects}/>
       </Container >

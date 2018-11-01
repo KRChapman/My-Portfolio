@@ -29,9 +29,7 @@ const Projects = (props) => {
   const projectsPictures = { voteNow, conway, wikiResource}
   const projectData = { ...props.projectsInfo}
   const projectsStatuses = getProjectStatus(props, projectData);
- 
-  // const projectsToDisplay = newFunction(projects, projectsStatuses, route, projectData, projectsPictures);
-  console.log("props.isDesktop", props.isDesktop);
+
   return (
     
     <Container>
@@ -43,22 +41,3 @@ const Projects = (props) => {
 }
 
 export default withRouter(Projects);
-
-
-// function newFunction(projects, projectsStatuses, route, projectData, projectsPictures) {
-//   return projects.map((ele) => {
-//     //set pointer event to none when project is not visible 
-//     let pointerEvents = projectsStatuses[ele] ? projectsStatuses[ele].pointerEvents : "auto";
-//     let opacity = projectsStatuses[ele] ? projectsStatuses[ele].opacity : 1;
-//     route = route === '/' ? "/projects" : route;
-//     let text = <IndividualProjects iconsInfo={projectData[ele].iconsInfo} header={projectData[ele].header} link={projectData[ele].githubLink} textInfo={projectData[ele].textInfo} route={route} hideProject={props.hideProject}>
-//     </IndividualProjects>;
-//     return newFunction_1(ele, opacity, pointerEvents, projectData, text, projectsPictures);
-//   });
-// }
-
-// function newFunction_1(ele, opacity, pointerEvents, projectData, text, projectsPictures) {
-//   return <CardContainer key={ele} projectOpacity={opacity} pointerEvents={pointerEvents}>
-//     <Card linkTo={projectData[ele].projectLink} textComponent={text} altText={ele} boxOpacicty={props.boxOpacicty} boxSpread={props.boxSpread} containerStyle={projectData[ele].additionalStyle.containerStyle} pictureStyle={projectData[ele].additionalStyle.pictureStyle} src={projectsPictures[ele]} />
-//   </CardContainer>;
-// }

@@ -22,7 +22,7 @@ const SideBottomMenu = (props) => {
   let isVisable = props.hiddenProjects.some(function (element){
    return   element.route === props.projectPath;
   });
-  console.log('dddd',isVisable,props.projectPath);
+
   if (!isVisable){
        contentLinksKeys.splice(indexToCut,1);
   }

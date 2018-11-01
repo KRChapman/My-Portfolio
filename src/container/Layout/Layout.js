@@ -297,7 +297,7 @@ class Layout extends Component {
   hideProjectHandler(projectRoute, projectHeader, zoomed) {
     let header = projectHeader;
     let route = projectRoute;
-    if(zoomed === 1){
+    if(zoomed === 1 ){
       this.setState(currentState => {
         let hiddenProjects = [...currentState.hiddenProjects];
         const projectOff = { ...currentState.projectOff }
@@ -320,10 +320,9 @@ class Layout extends Component {
       let projectsKeys = Object.keys(this.state.projectsInfo);
       let projectName;
       for (const key of projectsKeys) {
-        // console.log("header", header)
-        // console.log(projectsInfo[key].header)
+
         if (header === projectsInfo[key].header ){
-          console.log("header", projectsInfo[key].header)
+
           projectName = key;
         }
       }
@@ -333,7 +332,7 @@ class Layout extends Component {
   }
 
   showProjectHandler(projectRoute, projectName){
-    console.log('a', projectRoute, projectName);
+
     let name = projectName;
     let route = projectRoute;
 
@@ -378,7 +377,7 @@ class Layout extends Component {
               return <AsyncResume boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread} />
             }} />
             <Route path="/aboutme" render={() => {
-              return <AsyncAboutMe projectsInfo={this.state.projectsInfo} isDesktop={this.state.isDesktops} boxOpacicty={this.state.boxOpacicty} 
+              return <AsyncAboutMe projectsInfo={this.state.projectsInfo} isDesktop={this.state.isDesktop} boxOpacicty={this.state.boxOpacicty} 
                         boxSpread={this.state.boxSpread} route={"/aboutme"}  hideProject={this.hideProjectHandler}
                         hiddenProjects={this.state.hiddenProjects} projectOpacity={this.state.hiddenProjectsOpacity}/>
             }} />
