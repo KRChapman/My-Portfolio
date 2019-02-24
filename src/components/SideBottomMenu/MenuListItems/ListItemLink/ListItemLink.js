@@ -17,7 +17,7 @@ const LinkElem = styled(NavLink)`
   font-size:  ${props => props.theme.fontSize};
 
   padding: 15px 10px;
-  height: 56px;
+  height:${props => props.height};
    
   text-decoration: none;
 
@@ -37,6 +37,8 @@ const ListItem = styled.li`
   & > a {
       color: ${ props => props.textColor };
   }
+
+
 
 `;
 
@@ -96,15 +98,19 @@ const ListItemLink = (props) => {
   return (// eslint-disable-next-line
     <ListItem textColor={props.textColor} onClick={() => props.isDesktop === false && 
       (props.showProject == null && props.expandLinks == null) ? props.closeMenu() : null }>
-     <LinkElem target={targetValue} to={route} onClick={() => {   // eslint-disable-next-line
+      <LinkElem target={targetValue} height={props.height} to={route} onClick={() => {   // eslint-disable-next-line
        clickToExpand !== null ? clickToExpand() : null;// eslint-disable-next-line
        clickToShowProject !== null ? clickToShowProject() : null;}} >
        <Flex><IconContainer icon={props.icon}></IconContainer><div style={{ display: "flex", alignItems: "center"}}><span >{props.children} </span></div></Flex> 
         <RightContainer>{counter}</RightContainer>
       </LinkElem>
-      {props.ul}
+      {
+        props.ul
+        }
     </ListItem>
   )
 }
+
+
 
 export default ListItemLink;

@@ -13,6 +13,18 @@ const List = styled.ul`
   list-style: none;
 `;
 
+
+const UlSubLinks = styled.ul`
+  list-style-type: none;
+
+  transition: height .5s ease-out;
+   overflow: hidden;
+  height: ${ props => props.height + "px"};
+
+
+`;
+
+
 const SideBottomMenu = (props) => {
   const contentLinksKeys = Object.keys(props.contentLinks);
  
@@ -31,6 +43,7 @@ const SideBottomMenu = (props) => {
 
   let linkList =  contentLinksKeys.map(ele => {
     let ulComponent = null;
+    
     const linkAttributes = linkObject[ele].linkAttributes;
     const subLinks = linkObject[ele].subLinks;
     const isShowSubLinks = linkObject[ele].showSubLinks != null ? linkObject[ele].showSubLinks : null;  
@@ -38,23 +51,9 @@ const SideBottomMenu = (props) => {
     const showProject = ele === "hiddenProjects" ? props.showProject : null;
     let count = null;  
 
-    if (subLinks != null ){
-      const subLinkKeys = Object.keys(subLinks);
-      count = isShowSubLinks ?  null :subLinkKeys.length ;
-     // expandLinks ?  : null;
-      ulComponent = isShowSubLinks ?
-        <ul style={{ listStyleType: "none" }} >
-          {subLinkKeys.map(ele => {
-            let subLinksAttributes = subLinks[ele];
-            return <ListItemLink textColor={props.textColor} count={null} expandLinks={null} isDesktop={props.isDesktop}
-                    icon={subLinksAttributes.icon} to={subLinksAttributes.to} key={subLinksAttributes.title}
-                    showProject={showProject} closeMenu={props.closeMenu}>{subLinksAttributes.title} 
-                  </ListItemLink>
-          })} 
-        </ul> : null;              
-    }
+    ({ count, ulComponent } = createUl(subLinks, count, isShowSubLinks, linkObject, ele, props, ulComponent, showProject));
 
-    return <ListItemLink textColor={props.textColor}  count={count} name={ele} expandLinks={expandLinks} icon={linkAttributes.icon} 
+    return <ListItemLink textColor={props.textColor} height={props.height} count={count} name={ele} expandLinks={expandLinks} icon={linkAttributes.icon} 
              ul={ulComponent} to={linkAttributes.to} key={linkAttributes.title} closeMenu={props.closeMenu} isDesktop={props.isDesktop}
              >{linkAttributes.title} 
            </ListItemLink>
@@ -74,3 +73,22 @@ const SideBottomMenu = (props) => {
 
 
 export default SideBottomMenu;
+
+function createUl(subLinks, count, isShowSubLinks, linkObject, ele, props, ulComponent, showProject) {
+  if (subLinks != null) {
+    const subLinkKeys = Object.keys(subLinks);
+    count = isShowSubLinks ? null : subLinkKeys.length;
+    let height = isShowSubLinks ? Object.keys(linkObject[ele].subLinks).length * props.height : 0;
+    ulComponent = <UlSubLinks height={height}>
+      {subLinkKeys.map(ele => {
+        let subLinksAttributes = subLinks[ele];
+        return <ListItemLink textColor={props.textColor} count={null} 
+        expandLinks={null} isDesktop={props.isDesktop} icon={subLinksAttributes.icon}
+         to={subLinksAttributes.to} key={subLinksAttributes.title} height={props.height} 
+         showProject={showProject} closeMenu={props.closeMenu}>{subLinksAttributes.title}
+        </ListItemLink>;
+      })}
+    </UlSubLinks>;
+  }
+  return { count, ulComponent };
+}
