@@ -46,7 +46,7 @@ class Menu extends Component {
             linkedin: this.createLink('Linkedin', faLinkedin, '/linkedin'),
             gitHub: this.createLink('GitHub', faGithub, '/github'),
           },
-          showSubLinks: true,
+          showSubLinks: false,
         },
         contact: {
           linkAttributes: this.createLink('Contact', faMobileAlt, '/contact'),
