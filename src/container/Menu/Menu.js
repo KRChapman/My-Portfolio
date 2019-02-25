@@ -23,7 +23,7 @@ class Menu extends Component {
     this.state = {
       slideLocation: 0,
       buttonClicked: "Menu",
-      linkAndListHeight: 54,
+      linkAndListHeight: 48,
 
       contentLinks: {
         projects: {
@@ -118,7 +118,7 @@ class Menu extends Component {
       return { contentLinks: contentObj }
     });
   }
-  
+
   render() {
     const route = this.props.projectPath === '/' ? '/projects' : this.props.projectPath;
     return (
