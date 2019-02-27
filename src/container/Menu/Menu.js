@@ -36,7 +36,7 @@ class Menu extends Component {
             aboutMe: this.createLink('About Me', faAddressCard, '/aboutme'), 
             resume: this.createLink('Resume', faListAlt, '/resume', ),
           },
-          showSubLinks: false,
+          showSubLinks: true,
 
         },
         links: {
@@ -46,7 +46,7 @@ class Menu extends Component {
             linkedin: this.createLink('Linkedin', faLinkedin, '/linkedin'),
             gitHub: this.createLink('GitHub', faGithub, '/github'),
           },
-          showSubLinks: false,
+          showSubLinks: true,
         },
         contact: {
           linkAttributes: this.createLink('Contact', faMobileAlt, '/contact'),
