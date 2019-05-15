@@ -16,12 +16,16 @@ import {
 } from './../../variables/IconVariables.js';
 
 import asyncComponent from './../../hoc/asyncComponent';
+
 const AsyncContact = asyncComponent(() => {
   return import('./../../components/MainContent/Contact/Contact');
 });
 const AsyncProjects = asyncComponent(() => {
   return import('./../../components/MainContent/Projects/Projects');
 });
+const AsyncOpenSource = asyncComponent(()=> {
+  return import('../../components/MainContent/OpenSource/OpenSource.js');
+})
 const AsyncAboutMe = asyncComponent(() => {
   return import('../../components/MainContent/AboutMe/AboutMe.js');
 });
@@ -370,6 +374,9 @@ class Layout extends Component {
                         boxSpread={this.state.boxSpread} hideProject={this.hideProjectHandler} isDesktop={this.state.isDesktop}
                         projectOff={this.state.projectOff} hiddenProjects={this.state.hiddenProjects} route={'/projects'}/>         
             }}/>
+            <Route path="/opensource" render={() => {
+              return <AsyncOpenSource />
+            }} />
             <Route path="/contact" render={() => {
               return <AsyncContact  />
             }} />

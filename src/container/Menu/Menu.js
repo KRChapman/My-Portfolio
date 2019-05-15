@@ -27,7 +27,11 @@ class Menu extends Component {
 
       contentLinks: {
         projects: {
-          linkAttributes: this.createLink('Projects', faFileAlt, '/projects', ),
+          linkAttributes: this.createLink('Projects', faFileAlt, '/projects' ),
+          subLinks: null,
+        },
+        openSource: {
+          linkAttributes: this.createLink('Open Source', faGithub, '/opensource'),
           subLinks: null,
         },
         myInfo: {
