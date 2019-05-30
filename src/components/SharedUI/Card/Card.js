@@ -32,7 +32,7 @@ const Image = styled.img`
 const Card = (props) => {
 
   return (
-    <Container boxOpacicty={props.boxOpacicty} boxSpread={props.boxSpread}>
+    <Container boxOpacicty={props.boxOpacicty} boxSpread={props.boxSpread} >
       <a target='_blank' href={props.linkTo} style={{ ...props.anchorStyle }}>
       <ImageCrop style={{ ...props.containerStyle }} >
         <Image style={{ ...props.pictureStyle }} src={props.src} alt={props.altText} />       
