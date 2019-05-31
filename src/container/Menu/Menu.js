@@ -30,10 +30,10 @@ class Menu extends Component {
           linkAttributes: this.createLink('Projects', faFileAlt, '/projects' ),
           subLinks: null,
         },
-        openSource: {
-          linkAttributes: this.createLink('Open Source', faGithub, '/opensource'),
-          subLinks: null,
-        },
+        // openSource: {
+        //   linkAttributes: this.createLink('Open Source', faGithub, '/opensource'),
+        //   subLinks: null,
+        // },
         myInfo: {
           linkAttributes: this.createLink('My Info', faInfoCircle, '#', true),
           subLinks: {

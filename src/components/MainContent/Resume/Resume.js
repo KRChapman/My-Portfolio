@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import resumePDF from './../../../assets/images/Kyle-Chapman-resume.pdf'
 import resume from './../../../assets/images/resume-2.jpg';
 const Container = styled.div`
 
@@ -29,9 +30,9 @@ const Resume = (props) => {
 
   return (
     <Container>
-      <Header><a href="https://www.dropbox.com/sh/k7xzvm83zxke0fi/AAAgxtvF69DHEfpYvDh0_v5_a?dl=0">Download resume from dropbox</a></Header>
+      <Header><a href={resumePDF}>PDF for Resume</a></Header>
       <ImageContainer>
-        <Image src={resume} alt="resume" srcset="" />
+        <a href={resumePDF}> <Image src={resume} alt="resume" srcset="" /></a>    
       </ImageContainer>
     </Container>
   )
