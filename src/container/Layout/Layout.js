@@ -168,6 +168,7 @@ class Layout extends Component {
           value = JSON.parse(value);
           this.setState({ [key]: value });
         } catch (e) {
+          // if empty string
           this.setState({ [key]: value });
         }
       }
