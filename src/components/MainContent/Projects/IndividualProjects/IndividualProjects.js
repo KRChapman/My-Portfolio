@@ -64,12 +64,12 @@ const IndividualProjects = (props) => {
       </HeaderContainer>
       {paragraph}
       <ButtonContainer isDesktop={props.isDesktop}>
-        <ControlBtns clicked={() => props.hideProject(props.route, props.header, props.projectOpacity)} 
-          clickClose={null}>{btnText}</ControlBtns><Anchor target='_blank' href={props.link}>GitHub</Anchor>
+       <Anchor target='_blank' href={props.link}>GitHub</Anchor>
       </ButtonContainer>   
       {props.chidlren}
     </div>
   )
 }
-
+{/* <ControlBtns clicked={() => props.hideProject(props.route, props.header, props.projectOpacity)}
+  clickClose={null}>{btnText}</ControlBtns> */}
 export default IndividualProjects;

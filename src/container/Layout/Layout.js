@@ -11,9 +11,7 @@ import {
 import { defaultPrimary, defaultSecondary, 
         primaryTurquoise, primaryLightBlue, 
         secondaryTurquoise, secondaryBrown } from './../../variables/ColorVariables';
-import {
-  icons
-} from './../../variables/IconVariables.js';
+
 
 import asyncComponent from './../../hoc/asyncComponent';
 
@@ -64,55 +62,6 @@ class Layout extends Component {
 
       isDesktop: true,
       tabletSize: 700,
-
-      projectsInfo:{
-        voteNow: createProjectsInfo("Vote-Now-Omatic", "voteNow", "https://github.com/KRChapman/VotingApp",
-          "https://protected-fjord-13167.herokuapp.com/"),
-        wikiResource: createProjectsInfo("MyWiki Saver", "wikiResource", "https://github.com/KRChapman/personalWiki", 
-          "https://mywiki-1306.appspot.com/"),
-        conway: createProjectsInfo("Conway's Game Of Life", "conway", "https://github.com/KRChapman/GameOfLife", "https://krchapman.github.io/GameOfLife/"),
-        simon: createProjectsInfo("Simon Game", "simon", "https://github.com/KRChapman/FCCProjects/tree/master/simonGame", "http://simongame-kc.surge.sh/")
-      },     
-    }
-
-    function createProjectsInfo(header, iconsInfo, githubLink, projectLink){
-      let iconsToDisplay = [];
-      let textInfo = "";
-      let additionalStyle = { containerStyle : null, pictureStyle : null};
-
-      switch (iconsInfo) {
-        case ('voteNow'):
-          iconsToDisplay = [icons.mongoDB, icons.node, icons.javaScript, icons.sass]
-          textInfo = "Full stack vanilla JavaScript application. Log in and create polls for other people around the world to vote on and chart the results."
-          additionalStyle = { containerStyle: null, pictureStyle: { marginLeft: "-40px" } };
-          break;
-        case ('wikiResource'):
-          iconsToDisplay = [icons.python, icons.javaScript, icons.gql]
-          textInfo = "Full stack Python application. Log in and generate pages and posts. Save links and edit or delete content."
-          additionalStyle = { containerStyle: { border: "1px solid black"}, pictureStyle: { marginLeft: "-10px" }};
-          break;
-        case ('conway'):
-          iconsToDisplay = [icons.react, icons.sass]
-          textInfo = "React application using Sass that is a visual representation of my algorithm to display Conway's Game of Life."
-          additionalStyle = { containerStyle: null, pictureStyle: { marginLeft: "-16px" } };
-          break;
-        case ('simon'):
-          iconsToDisplay = [icons.javaScript, icons.sass]
-          textInfo = "Vanilla Javascript Project that is a replication of the game simon says it even needs to be turned on."        
-          break;
-        default:
-          iconsToDisplay = [];
-          textInfo = ""
-      }
-
-      return{
-        header,
-        iconsInfo: iconsToDisplay,    
-        githubLink,
-        projectLink,
-        textInfo,
-        additionalStyle,
-      }
     }
 
     this.toggleMenuHandler = this.toggleMenuHandler.bind(this);
@@ -300,39 +249,39 @@ class Layout extends Component {
   }
 
   hideProjectHandler(projectRoute, projectHeader, zoomed) {
-    let header = projectHeader;
-    let route = projectRoute;
-    if(zoomed === 1 ){
-      this.setState(currentState => {
-        let hiddenProjects = [...currentState.hiddenProjects];
-        const projectOff = { ...currentState.projectOff }
-        for (const key in currentState.projectsInfo) {
-          if (currentState.projectsInfo[key].header === header) {
-            hiddenProjects = hiddenProjects.concat({ route, name: key });;
-          }
-        }
+    // let header = projectHeader;
+    // let route = projectRoute;
+    // if(zoomed === 1 ){
+    //   this.setState(currentState => {
+    //     let hiddenProjects = [...currentState.hiddenProjects];
+    //     const projectOff = { ...currentState.projectOff }
+    //     for (const key in currentState.projectsInfo) {
+    //       if (currentState.projectsInfo[key].header === header) {
+    //         hiddenProjects = hiddenProjects.concat({ route, name: key });;
+    //       }
+    //     }
 
-        return {
-          projectOff,
-          hiddenProjects
-        }
-      });
+    //     return {
+    //       projectOff,
+    //       hiddenProjects
+    //     }
+    //   });
 
 
-    }
-    else{
-      let projectsInfo = {...this.state.projectsInfo}
-      let projectsKeys = Object.keys(this.state.projectsInfo);
-      let projectName;
-      for (const key of projectsKeys) {
+    // }
+    // else{
+    //   let projectsInfo = {...this.state.projectsInfo}
+    //   let projectsKeys = Object.keys(this.state.projectsInfo);
+    //   let projectName;
+    //   for (const key of projectsKeys) {
 
-        if (header === projectsInfo[key].header ){
+    //     if (header === projectsInfo[key].header ){
 
-          projectName = key;
-        }
-      }
-      this.showProjectHandler(projectRoute, projectName);
-    }
+    //       projectName = key;
+    //     }
+    //   }
+    //   this.showProjectHandler(projectRoute, projectName);
+    // }
 
   }
 
@@ -366,12 +315,12 @@ class Layout extends Component {
         <ContentBody backgroundpic={this.state.projectPath} mediaQuery={this.state.mediaQuery} showToggleMenu={this.state.isShowMenu}>
           <Switch>
             <Route exact path='/' render={() => {
-              return <AsyncProjects projectsInfo={this.state.projectsInfo} boxOpacicty={this.state.boxOpacicty}
+              return <AsyncProjects  boxOpacicty={this.state.boxOpacicty}
                 boxSpread={this.state.boxSpread} hideProject={this.hideProjectHandler} isDesktop={this.state.isDesktop}
                 projectOff={this.state.projectOff} hiddenProjects={this.state.hiddenProjects} route={'/projects'} />
             }} />
             <Route path='/projects'  render={() => {
-              return <AsyncProjects projectsInfo={this.state.projectsInfo}  boxOpacicty={this.state.boxOpacicty} 
+              return <AsyncProjects  boxOpacicty={this.state.boxOpacicty} 
                         boxSpread={this.state.boxSpread} hideProject={this.hideProjectHandler} isDesktop={this.state.isDesktop}
                         projectOff={this.state.projectOff} hiddenProjects={this.state.hiddenProjects} route={'/projects'}/>         
             }}/>
@@ -385,12 +334,12 @@ class Layout extends Component {
               return <AsyncResume boxOpacicty={this.state.boxOpacicty} boxSpread={this.state.boxSpread} />
             }} />
             <Route path="/aboutme" render={() => {
-              return <AsyncAboutMe projectsInfo={this.state.projectsInfo} isDesktop={this.state.isDesktop} boxOpacicty={this.state.boxOpacicty} 
+              return <AsyncAboutMe isDesktop={this.state.isDesktop} boxOpacicty={this.state.boxOpacicty} 
                         boxSpread={this.state.boxSpread} route={"/aboutme"}  hideProject={this.hideProjectHandler}
                         hiddenProjects={this.state.hiddenProjects} projectOpacity={this.state.hiddenProjectsOpacity}/>
             }} />
             <Route path="/vanillajavascript" render={() => {
-              return <AsyncVanillaJavascript projectsInfo={this.state.projectsInfo} boxOpacicty={this.state.boxOpacicty} 
+              return <AsyncVanillaJavascript boxOpacicty={this.state.boxOpacicty} 
                 boxSpread={this.state.boxSpread} route={"/vanillajavascript"}  hideProject={this.hideProjectHandler}
                 hiddenProjects={this.state.hiddenProjects} projectOpacity={this.state.hiddenProjectsOpacity}/>
             }} />     
