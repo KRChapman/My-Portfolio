@@ -61,10 +61,10 @@ const projectsInfo = {
     , { containerStyle: null, pictureStyle: { marginLeft: "-16px" } }, "React application using Sass that is a visual representation of my algorithm to display Conway's Game of Life.",
     ["react", "sass"] ),
   simon: createProjectsInfo("Simon Game", "https://github.com/KRChapman/FCCProjects/tree/master/simonGame", "http://simongame-kc.surge.sh/", simonStyle, 
-  "Vanilla Javascript Project that is a replication of the game simon says. Turn it on and give it a go",
+  "Vanilla Javascript Project that is a replication of the game simon says. Turn it on and give it a go.",
     ["javaScript", "sass"]),
   restaurant: createProjectsInfo("Restaurant Explorer", "https://github.com/KRChapman/Restaurant-Explorer", "https://restaurantexploring.com/", restaurantStyle,
-    "Combines the API's of Google Maps data, Yelp data and Health Department all in one search.",
+    "Combines the API's of Google Maps data, Yelp data and Health Department data all in one search.",
     [ "react", "node"]),
 };
 

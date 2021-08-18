@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import resumePDF from './../../../assets/images/Kyle-Chapman-resume.pdf'
+import resumePDF from './../../../assets/images/kyle-resume-port.pdf'
 import resume from './../../../assets/images/resume-2.jpg';
 const Container = styled.div`
 
